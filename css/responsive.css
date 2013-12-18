@@ -107,6 +107,19 @@
 		clear: both;
 	}
 	
+	header {
+		min-height: 105px;
+		height: auto;
+	}
+	
+	header nav {
+		position: relative;
+		font-size: 14px;
+		top: auto;
+		left: auto;
+		margin-top: 55px !important;
+	}	
+	
 	.title {
 		background: #fff;
 		color: #333;
@@ -247,7 +260,7 @@
 		right: auto;
 		width: 270px;
 	}
-
+	
 	.page-hours .upcomingSpecial {
 		display: none;
 	}
@@ -257,11 +270,11 @@
 		margin-top: 1em;
 		width: 100%;
 	}
-
+	
 	.page-hours .libraryAlert span {
   	padding: 0;
 	}
-
+	
 	.libraryTitle .libraryAlert {
 		background: #333;
 		border: 1px solid #ffcc33;
@@ -279,12 +292,12 @@
 		-webkit-box-sizing: border-box;
 		box-sizing: border-box;
 	}
-
-	.libraryTitle .libraryAlert span {
+  
+  .libraryTitle .libraryAlert span {
 		background: none;
 		box-shadow: none;
 	}
-
+  
 	.libraryTitle .libraryAlert a {
 		color: #ffcc33;
 	}
@@ -591,7 +604,7 @@
 	.tabcontent .flexContainer {
 		display: none;
 	}
-
+	
 	.tabcontent .active.flexContainer {
 		display: block;
 	}

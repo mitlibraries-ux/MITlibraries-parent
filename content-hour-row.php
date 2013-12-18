@@ -7,6 +7,12 @@
 							$locationId = get_the_ID();
 							$slug = $post->post_name;
 							
+							$locationName = strtolower(get_the_title());
+							$locationName = str_replace('&', '', $locationName);
+							$locationName = preg_replace("/[^a-z0-9_\s-]/", "", $locationName);
+							$locationName = preg_replace("/[\s-]+/", " ", $locationName);
+							$locationName = preg_replace("/[\s_]/", "-", $locationName);
+
 							$subject = cf("subject");
 							$phone = cf("phone");
 							$building = cf("building");
@@ -45,6 +51,7 @@
 									<td class="name">
 										<div class="nameHolder">
 											<h3><a href="<?php echo $pageLink; ?>"><?php the_title(); ?> <i class="icon-arrow-right"></i></a></h3>
+											<a class="anchor" id="<?php echo $locationName; ?>"></a>
 											<?php if ($phone != ""): ?>
 												<?php echo $phone ?><br/>
 											<?php endif; ?>

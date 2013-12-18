@@ -35,6 +35,8 @@
 <link href="<?php bloginfo('template_directory') ?>/libs/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="all">
 <link href="<?php bloginfo('template_directory') ?>/libs/fontawesome/css/font-awesome.css" rel="stylesheet" media="all">
 <link href="/wp-content/themes/libraries/libs/fontawesome-MITLibraries/style.css" rel="stylesheet" media="all">
+<link href="<?php bloginfo('template_directory') ?>/libs/datepicker/styles/glDatePicker.default.css" rel="stylesheet" media="all">
+<link href="<?php bloginfo('template_directory') ?>/libs/lightbox/css/lightbox.css" rel="stylesheet" media="all">
 <link href="<?php bloginfo('template_directory') ?>/css/main.css" rel="stylesheet" media="all">
 <link href="<?php bloginfo('template_directory') ?>/css/menu.css" rel="stylesheet" media="all">
 <link href="<?php bloginfo('template_directory') ?>/css/responsive.css" rel="stylesheet" media="all">
@@ -62,7 +64,9 @@
 			?>
 
 			<div id="logo">
+				<?php 
 					if ($blog_id != 21) {
+						echo get_bloginfo( 'name', 'display' );
 					}
 					else {
 						echo "MIT Libraries";

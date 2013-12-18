@@ -25,9 +25,7 @@ get_header(); ?>
 		
 		<div id="stage" class="stage inner group" role="main">
 	
-				<div class="pageTitle">
-					<h1><?php the_title(); ?></h1>
-				</div>
+				<h1 class="pageTitle"><?php the_title(); ?></h1>
 			
 			<div id="content" class="allContent group">
 

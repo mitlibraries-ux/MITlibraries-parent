@@ -5,9 +5,9 @@
 		
 	<?php
 		$newsTitle = get_field("news_title");
-		$newsVideo = get_field("news_video");
-		$newsVideoTitle = get_field("news_video_link_text");
-		$newsVideoURL = get_field("news_video_url");
+		$newsVideo = get_field("home_news_video");
+		$newsVideoURL = get_field("home_news_video_url");
+		$newsVideoTitle = get_field("home_news_video_title");
 		$newsPhoto = get_field("news_photo");
 		$newsUrl = get_field("news_photo_url");
 		

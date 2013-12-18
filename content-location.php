@@ -6,6 +6,12 @@
 	$locationId = get_the_ID();
 	$slug = $post->post_name;
 	
+	$locationName = strtolower(get_the_title());
+	$locationName = str_replace('&', '', $locationName);
+	$locationName = preg_replace("/[^a-z0-9_\s-]/", "", $locationName);
+	$locationName = preg_replace("/[\s-]+/", " ", $locationName);
+	$locationName = preg_replace("/[\s_]/", "-", $locationName);
+
 	$subject = cf("subject");
 	$phone = cf("phone");
 	$building = cf("building");
@@ -94,7 +100,7 @@
 			<?php if ($hasHours): ?>
 			Today's hours:<br/>
 			<b><?php echo $hoursToday; ?></b></br>
-			<a href="/hours">See all hours <i class="icon-arrow-right"></i></a>
+			<a href="/hours/#<?php echo $locationName; ?>">See all hours <i class="icon-arrow-right"></i></a>
 			<?php endif; ?>
 		</div>					
 

@@ -101,6 +101,10 @@ img {
 	position: relative;
 }
 
+.page-barton-help .mainContent {
+	width: 100%;
+}
+
 #mainContent>.space247 {
 	top: 10px;
 }
@@ -151,12 +155,13 @@ h2.bigHead {
 	margin-bottom: 10px;
 }
 
+/* Accordion */
+
 .expandable {
-	clear: both;
-	border-bottom: 5px solid #eceaea;
-	margin: 0px 0px 0px -20px;
-	padding: 0px;
+	border-bottom: none;
+	padding: 0;
 	position: relative;
+	width: 100%;
 }
 
 #content .expandable h3 {
@@ -188,11 +193,6 @@ h2.bigHead {
 
 .no-js .expandable .content {
 	display: block;
-}
-
-#content .expandable {
-	border-bottom: none;
-	padding: 0;
 }
 
 #content .expandable:nth-of-type(odd) {
@@ -449,6 +449,7 @@ nav a.active {
 
 .page-hours .libraryTitle .libraryAlert {
 	border: none;
+	font-weight: bold;
 	line-height: 1.5;
 	margin: 0 auto;
 	text-align: left;
@@ -456,15 +457,28 @@ nav a.active {
 	width: 18em;
 }
 
+.page-hours .libraryAlert span {
+	background: #ffcc33;
+	border-radius: 3px;
+	box-shadow: inset 0 0 3px black;
+	display: block;
+	margin: 0 auto;
+	padding: 0.5em;
+	text-align: center;
+}
+
+.page-hours .libraryAlert a {
+	color: #333;
+}
+
 .page-hours .libraryAlert a:after {
 	content: '\f061';
 	display: inline-block;
 	font-family: 'fontawesome-MITLibraries';
-	font-size: 0.75em;
 	font-style: normal;
+	font-weight: bold;
 	margin-left: 0.5em;
 	text-decoration: none;
-	vertical-align: text-bottom;
 }
 
 .libraryAlert h3 {
@@ -1606,6 +1620,13 @@ ul.arrows li,
 	line-height: 18px;
 }
 
+.page-hours .anchor {
+	display: block;
+	position: relative;
+	top: -5.5em;
+	visibility: hidden;
+}
+
 #wpstats {
 	display: none !important;
 }
@@ -1983,7 +2004,7 @@ html:not(.flexbox) .page-getit .flexItem {
 .page-getit .mainContent {
 	margin: 0 0 0 30px;
 	padding: 0 1em;
-	max-width: 940px
+	max-width: 940px;
 	width: 100%;
 }
 
