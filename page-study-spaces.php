@@ -92,7 +92,6 @@ get_header(); ?>
 							
 							$temp = $post;
 							$hoursToday = getHoursToday($locationId);
-							$isOpen = getOpen($locationId);
 							$post = $temp;
 							
 
@@ -125,7 +124,7 @@ get_header(); ?>
 												Show on map: <a href="/locations/#!<?php echo $slug; ?>"><?php echo $building ?></a><br/>
 												<?php if ($hoursToday != "" && strtolower($hoursToday) != "tba" && strtolower($hoursToday) != "closed"): ?>
 												<span class="hours">Open today<br/>
-												<?php echo $hoursToday; ?></span>
+												<span data-location-hours="<?php echo the_title(); ?>"></span></span>
 												<?php endif; ?>
 												<?php if ($reserveUrl != ""): ?>
 												<a class="mobileReserve visible-phone" href="<?php echo $reserveUrl; ?>"><?php echo $reserveText; ?></a>

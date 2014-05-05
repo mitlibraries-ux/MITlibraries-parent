@@ -29,6 +29,8 @@ var Core = {
 		Core.buildMap();
 		
 		Core.nullAlt();
+
+		Core.buildHours();
 		
 		$(window).resize(function() {
 			Core.handleResize();
@@ -379,6 +381,48 @@ var Core = {
 	
 	nullAlt: function() {
 		$("img[alt='null'], img[alt='Null'], img[alt='NULL']").attr("alt", "");
+	},
+
+	findToday: function(testDay) {
+		var today, d, m, yyyy;
+		if (!testDay) {
+			today = new Date();
+			d = today.getDate();
+			m = today.getMonth() + 1;
+			yyyy = today.getFullYear();
+			today = m + "/" + d + "/" + yyyy;
+		} else {
+			today = testDay;
+		}
+		return today;
+	},
+
+	buildHours: function() {
+		var loc, name, thisDay, msg;
+		loc = jQuery('[data-location-hours]');
+		msg = "unavailable";
+		jQuery.getJSON("/wp-content/themes/libraries/hours.json")
+			.done(function (json) {
+				jQuery.each(loc, function() {
+					// get the name of this library
+					name = jQuery(this).data("location-hours");
+					// look up that library's hours in JSON
+					thisDay = '4/26/2014';
+					thisDay = Core.findToday(thisDay);
+					if (json[name] && json[name].hours[thisDay]) {
+						jQuery(this).text(json[name].hours[thisDay]);
+					} else {
+						jQuery(this).html(msg);
+					}
+				});
+			})
+			.fail(function (textStatus, error) {
+				var err = textStatus + ", " + error;
+				console.log("Hours lookup failed: " + err);
+				jQuery.each(loc, function() {
+					jQuery(this).html(msg);
+				});
+			});
 	}
 	
 }

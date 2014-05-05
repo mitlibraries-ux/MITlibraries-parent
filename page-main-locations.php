@@ -154,8 +154,6 @@ get_header(); ?>
 							
 							$temp = $post;
 							$hasHours = hasHours($locationId, date("Y-m-d"));
-							$hoursToday = getHoursToday($locationId);
-							$isOpen = getOpen($locationId);
 							$post = $temp;
 							
 							
@@ -168,7 +166,7 @@ get_header(); ?>
 							
 							
 								<?php if ($hasHours): ?>
-								<div class="hours">Today&rsquo;s hours: <?php echo $hoursToday; ?></div>
+								<div class="hours">Today&rsquo;s hours: <span data-location-hours="<?php the_title; ?>"></span></div>
 								<?php else: ?>
 								<div class="hours">TBA</div>
 								<?php endif; ?>
@@ -222,8 +220,6 @@ get_header(); ?>
 						
 						$temp = $post;
 						$hasHours = hasHours($locationId, date("Y-m-d"));
-						$hoursToday = getHoursToday($locationId);
-						$isOpen = getOpen($locationId);
 						$post = $temp;
 						
 						$displayPage = get_field("display_page");
@@ -240,7 +236,7 @@ get_header(); ?>
 								<!-- Will never have hours -->
 							<?php else: ?>
 								<?php if ($hasHours): ?>
-								Todays hours: <br/><?php echo $hoursToday; ?><br/>
+								Todays hours: <br/><span data-location-hours="<?php echo the_title(); ?>"></span><br/>
 								<?php else: ?>
 								TBA<br/>
 								<?php endif; ?>

@@ -33,8 +33,6 @@
 
 	$temp = $post;
 	$hasHours = hasHours($locationId, date("Y-m-d"));
-	$hoursToday = getHoursToday($locationId);
-	$isOpen = getOpen($locationId);
 	$post = $temp;
 	
 	
@@ -94,7 +92,7 @@
 		<div class="todayHours">
 			<?php if ($hasHours): ?>
 			Today's hours:<br/>
-			<b><?php echo $hoursToday; ?></b></br>
+			<b data-location-hours="<?php the_title(); ?>"></b></br>
 			<a href="/hours">See all hours <i class="icon-arrow-right"></i></a>
 			<?php endif; ?>
 		</div>					
