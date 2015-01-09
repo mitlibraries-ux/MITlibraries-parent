@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'fontawesome-MITLibraries';
-	src:url('fonts/fontawesome-MITLibraries.eot');
-	src:url('fonts/fontawesome-MITLibraries.eot?#iefix') format('embedded-opentype'),
-		url('fonts/fontawesome-MITLibraries.woff') format('woff'),
-		url('fonts/fontawesome-MITLibraries.ttf') format('truetype'),
-		url('fonts/fontawesome-MITLibraries.svg#fontawesome-MITLibraries') format('svg');
+	src:url('#{$libsPath}/fontawesome-MITLibraries/fonts/fontawesome-MITLibraries.eot');
+	src:url('#{$libsPath}/fontawesome-MITLibraries/fonts/fontawesome-MITLibraries.eot?#iefix') format('embedded-opentype'),
+		url('#{$libsPath}/fontawesome-MITLibraries/fonts/fontawesome-MITLibraries.woff') format('woff'),
+		url('#{$libsPath}/fontawesome-MITLibraries/fonts/fontawesome-MITLibraries.ttf') format('truetype'),
+		url('#{$libsPath}/fontawesome-MITLibraries/fonts/fontawesome-MITLibraries.svg#fontawesome-MITLibraries') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
