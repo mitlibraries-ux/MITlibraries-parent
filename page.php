@@ -27,29 +27,19 @@ get_header(); ?>
 
 		<?php while ( have_posts() ) : the_post(); ?>
 		
-		<div id="stage" class="inner column3 tertiaryPage row" role="main">
+		<div id="stage" class="inner column3 tertiaryPage" role="main">
 	
-			<div class="title span12">
+			<div class="title-page">
 				<?php if ($isRoot): ?>
-				<h2><?php echo $section->post_title; ?></h2>
+				<h1><?php echo $section->post_title; ?></h1>
 				<?php else: ?>
-				<h2><a href="<?php echo get_permalink($section->ID) ?>"><?php echo $section->post_title; ?></a></h2>
+				<h1><a href="<?php echo get_permalink($section->ID) ?>"><?php echo $section->post_title; ?></a></h1>
 				<?php endif; ?>
 			</div>
 			
-			<div id="content" class="span12">
-				
+			<div class="content-main">
 				<?php get_template_part( 'content', 'page' ); ?>
-				
 			</div>
-			
-			
-			
-		
-			<div class="clear"></div>
-		
 		</div>
-		
 		<?php endwhile; // end of the loop. ?>
-
 <?php get_footer(); ?>

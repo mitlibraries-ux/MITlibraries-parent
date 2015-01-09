@@ -38,29 +38,29 @@ get_header(); ?>
 			?>
 		<div id="stage" class="inner column1 row">
 
-			<div class="title span12">
+			<div class="title-page flex-container">
 				<h2><?php the_title(); ?></h2>
 			</div>
-			<div id="content" class="span12 mainContent">
+			<div class="content-main">
 
 				<div class="postContent"><?php echo the_content(); ?></div>
-				<div class="flexContainer group">
+				<div class="flex-container group">
 				
-					<div class="flexItem first">
+					<div class="flex-item first">
 						<h3><?php echo $altTitle1; ?></h3>
 						<div class="altSearch1"><?php echo $altSearch1; ?></div>
 						<h4 class="moreTitle1"><?php echo $moreTitle1; ?></h4>
 						<div class="moreOptions1"><?php echo $moreOptions1; ?></div>
 					</div>
 					
-					<div class="flexItem second">
+					<div class="flex-item second">
 						<h3><?php echo $altTitle2; ?></h3>
 						<div class="altSearch2"><?php echo $altSearch2; ?></div>
 						<h4 class="moreTitle2"><?php echo $moreTitle2; ?></h4>
 						<div class="moreOptions2"><?php echo $moreOptions2; ?></div>
 					</div>
 					
-					<div class="flexItem third">
+					<div class="flex-item third">
 						<h3><?php echo $altTitle3; ?></h3>
 						<div class="altSearch3"><?php echo $altSearch3; ?></div>
 						<h4 class="moreTitle3"><?php echo $moreTitle3; ?></h4>
@@ -69,13 +69,7 @@ get_header(); ?>
 					
 				</div>
 
-			
 			</div>
-			
-			
-			
-		
-			<div class="clear"></div>
 		
 		</div>
 		

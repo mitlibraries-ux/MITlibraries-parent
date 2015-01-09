@@ -32,7 +32,6 @@
 	$study24 = get_field("study_24");
 
 	$temp = $post;
-	$hasHours = hasHours($locationId, date("Y-m-d"));
 	$post = $temp;
 	
 	
@@ -79,68 +78,59 @@
 		
 <div id="stage" class="inner row group" role="main">
 
-	<div class="title libraryTitle span12 dark">
-
-		<div class="libraryContent">
-			<h1><span class="libraryName"><?php the_title(); ?></span><span class="librarySubject"><?php echo $subject ?></h1>
-			<div class="sub">
-				<?php echo $phone ?><br/>
-				show on map: <a href="<?php echo $mapPage.$slug; ?>"><?php echo $building ?> <i class="icon-arrow-right"></i></a>
-			</div>
-		</div>
-		
-		<div class="todayHours">
-			<?php if ($hasHours): ?>
-			Today's hours:<br/>
-			<b data-location-hours="<?php the_title(); ?>"></b></br>
-			<a href="/hours">See all hours <i class="icon-arrow-right"></i></a>
-			<?php endif; ?>
-		</div>					
-
-		<?php if ($study24 == 1): ?>
-			<a class="space247" href="<?php echo $gStudy24Url; ?>" alt="This location contains one or more study spaces available 24 hours a day, seven days a week. Click the link for more info." title="Study 24/7">Study 24/7</a>
-		<?php endif; ?>
-
-		<?php 
-
-			include(locate_template('inc/alert.php'));
-
-			if ($showAlert == 0 && $alert != "") {
-				echo '<div class="libraryAlert">'.$alert.'</div>';
-			}
-
-		 ?>
-		
-		<div class="librarySlideshow">
-
-			<div class="slideshow">
-				<?php
-					$val = $arMain[array_rand($arMain)];
-				?>
-				<?php if ($val != ""): ?>
-				<img src="<?php echo $val; ?>" data-thumb="<?php echo $val; ?>" alt="<?php the_title(); ?>" />
+	<div class="title-page libraryTitle flex-container">
+		<div class="flex-item">
+			<div class="libraryContent">
+				<h1>
+					<span class="libraryName"><?php the_title(); ?></span>
+					<span class="subject-library"><?php echo $subject ?></span>
+				</h1>
+				<div class="info-more">
+					<a href="tel:<?php echo $phone; ?>" class="phone"><?php echo $phone ?></a>
+					<a href="<?php echo $mapPage.$slug; ?>">Room: <?php echo $building ?> <i class="icon-arrow-right"></i></a>
+				</div>
+			</div><!-- end div.libraryContent -->
+			
+			<div class="hours-today">
+				<span>Today's hours: <strong data-location-hours="<?php the_title(); ?>"></strong></span>
+				<?php if ($study24 == 1): ?>
+					<a class="study-24-7" href="<?php echo $gStudy24Url; ?>" alt="This location contains one or more study spaces available 24 hours a day, seven days a week. Click the link for more info." title="Study 24/7">Study 24/7</a>
 				<?php endif; ?>
-			</div>
+				<a href="/hours" class="link-hours-all">See all hours <i class="icon-arrow-right"></i></a>
+			</div>					
 
-		</div>
-
+		</div><!-- end div.flex-item -->
+		<div class="flex-item">
+			<?php 
+				include(locate_template('inc/alert.php'));
+				if ($showAlert == 0 && $alert != "") {
+					echo '<div class="libraryAlert">'.$alert.'</div>';
+				}
+			 ?>
+			<div class="librarySlideshow">
+				<div class="slideshow">
+					<?php
+						$val = $arMain[array_rand($arMain)];
+					?>
+					<?php if ($val != ""): ?>
+					<img src="<?php echo $val; ?>" data-thumb="<?php echo $val; ?>" alt="<?php the_title(); ?>" />
+					<?php endif; ?>
+				</div>
+			</div><!-- end div.librarySlideshow -->
+		</div><!-- end div.flex-item -->
 	</div><!-- end div.libraryTitle -->
 	
-	<div id="content" class="allContent locationContent group <?php echo $strLocation; ?>">
-		<div id="mainContent" class="mainContent span9">
-			<!--
-			<?php if ($study24 == 1): ?>
-				<a class="space247" href="<?php echo $gStudy24Url; ?>">Study 24/7</a>
-			<?php endif; ?>
-			-->
+	<div class="content-main flex-container group <?php echo $strLocation; ?>">
+		<div class="col-1 content-page">
+
 			<?php if ($title1 != "" || $title2 != ""): ?>
 				<?php $noTab = "";  ?>
 			<ul class="tabnav">
 				<?php if ($title1 != ""): ?>
-				<li class="active"><h2><a href="#tab1"><?php echo $title1 ?><div><?php echo $subtitle1 ?></div></a></h2></li>
+				<li class="active"><h2 class="title-tab"><a href="#tab1"><?php echo $title1 ?><div><?php echo $subtitle1 ?></div></a></h2></li>
 				<?php endif; ?>
 				<?php if ($title2 != ""): ?>
-				<li><h2><a href="#tab2"><?php echo $title2 ?><div><?php echo $subtitle2 ?></div></a></h2></li>
+				<li><h2 class="title-tab"><a href="#tab2"><?php echo $title2 ?><span class="title-sub"><?php echo $subtitle2 ?></span class="title-sub"></a></h2></li>
 				<?php endif; ?>
 			</ul>
 			<?php else: ?>
@@ -149,9 +139,9 @@
 
 			<div class="tabcontent group <?php echo $noTab ?>">
 
-				<div class="tab active flexContainer group" id="tab1">
+				<div class="tab active flex-container group" id="tab1">
 
-						<div class="flexItem first group <?php if($content1wide): ?>span7 wideColumn<?php else: ?>span4<?php endif; ?>">
+						<div class="flex-item first group <?php if($content1wide): ?>span7 wideColumn<?php else: ?>span4<?php endif; ?>">
 						
 							<?php
 								if ($arexpert) {
@@ -171,7 +161,7 @@
 									}
 									
 							?>
-							<div class="profile group">
+							<div class="profile flex-container group">
 								<?php if ($thumb != ""): 
 									echo $thumb;
 								endif; ?>
@@ -179,7 +169,7 @@
 									<h3 class="profileTitle"><span class="intro">Featured expert:</span><span class="name"><?php echo $name; ?></span><span class="bio"><?php echo $bio; ?></span></h3>
 									<div class="links">
 										<a class="primary" href="<?php echo $url; ?>" target="_blank">How can I help? <i class="icon-arrow-right"></i></a>
-										<a href="http://libguides.mit.edu/content.php?pid=110460&sid=1651114" target="_blank">See all our experts <i class="icon-arrow-right"></i></a>
+										<a href="/experts">See all our experts <i class="icon-arrow-right"></i></a>
 									</div>
 
 								</div>
@@ -222,8 +212,10 @@
 
 			</div><!-- end div.tabcontent -->
 
-		</div>
+		</div><!-- end div.col-1 -->
 
-		<?php get_sidebar(); ?>
+		<div class="col-2">
+			<?php get_sidebar(); ?>
+		</div>
 
 </div><!-- end div#stage -->

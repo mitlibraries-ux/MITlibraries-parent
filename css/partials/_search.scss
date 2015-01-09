@@ -1,0 +1,509 @@
+.search--lib-resources {
+	align-items: center;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	padding: 2em 0.5em;
+	position: relative;
+	@include gradient-blue;
+	z-index: map-get($zindex, main);
+	@include bp-tablet--landscape {
+		flex-direction: row;
+		padding: 2em 0;
+	}
+	h2 {
+		color: $color-text--light;
+		display: none;
+		@include rem-first(font-size, 1.25);
+		@include bp-tablet--landscape {
+			display: inline-block;
+			@include rem-first(margin-right, 1);
+			@include rem-first(margin-left, 1); // Matches search input margin-right
+		}
+	}
+	button {
+		background: white;
+		border: 1px solid white;
+		border-radius: 0 5px 0 0;
+		display: none;
+		margin: 0; // Corrects some browser defaults
+		padding: 0 0.5em;
+		@include bp-tablet--landscape {
+			background: $color-secondary;
+			border-radius: 0 5px 5px 0;
+		}
+		.icon-search {
+			fill: #27aae1;
+			height: auto;
+			max-height: 2em;
+			width: 2em;
+			@include bp-tablet--landscape {
+				fill: darken(#27aae1, 20%);
+				width: 1.5em;
+			}
+		}
+	}
+	form {
+		display: none;
+		input {
+			display: none;
+		}
+		&.active {
+			display: flex;
+			button {
+				display: block;
+			}
+			input.active {
+				display: block;
+			}
+		}
+	}
+	input {
+		border: 1px solid white;
+		border-radius: 5px 0 0 0;
+		display: none;
+		font-size: 1em;
+		margin: 0; // Corrects some browser defaults
+		padding: 0.5em;
+		width: 100%;
+		&::-webkit-input-placeholder {
+		   font-style: italic;
+		}
+		&:-moz-placeholder { /* Firefox 18- */
+		   font-style: italic;  
+		}
+		&::-moz-placeholder {  /* Firefox 19+ */
+		   font-style: italic;  
+		}
+		&:-ms-input-placeholder {  
+		   font-style: italic;  
+		}
+		&.active {
+			display: inline;
+		}
+		@include bp-tablet--landscape {
+			border-radius: 5px 0 0 5px;
+			width: 18.75em;
+		}
+	}
+	select {
+		background: none;
+		border: none;
+		cursor: pointer;
+		display: inline-block;
+		font-family: 'Open Sans', sans-serif;
+		@include rem-first(font-size, 0.875);
+		margin-top: 0; // Overrides some browser defaults
+		margin-bottom: 0; // Overrides some browser defaults
+		margin-left: -5.7em; // Watch out, magic number!
+		padding-top: 0.5em;
+		padding-right: 1em;
+		padding-bottom: 0.5em;
+		padding-left: 5.7em; // Watch out, magic number!
+		position: relative;
+		width: 100%;
+		z-index: map-get($zindex, dropdown-body-secondary);
+		// Heads up. Using non-standard appearance property. Note the Firefox hack. This property is not autoprefixed.
+		// -moz-appearance: treeheader;
+		-ms-appearance: none;
+		-webkit-appearance: none;
+		// Extra work to hide IE dropdown
+		&::-ms-expand {
+		 display: none; 
+		}
+		@include bp-tablet--landscape {
+			color: #fff;
+			font-size: 1em;
+			font-weight: bold;
+			margin-left: 0;
+			padding: 0.5em 1em 0.5em 0.5em;
+		}
+		&:disabled {
+			cursor: not-allowed;
+			color: #111;
+		}
+		&.keywords {
+			display: none;
+			&.active {
+				display: block;
+			}
+		}
+		option {
+			background: #fff;
+			color: #000;
+		}
+	}
+	.input-submit {
+		align-items: stretch;
+		display: flex;
+		order: 200;
+		width: 100%;
+		@include bp-tablet--landscape {
+			@include rem-first(margin-right, 1);
+			order: 500;
+			width: auto;
+		}
+	}
+	.label {
+		color: #fff;
+		display: none;
+		@include bp-tablet--landscape {
+			display: block;
+			@include rem-first(font-size, 1.25);
+			font-weight: 300;
+			@include rem-first(margin-right, 1);
+				&:first-of-type {
+				order: 450; 
+			}
+			&:last-of-type {
+				order: 350;
+			}
+		}
+	}
+	.resource-list {
+		cursor: pointer;
+		li {
+			display: none;
+			font-size: 0.875em;
+			font-weight: bold;
+			width: 100%;
+			@include bp-tablet--landscape {
+				font-size: 1em;
+			}
+			&:not(.has-link) {
+				padding: 0.5em;
+			}
+			.name {
+				display: none;
+				font-weight: normal;
+			}
+			&.active {
+				display: inline-block;
+				font-weight: normal;
+				&:after {
+					content: url(#{$imagesPath}/icon-arrow-down-sfw.svg);
+					max-height: 19px; // For IE
+					position: absolute;
+					right: 1.75em;
+					max-width: 17px; // For IE
+				}
+				@include bp-tablet--landscape {
+					font-weight: bold;
+					&:after {
+						content: none;
+						display: none;
+					}
+				}
+			}
+			@include bp-tablet--landscape {
+				color: #fff;
+			}
+		}
+		&.active {
+			background: #fff;
+			border: 2px solid $color-secondary;
+			box-shadow: 0 0 3px #444;
+			margin: 0 0 0 -0.5em;
+			position: absolute;
+			width: 100%;
+			@include bp-tablet--landscape {
+				margin-top: 1em;
+				width: auto;
+			}
+			li {
+				color: #111;
+				display: block;
+				&:not(.has-link) {
+					padding: 0.5em 1em;
+				}
+				&:hover {
+					background: darken(#fff, 20%);
+				}
+				&:not(:last-of-type) {
+					border-bottom: 1px solid $color-secondary;
+				}
+				&.active {
+					font-weight: bold;
+					&:after {
+						content: none;
+						display: none;
+					}
+				}
+			}
+			svg {
+				display: none;
+			}
+			.has-link span:first-of-type:after {
+				content: url(#{$imagesPath}/arrow-right-sfw.svg);
+				display: inline-block;
+				margin-left: 0.25em;
+			}
+			.more {
+				display: block;
+				padding: 0.5em 1em;
+			}
+			.name {
+				color: #7b7c7c;
+				display: block;
+				font-size: 0.875em;
+				font-weight: 300;
+			}
+			.tall {
+				line-height: 2.625em;
+			}
+		}
+		&:not(.active) {
+			li:before {
+				color: #848484;
+				content: 'Search in';
+				font-weight: 300;
+				margin-right: 1.1em;
+				white-space: nowrap;
+				@include bp-tablet--landscape {
+					content: none;
+					display: none;
+				}
+			}
+		}
+	}
+	.search-options--static {
+		a {
+			color: #fff;
+			display: block;
+			text-decoration: underline;
+			&:after {
+				content: url(#{$imagesPath}/arrow-right-white-sfw.svg);
+				display: inline-block;
+				margin-left: 0.25em;
+			}
+		}
+		.col-1 {
+			margin-right: 1em;
+		}
+	}
+	.selected {
+		color: #111;
+		font-size: 0.875em;
+		font-weight: normal;
+		@include bp-tablet--landscape {
+			color: #fff;
+			font-size: 1em;
+			font-weight: bold;
+		}
+		&.active {
+			padding: 0.5em;
+			&:before {
+				color: #848484;
+				content: 'Search in';
+				font-weight: 300;
+				margin-right: 1.1em;
+				white-space: nowrap;
+				@include bp-tablet--landscape {
+					content: none;
+					display: none;
+				}
+			}
+		}
+	}
+	.search-advanced {
+		bottom: 1rem;
+		display: none;
+		font-size: 0.75em;
+		font-weight: 300;
+		@include rem-first(margin-left, 0.5);
+		position: absolute;
+		@include bp-tablet--landscape {
+			color: #fff;
+			&.active {
+				display: block;
+				&:after {
+					content: url(#{$imagesPath}/arrow-right-white-sfw.svg);
+					display: inline-block;
+					margin-left: 0.5em;
+				}
+			}
+			// Magic numbers.
+			&.bartonplus.active {
+				right: 218px;
+			}
+			&.barton.active {
+				right: 187px;
+			}
+			&.worldcat.active {
+				right: 217px;
+			}
+			&.course-reserves.active {
+				right: 142px;
+			}
+		}
+	}
+	[class*="wrap-select"] {
+		background: #ebf5ff;
+		box-shadow: 0 -2px 4px 0px #aaa;
+		display: block;
+		order: 300;
+		width: 100%;
+		@include bp-tablet--landscape {
+			background: hsla(0, 0.0000%, 0%, 0.1000);
+			box-shadow: inset 0 0 1px #666;
+			border-radius: 3px;
+			@include rem-first(margin-right, 1);
+			order: 200;
+			width: auto;
+		}
+		&.flex-container {
+			align-items: center;
+		}
+		svg {
+			fill: #fff;
+		}
+		.select-arrows {
+			display: none;
+			@include bp-tablet--landscape {
+				display: inline;
+				max-height: 14px;
+				max-width: 8px;
+			}
+		}
+	}
+	.wrap-select--keywords {
+		border-top: 1px solid darken(#ebf5ff, 20%);
+		border-radius: 0 0 3px 3px;
+		box-shadow: none;
+		display: none;
+		order: 400;
+		@include bp-tablet--landscape {
+			border-top: none;
+			border-radius: 3px;
+			box-shadow: inset 0 0 1px #666;
+		}
+		&:before {
+			color: #848484;
+			content: 'Search by';
+			font-size: 0.875em;
+			font-weight: 300;
+			margin-right: 0.75em;
+			@include rem-first(margin-left, 0.5);
+			white-space: nowrap;
+			@include bp-tablet--landscape {
+				content: none;
+				display: none;
+			}
+		}
+		&:after {
+			content: url(#{$imagesPath}/icon-arrow-down-sfw.svg);
+			display: inline-block;
+			max-height: 19px; // For IE
+			margin-left: -2em;
+			max-width: 17px; // For IE
+			@include bp-tablet--landscape {
+				content: none;
+				display: none;
+			}
+		}
+		&.active {
+			display: flex;
+		}
+		&.long {
+			svg {
+				margin-left: -8%;
+			}
+		}
+		svg {
+			display: inline-block;
+			margin-left: -15%;
+			position: relative;
+			z-index: map-get($zindex, body);
+		}
+	}
+	.wrap-select--resources {
+		z-index: map-get($zindex, dropdown-body);
+	}
+}
+
+.no-js {
+	.search--lib-resources {
+		align-items: flex-start;
+		h2 {
+			line-height: 1;
+			padding-top: 0;
+		}
+		.search-options--static {
+			display: flex;
+		}
+	}
+}
+
+// Hide select svg on firefox
+@-moz-document url-prefix() {
+	.search--lib-resources .wrap-select--keywords svg.select-arrows {
+		display: none;
+	}
+}
+
+// Old flexbox fixes
+@include bp-small {
+	.no-flexbox.flexboxlegacy {
+		.search--lib-resources {
+			.input-submit {
+				input.active {
+					max-width: 89%; // Corrects for old flexbox layout
+				}
+			}
+		}
+	}
+}
+
+.lte-ie9 {
+	select {
+		-ms-appearance: select;
+	}
+	.search--lib-resources {
+		button {
+			@include rem-first(height, 1.5);
+			svg {
+				max-height: 1em;
+				max-width: 1em;
+			}
+		}
+		h2 {
+			display: block;
+			@include rem-first(padding-left, 6);
+			padding-top: 0;
+		}
+		input {
+			@include rem-first(max-height, 1.5);
+		}
+		select {
+			border: none;
+			margin: 0;
+			padding: 0;
+		}
+		.wrap-select--resources {
+			background: none;
+			.selected {
+				display: none;
+			}
+			.resource-list {
+				display: none;
+			}
+		}
+		form.active {
+			display: block;
+		}
+	}
+	.wrap-select--keywords {
+		background: none;
+		border: none;
+		box-shadow: none;
+		&.active {
+			display: block;	
+		}
+		.resource-list {
+			background: #fff;
+		}
+		.select-arrows {
+			display: none;
+		}
+	}
+}

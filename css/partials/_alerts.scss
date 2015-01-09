@@ -1,0 +1,60 @@
+.posts--preview--alerts:before {
+	background: #ea4848; /* Old browsers */
+	background: -moz-linear-gradient(45deg,  #ea4848 0%, #ed0e0e 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#ea4848), color-stop(100%,#ed0e0e)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(45deg,  #ea4848 0%,#ed0e0e 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(45deg,  #ea4848 0%,#ed0e0e 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(45deg,  #ea4848 0%,#ed0e0e 100%); /* IE10+ */
+	background: linear-gradient(45deg,  #ea4848 0%,#ed0e0e 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ea4848', endColorstr='#ed0e0e',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	box-shadow: 0 3px 3px #ccc;
+	color: #fff;
+	content: '';
+	display: block;
+	height: 1em;
+	opacity: 1;
+	transition: box-shadow 0.3s 0.3s ease, // prevents box-shadow from overlaying post div
+							max-height 0.3s ease, 
+							opacity 0.3s ease;
+	width: 100%;
+}
+
+.posts--preview--alerts.inactive:before {
+	box-shadow: 0 0 0 #ccc;
+	max-height: 0px;
+	opacity: 0;
+}
+
+.posts--preview--alerts .icon-exclamation-circle {
+	display: inline-block;
+	fill: #ed0e0e;
+	filter: drop-shadow(0 0 1px #aaa);
+	height: 4em;
+	margin-right: 1em;
+	position: relative;
+	width: 4em;
+	@include bp-mobile--only {
+		height: 3em;
+		margin-right: 0.75em;
+		width: 3em;
+	}
+}
+
+.post.alert--critical {
+	align-items: center;
+	position: relative;
+	@include bp-mobile--only {
+		font-size: 0.75em;
+	}
+}
+
+.action-close {
+	fill: #333;
+	position: absolute;
+	right: 0.5em;
+	top: 0.5em;
+	svg {
+		height: 2em;
+		width: 2em;
+	}
+}

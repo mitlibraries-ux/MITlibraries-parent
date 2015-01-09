@@ -1,0 +1,487 @@
+// A lot this--colors especially--could probably be better handles with a function or two.
+.home {
+	.content-main {
+		flex-wrap: wrap;
+		@include bp-tablet--portrait {
+			flex-wrap: nowrap;
+		}
+		.col-1 {
+			@include span-4-12;
+			@include bp-tablet--portrait {
+				background: $color-background-secondary;
+				margin-left: 0; // Creates full bleed
+				width: 33.955%; // Corrects grid for zero margin
+				& > :not(.extra) {
+					background: #fff;
+				}
+			}
+		}
+		.col-2 {
+			border-left: 1px solid $color-secondary;
+			@include bp-tablet--portrait {
+				margin-left: 0; // Creates full bleed
+				width: 67.915%; // Corrects grid for zero margin
+				-ms-flex: 0 1 auto; // Corrects IE10 bug
+			}
+		}
+	}
+	//
+	// Hours & Locations
+	//
+	.hours-locations {
+		display: flex;
+		flex-direction: column;
+		h2 {
+			border-bottom: 1px solid $color-secondary;
+			color: $color-hours-locations;
+			text-align: center;
+			@include bp-tablet--portrait {
+				padding: 0.5em 0 0.25em;
+			}
+		}
+		p {
+			color: darken($color-background-secondary, 70%);
+			font-size: 0.875em;
+			font-weight: 300;
+		}
+		svg {
+			@include bp-small {
+				@include svg-max-height-width;
+			}
+		}
+		.active {
+			display: block;
+			opacity: 1;
+			transition: opacity 0.2s ease;
+		}
+		.link-hours {
+			order: 99999; // Order last on mobile
+			@include bp-tablet--portrait {
+				order: 0;
+			}
+		}
+		.extra {
+			display: flex;
+			@include bp-tablet--portrait {
+				background: $color-background-secondary;
+				display: block;
+				padding: 2em 1em;
+			}
+			p {
+				display: none;
+				@include bp-tablet--portrait {
+					display: block;
+				}
+			}
+		}
+		.hours {
+			color: #7b7b7b;
+			display: inline-block;
+			font-size: 0.875em;
+			font-weight: normal;
+		}
+		.icon-arrow-down {
+			margin-right: 0.5em;
+		}
+		.inactive {
+			opacity: 0;
+		}
+		.link-map,
+		.link-study {
+			color: $color-hours-locations;
+			font-weight: 300;
+			&:hover {
+				color: darken($color-hours-locations, 15%);
+				svg {
+					fill: darken($color-hours-locations, 15%);
+				}
+			}
+			@include bp-tablet--portrait {
+				display: block;
+				font-weight: 600;
+			}
+			svg {
+				fill: $color-hours-locations;
+			}
+		}
+		.location {
+			color: #111;
+			font-weight: 300;
+			padding: 0;
+			transition: background 0.1s ease;
+			@include bp-mobile--only {
+				&:not(.hidden-mobile) {
+					border-bottom: 1px solid $color-secondary;
+					display: flex;
+				}
+			}
+			@include bp-tablet--portrait {
+				border-bottom: 1px solid $color-secondary;
+				padding: 1em;
+				&:not(.show-more) {
+					display: flex;
+				}
+			}
+		}
+		.location-info {
+			color: #7b7b7b;
+			font-size: 0.875em;
+			font-weight: normal;
+		}
+		.map-location {
+			color: #7b7b7b;
+			&::before {
+				content: url(#{$imagesPath}/pin-sfw.svg);
+				display: inline-block;
+				margin-right: 0.25em; 
+			}
+		}
+		.more {
+			align-items: center;
+			border-bottom: 1px solid $color-secondary;
+			display: flex;
+			justify-content: center;
+			text-align: center;
+			width: 50%;
+			&:first-of-type {
+				border-right: 1px solid $color-secondary;
+				@include bp-tablet--portrait {
+					border-right: none;
+				}
+			}
+			@include bp-tablet--portrait {
+				border-bottom: none;
+				display: block;
+				margin-bottom: 1em;
+				text-align: left;
+				width: auto;
+				&:after {
+					content: url(#{$imagesPath}/arrow-right-sfw.svg);
+					display: inline-block;
+					margin-left: 0.25em; 
+				}
+			}
+			svg {
+				display: inline-block;
+				margin-right: 0.5em;
+			}
+		}
+		.name-location {
+			color: #111;
+		}
+		.number {
+			display: none;
+			@include bp-tablet--portrait {
+				display: inline;
+			}
+		}
+		.phone {
+			color: #7b7b7b;
+			&:before {
+				content: url(#{$imagesPath}/phone-mobile-sfw.svg);
+				display: inline-block;
+				margin-right: 0.25em; 
+				margin-left: 1em;
+				position: absolute;
+				right: 0.25em;
+				@include bp-tablet--portrait {
+					content: url(#{$imagesPath}/phone-sfw.svg);
+					position: relative;
+					right: auto;
+				}
+			}
+		}
+		.show-more {
+			background: $color-secondary;
+			color: $color-hours-locations;
+			fill: $color-hours-locations;
+			font-weight: 300;
+			padding: 1.5em 0;
+			text-align: center;
+		}
+		.special {
+			color: #ababab;
+			font-size: 0.875em;
+			@include bp-tablet--portrait {
+				color: $color-hours-locations;
+			}
+		}
+		.wrap-loc-info {
+			-ms-flex: 0 1 auto; // Corrects IE10 bug
+		}
+	}
+	.img-loc {
+		display: inline-block;
+		height: 4.625em;
+		margin-right: 0.5em;
+		width: 4.625em;
+		min-width: 4.625em; // Corrects some flexbox behavior when adjoining div content is very large
+		@include bp-tablet--portrait-only {
+			display: none;
+		}
+		&.archives {
+			background-position: -1px -1px;
+		}
+		&.barker {
+			background-position: -77px -1px;
+		}
+		&.dewey {
+			background-position: -1px -77px;
+		}
+		&.hayden {
+			background-position: -77px -77px;
+		}
+		&.lewis {
+			background-position: -153px -1px;
+		}
+		&.rotch {
+			background-position: -153px -77px;
+		}
+	}
+	//
+	// News & Events
+	//
+	.news-events {
+		h2 {
+			border-bottom: 1px solid $color-secondary;
+			color: $color-news-events;
+			text-align: center;
+			@include bp-tablet--portrait {
+				display: none;
+			}
+		}
+		svg {
+			@include bp-small {
+				@include svg-max-height-width;
+			}
+		}
+		& > .flex-container {
+			flex-wrap: wrap;
+			@include bp-tablet--landscape {
+				flex-wrap: nowrap;
+			}
+			@include bp-tablet--portrait {
+				min-height: 230px; // Content loaded w/ Ajax
+			}
+		}
+		.category-post {
+			color: $color-news-events;
+			font-size: 0.625em;
+			font-weight: bold;
+			text-transform: uppercase;
+		}
+		.date-event {
+			color: $color-news-events;
+			font-weight: 600;
+		}
+		.excerpt-news {
+			padding: 0.8125em;
+			-ms-flex: 0 1 auto; // Corrects IE10 bug
+		}
+		.icon-calendar {
+			fill: $color-news-events;
+			margin-right: 0.25em;
+		}
+		.image {
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			@include rem-first(height, 12.8125);
+			@include rem-first(min-width, 6.875);
+			@include rem-first(width, 6.875);
+		}
+		.post--full-bleed {
+			border-bottom: 1px solid $color-secondary;
+			@include rem-first(min-height, 12.8125);
+			justify-content: space-between;
+			width: 100%;
+			@include bp-small {
+				&:last-of-type {
+					margin-bottom: 1em;
+				}
+			}
+			@include bp-tablet--portrait {
+				border-bottom: none;
+				margin-bottom: 1.25em; // Matches padding for container
+				max-height: 205px; // Make sure the container is never taller than the post image
+				width: 50%;
+				-ms-flex: 0 1 auto; // Corrects IE10 bug
+			}
+			@include bp-tablet--portrait-below {
+				width: 100%;
+			}
+			&:hover {
+				.title-post {
+					text-decoration: underline;
+				}
+			}
+			&:first-of-type {
+				@include bp-tablet--landscape {
+					margin-right: 1.25em;
+				}
+			}
+		}
+		.time-event {
+			color: #ababab;
+		}
+		.title-post {
+			margin: 0.5em 0 0.75em;
+		}
+	}
+	//
+	// Guides & Experts
+	//
+	.guides-experts {
+		@include bp-tablet--portrait {
+			padding: 0 1.25em 2.5em;
+		}
+		h2 {
+			color: $color-guides-experts;
+			text-align: center;
+		}
+		p {
+			margin: 0 1em;
+		}
+		svg {
+			@include bp-small {
+				@include svg-max-height-width;
+			}
+		}
+		.all-guides {
+			display: inline-block;
+			width: auto;
+		}
+		.guide-list [class*="button-secondary"] {
+			margin-right: 0.5em;
+			margin-bottom: 0.5em;
+			margin-left: -4px; // Fights inline-block space
+		}
+		.expert {
+			width: 50%;
+			&:nth-child(3) {
+				display: none;
+			}
+			&:nth-child(4) {
+				display: none;
+			}
+			@include bp-tablet--portrait {
+				width: 25%;
+				&:nth-child(n) {
+					display: block;
+				}
+			}
+		}
+		.experts-group {
+			justify-content: space-between;
+			min-height: 7.625em;
+			margin: 2em 0;
+		}
+		.expert-photo {
+			border-radius: 50%;
+			display: block;
+			margin: 0 auto;
+		}
+		.guide-list {
+			margin: 0 1em;
+		}
+		.link-ask {
+			color: $color-guides-experts;
+			font-weight: 700;
+			&:after {
+				content: url(#{$imagesPath}/arrow-right-sfw.svg);
+				display: inline-block;
+				margin-left: 0.25em;
+			}
+			&:hover {
+				color: darken($color-guides-experts, 15%);
+				svg {
+					fill: darken($color-guides-experts, 15%);
+				}
+			}
+			svg {
+				fill: $color-guides-experts;
+				display: inline-block;
+				margin-left: 0.5em;
+			}
+		}
+		.link-profile {
+			display: block;
+			&:hover {
+				.name {
+					color: darken($color-text-accent-primary, 20%);
+					text-decoration: underline;
+				}
+			}
+		}
+		.name {
+			display: block;
+			font-weight: 600;
+			margin-top: 1em;
+			text-align: center;
+		}
+		.title-job {
+			color: #7b7b7b;
+			display: block;
+			font-size: 0.625em;
+			margin-top: 1em;
+			text-align: center;
+			text-transform: uppercase;
+		}
+	}
+}
+//
+// Old Browsers
+//
+.no-flexbox {
+	.news-events {
+		& > .flex-container {
+			@include bp-tablet--portrait-below {
+				display: block;
+			}
+		}
+	}
+}
+//
+// IE Fixes
+//
+.lte-ie9 {
+	.home {
+		.content-main {
+			.col-1 {
+				max-width: 341px;
+			}
+			.col-2 {
+				max-width: 683px;
+			}
+		}
+		.guides-experts {
+			.link-profile {
+				max-width: 160px;
+			}
+		}
+		.hours-locations {
+			.img-loc {
+				display: block;
+				float: left;
+			}
+			.location:after {
+				content: '';
+				clear: both;
+				display: table;
+			}
+			.wrap-loc-info {
+				display: block;
+				float: left;
+				max-width: 220px;
+			}
+		}
+		.news-events {
+			.post-news {
+				max-width: 311px;
+			}
+			.excerpt-news {
+				max-width: 201px;
+			}
+		}
+	}
+}

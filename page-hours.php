@@ -86,9 +86,9 @@ $thisWeek = date("Y-n-j");
  ?>
 
 
-<div id="stage" class="inner thinSidebar hours group" role="main">
+<div id="stage" class="inner hours group" role="main">
 
-	<div class="title libraryTitle">
+	<div class="title-page flex-container">
 
 		<div class="libraryContent">
 			<h1><?php showBreadTitle(); ?></h1>
@@ -98,7 +98,7 @@ $thisWeek = date("Y-n-j");
 				$hoursAlert = apply_filters('the_content', $post->post_content);
 				if($hoursAlert != ''): 
 			?>
-				<div class="upcomingSpecial">
+				<div class="alert--upcoming">
 					<?php echo $hoursAlert; ?>
 				</div>
 			<?php endif; ?>
@@ -107,20 +107,28 @@ $thisWeek = date("Y-n-j");
 				include(locate_template('inc/alert.php'));
 			 ?>
 			
-		<div id="hourCalendar" class="hourCalendar hidden-phone">
+		<div class="wrap-cal-hours hidden-phone">
+			<div id="hourCalendar" class="cal-hours"></div>
 		</div>
 
-	</div>		
+	</div><!-- end div.title-page -->
 	
-	<div id="content" class="allContent">
+	<div id="content" class="content-main">
 
-		<div id="hourContent" class="light">
+		<div id="hourContent" class="content-page single-col">
 		
-			<div id="hourNav">
-				<div id="prevWeek"><i class="icon-arrow-left"></i> <a href="<?php echo $path."?d=".$prevWeek; ?>">Previous week</a></div>
-				<div id="thisWeek"><a href="<?php echo $path."?d=".$thisWeek; ?>"">This week</a></div>
-				<div id="nextWeek"><a href="<?php echo $path."?d=".$nextWeek; ?>"">Next week</a> <i class="icon-arrow-right"></i></div>
+			<div id="hourNav" class="flex-container space-between">
+				<div id="prevWeek">
+					<i class="icon-arrow-left"></i>
+					<a href="<?php echo $path."?d=".$prevWeek; ?>">Previous week</a>
+				</div>
+				<div id="thisWeek">
+					<a href="<?php echo $path."?d=".$thisWeek; ?>"">This week</a></div>
+				<div id="nextWeek"><a href="<?php echo $path."?d=".$nextWeek; ?>"">Next week</a>
+					<i class="icon-arrow-right"></i>
+				</div>
 			</div>
+
 			<table class="hrList">
 				<thead>
 					<th class="name">Locations</th>
@@ -244,10 +252,19 @@ $thisWeek = date("Y-n-j");
 					<?php get_template_part( 'content', 'hour-row' ); ?>
 				<?php endwhile; 	?>
 				</tbody>
-			</table>
-		</div>
+			</table><!-- end table.hrlist -->
 
-	</div> <!-- end div.allContent -->
+			<div class="locations-more">
+				<h3>Other locations</h3>
+				<h4>Digital Instruction Resource Center (DIRC)</h4>
+				<a href="/locations/#!digital-instruction-resource-center-dirc">Map: 14N-132</a>
+				<h4>Information Intersection at Stata Center</h4>
+				<a href="/locations/#!information-intersection">Map: 32-Student Street</a>
+			</div>
+
+		</div><!-- end div.content-page -->
+
+	</div><!-- end div.content-main -->
 
 </div> <!-- end div#stage -->
 

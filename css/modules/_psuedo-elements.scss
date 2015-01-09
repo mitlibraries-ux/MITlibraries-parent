@@ -1,0 +1,29 @@
+@mixin bullet($size, $color) {
+  background: $color;
+  border-radius: 50%;
+  content: '';
+  display: inline-block;
+  height: $size;
+  vertical-align: middle;
+  width: $size;
+}
+
+@mixin rightArrow($size, $color) {
+	border-top: $size solid transparent;
+	border-left: $size solid $color;
+	border-bottom: $size solid transparent;
+	content: '';
+	display: inline-block;
+	height: 0;
+	width: 0;
+}
+
+@mixin downArrow($size, $color) {
+	border-left: $size solid transparent;
+	border-top: $size solid $color;
+	border-right: $size solid transparent;
+	content: '';
+	display: inline-block;
+	height: 0;
+	width: 0;
+}

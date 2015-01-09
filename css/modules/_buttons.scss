@@ -1,0 +1,102 @@
+@mixin color-button-primary($color) {
+	background: $color;
+	&:hover {
+		background: darken($color, 15%);
+	}
+}
+
+@mixin color-button-primary--border($color) { // Matches button-primary size when inline with button secondary
+	border: 2px solid $color;
+	&:hover {
+		border-color: darken($color, 15%);
+	}
+}
+
+@mixin color-button-secondary($color) {
+	color: $color;
+	&:hover {
+		background: $color;
+		border-color: $color;
+	}
+}
+
+%button {
+	border-radius: 3px;
+	padding: 0.5em;
+	text-align: center;
+	@include bp-tablet--portrait {
+		padding: 0.5em 1em;
+	}
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+%button-primary {
+	@extend %button;
+	color: $color-text--light;
+	display: block;
+	font-size: 1em;
+	margin: 1em auto;
+	transition: background $timer-primary ease;
+	width: 100%;
+	@include rem-first(max-width, 17);
+	@include bp-tablet--portrait {
+		width: auto;
+		@include rem-first(max-width, 12);
+	}
+	&:hover {
+		color: $color-text--light;
+	}
+	&.inline { // Display primary buttons inline with secondary buttons
+		display: inline-block;
+		font-size: 0.875em;
+		margin-top: 0;
+		margin-right: 0.5em;
+		margin-bottom: 0.5em;
+		margin-left: -4px; // Fights inline block space
+		@include bp-tablet--portrait {
+			font-size: 1em;
+		}
+	}
+	&.full { // Extend the button to full width
+		@include bp-tablet--portrait {
+			margin: 1em auto;
+			width: 100%;
+			max-width: 100%;
+		}
+		&.add-margin {
+			@include bp-tablet--portrait {
+				margin: 1em;
+				width: auto;
+			}
+		}
+	}
+}
+
+%button-secondary {
+	border: 2px solid $color-secondary;
+	@extend %button;
+	display: inline-block;
+	font-size: 0.875em;
+	font-weight: 600;
+	transition: background $timer-primary ease,
+							border-color $timer-primary ease,
+							color $timer-primary ease;
+	&:hover {
+		color: $color-text--light;
+	}
+	@include bp-tablet--portrait {
+		font-size: 1em;
+	}
+}
+
+%button-tertiary {
+	@include bp-mobile--only {
+		background: #fff;
+		padding: 0.75em;
+	}
+	&:hover {
+		text-decoration: none;
+	}
+}

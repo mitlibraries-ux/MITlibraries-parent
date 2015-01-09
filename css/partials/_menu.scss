@@ -1,0 +1,370 @@
+.nav-main {
+  flex-wrap: wrap;
+  transform: translateY(-1000%);
+  z-index: map-get($zindex, dropdown);
+  &.active {
+    background: white;
+    box-shadow: 0 3px 3px $color-shadow;
+    height: auto;
+    @include rem-first(font-size, 1);
+    flex: none;
+    @include rem-first--4-values(padding, 0, 0.5, 0.5, 0.5);
+    position: absolute;
+    transform: translateY(2.8em); // Accounts for nav padding
+    top: 0;
+    width: 100%;
+    a {
+      width: 100%;
+    }
+  }
+  @include hidden-visually;
+  .small {
+    display: none;
+    @include bp-tablet--portrait {
+      display: block;
+      font-size: 0.5em;
+      @include rem-first(padding-top, 0.5);
+      a {
+        align-items: center;
+        flex-direction: column;
+        @include rem-first(padding-bottom, 0.5);
+        text-transform: uppercase;
+      }
+      svg {
+        display: block;
+        fill: #fff;
+        margin-bottom: 1em;
+      }
+    }
+    @include bp-tablet--landscape-below {
+      font-size: 1em;
+      padding-top: 1em;
+      padding-bottom: 0;
+      a {
+        text-transform: none;
+      }
+      svg {
+        display: none;
+      }
+    }
+  }
+  @include bp-tablet--landscape-below {
+    font-size: 0.9em;
+  }
+  @include bp-tablet--landscape-small-below {
+    font-size: 0.75em;
+  }
+  @include bp-tablet--portrait {
+    align-items: stretch;
+    height: auto;
+    flex-wrap: nowrap;
+    order: 3;
+    overflow: visible;
+    width: auto;
+    transform: translateY(0%);
+  }
+  .chat {
+    display: none;
+    @include bp-tablet--portrait {
+      display: block;
+      .links-sub {
+        background: #f3f3f3;
+        flex-wrap: wrap;
+        @include rem-first(min-width, 9.375);
+        width: auto;
+        a:hover {
+          background: none;
+        }
+      }
+      .more {
+        display: block;
+        @include rem-first(font-size, 0.75);
+        text-align: center;
+        text-transform: none;
+        width: 100%;
+      }
+      .wrap-button-chat {
+        @include rem-first(min-height, 2.875);
+        @include rem-first--4-values(padding, 1, 0.5, 0, 0.5);
+        min-width: 100%;
+        #libchat_btn_widget {
+          border: 1px solid #666;
+        }
+      }
+    }
+  }
+}
+
+.link-primary {
+  position: relative;
+  transition: background-color 0.3s;
+  width: 100%;
+  @include bp-tablet--portrait {
+    border-right: 1px solid lighten($color-background--dark, 20%);
+    padding-top: 1em; // Find a better way to push the link text to bottom
+    width: auto;
+  }
+  &:hover {
+    @include bp-tablet--portrait {
+      background: $color-link-primary;
+    }
+    .links-sub {
+      box-shadow: 0 0 2px #444;
+      max-height: 1000px;
+      opacity: 1;
+      overflow: visible;
+      transition: max-height 0.3s,
+                  margin 0.3s,
+                  opacity 0.3s,
+                  overflow 0.3s,
+                  padding-top 0.3s,
+                  padding-bottom 0.3s;
+    }
+  }
+  > a {
+    border-bottom: 1px solid #b5b5b5;
+    display: block;
+    @include rem-first(padding, 0.5);
+    position: relative;
+    @include bp-tablet--portrait {
+      border-bottom: none;
+      color: #fff;
+      display: flex;
+      height: 100%;
+      padding-top: 1em;
+    }
+	  &.active {
+	  	background: lightgray;
+	  	box-shadow: 0 0 2px #444,
+                inset 1px 0 0 gray,
+                inset -1px 0 0 gray,
+                inset 0 1px 0 gray;
+	  }
+  }
+  .col-1 {
+    background: #fff;
+  }
+  .col-2 {
+    background: $color-background-secondary;
+  }
+  .links-sub {
+    display: none;
+    left: 0;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 100%;
+    transition: max-height 0.3s,
+                margin 0.3s,
+                opacity 0.3s,
+                overflow 0.3s,
+                padding-top 0.3s,
+                padding-bottom 0.3s;
+    width: 31.75em;
+    @include bp-tablet--portrait {
+      display: flex;
+    }
+    &.push { // Orients mega-nav dropdown so that it doesn't overflow page width
+      left: auto;
+      right: 0;
+    }
+    a {
+      color: $color-text-accent-primary;
+      display: block;
+      font-weight: 600;
+      padding: 0.5em;
+      &:hover {
+        background: darken($color-background-secondary, 10%);
+      }
+    }
+    [class*="col-"] {
+      width: 50%;
+    }
+    .about {
+      display: block;
+      font-size: 0.6875em;
+      font-weight: normal;
+    }
+    .bottom {
+      border-top: 1px solid $color-secondary;
+      &.extra {
+        span:first-of-type:after {
+          content: url(#{$imagesPath}/arrow-right-sfw.svg);
+          display: inline-block;
+          margin-left: 0.25em;
+        }
+      }
+      &:not(.extra):after {
+        content: url(#{$imagesPath}/arrow-right-sfw.svg);
+        display: inline-block;
+        margin-left: 0.25em; 
+      }
+    }
+  }
+  .bottom:not(.extra) span:not(:first-of-type):before {
+    color: $color-text-accent-primary;
+    content: '|';
+    display: inline-block;
+    margin-right: 4px;
+  }
+  .heading-col {
+    color: #7c7c7d;
+    display: block;
+    font-size: 0.6em;
+    font-weight: bold;
+    @include rem-first--4-values(margin, 1, 0, 0.5, 0.5);
+    text-transform: uppercase;
+  }
+}
+
+.no-csstransitions {
+  .link-primary {
+    .links-sub {
+      height: 0;
+      margin: 0;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 0;
+    }
+    &:hover .links-sub {
+        height: auto;
+        margin: auto;
+        overflow: visible;
+        @include rem-first(padding, 1);
+        width: 600px;
+    }
+  }
+}
+
+.nav-secondary {
+  border-bottom: 1px solid $color-secondary;
+  @include font-size(16px);
+  margin: 0 $margin-left;
+  z-index: map-get($zindex, dropdown);
+  @include bp-small {
+    background: $color-primary;
+    height: 0;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    &.active {
+      height: auto;
+      margin: 0;
+      overflow: visible;
+      padding: 0;
+    }
+  }
+  ul {
+    list-style: none;
+  }
+  .menu > ul {
+    > li {
+      display: inline-block;
+      position: relative;
+      @include bp-small {
+        display: block;
+      }
+      &:nth-child(n+4) {
+        // Push dropdowns right if li parents are too far right
+        ul {
+          right: 0;
+        }
+      }
+      &:hover {
+        background: $color-secondary;
+        box-shadow: 0 0 2px #444;
+        transition: background-color 0.3s;
+        @include bp-small {
+          background: none;
+          box-shadow: none;
+        }
+        // Show secondary menu items on hover
+        li {
+          background: $color-secondary;
+          border-top: 1px solid darken($color-secondary, 20%);
+          height: auto;
+          line-height: 1;
+          margin: auto;
+          opacity: 1;
+          overflow: visible;
+          width: 100%;
+          z-index: map-get($zindex, dropdown);
+          transition: opacity 0.3s;
+          @include bp-small {
+            display: none;
+          }
+          a {
+            display: block;
+            @include rem-first(padding, 1);
+          }
+        }
+      }
+      > a {
+        display: block;
+        @include rem-first(padding, 1);
+        @include bp-small {
+          color: white;
+        }
+      }
+      li {
+        // Hide secondary menu items
+        height: 0;
+        line-height: 0;
+        margin: 0;
+        opacity: 0;
+        overflow: hidden;
+        padding: 0;
+        position: relative;
+        width: 0;
+      }
+      // The dropdown
+      ul {
+        box-shadow: 0 1px 2px #444;
+        position: absolute;
+        @include rem-first(width, 20);
+      }
+    }
+  }
+}
+
+.menu--toggle {
+  background: $black;
+  cursor: pointer;
+  fill: $blue-light;
+  @include font-size(16px);
+  order: 1;
+  width: 14.375%;
+  z-index: map-get($zindex, dropdown);
+  @include rem-first(min-width, 3.1875);
+  @include bp-tablet--portrait {
+    display: none;
+  }
+  svg {
+    display: block;
+    margin: 1em auto;
+  }
+}
+
+.no-flexbox {
+  .link-primary.chat:hover {
+    .links-sub {
+      display: block;
+      a {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+}
+//
+// IE Fixes
+//
+.lte-ie9 {
+  .nav-main {
+    .links-sub {
+      display: none;
+    }
+  }
+}

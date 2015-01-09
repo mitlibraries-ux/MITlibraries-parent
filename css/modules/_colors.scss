@@ -1,0 +1,120 @@
+// Defaults
+
+// Cool
+
+$aqua:  #7FDBFF;
+$blue:  #0074D9;
+$navy:  #001F3F;
+$teal:  #39CCCC;
+$green: #2ECC40;
+$olive: #3D9970;
+$lime:  #01FF70;
+
+// Warm
+
+$yellow:  #FFDC00;
+$orange:  #FF851B;
+$red:     #FF4136;
+$fuchsia: #F012BE;
+$purple:  #B10DC9;
+$maroon:  #85144B;
+
+// Gray Scale
+
+$white:  #fff;
+$silver: #ddd;
+$gray:   #aaa;
+$black:  #111;
+
+// More grays
+
+$gray-light: hsla(0, 0.0000%, 95.2941%, 1.0000); // #f3f3f3
+$gray-medium:  hsla(0, 0.0000%, 87.0588%, 1.0000); // #dedede
+$gray-dark: hsla(0, 0.0000%, 20.0000%, 1.0000); // #333333
+
+$color-shadow: hsla(0, 0.0000%, 80.0000%, 1.0000);
+
+$beige: hsla(33, 23.4043%, 90.7843%, 1.0000);
+
+// Blues
+
+$blue-royal: hsla(204, 58.8710%, 48.6275%, 1.0000); // #338ac5
+$blue-light: hsla(210, 100.0000%, 96.0784%, 1.0000); // #ebf5ff
+
+// Accents
+
+$green-sea: hsla(150, 37.0892%, 41.7647%, 1.0000); // #43926a
+$magenta-dark: hsla(323, 51.4563%, 40.3922%, 1.0000); // #9c3273
+$orange-dark: hsla(26, 90.6977%, 57.8431%, 1.0000); // #f58632
+
+$yellow: hsla(45, 100.0000%, 60.0000%, 1.0000); // #ffcc33
+
+// Assignments
+
+$color-primary: $gray-dark;
+$color-secondary: $gray-medium;
+$color-background--dark: $gray-dark;
+
+$color-text--light: $white;
+$color-accent-primary: $yellow;
+$color-text-accent-primary: $blue-royal;
+
+$color-text-minor: $gray-medium;
+
+$color-background--widget: $beige;
+$color-background-secondary: $gray-light;
+
+$color-link-primary: $blue-royal;
+
+// Color modules
+
+@mixin color-bg--beige {
+	background-color: $beige;
+}
+
+@mixin color-bg--green {
+	background-color: $green-sea;
+}
+
+@mixin color-bg--orange {
+	background-color: $orange-dark;
+}
+
+@mixin color-bg--magenta {
+	background-color: $magenta-dark;
+}
+
+@mixin color-black {
+	color: $black;
+}
+
+@mixin color-green {
+	color: $green-sea;
+}
+
+@mixin color-orange {
+	color: $orange-sea;
+}
+
+@mixin color-magenta {
+	color: $magenta-sea;
+}
+
+// Homepage Modules
+
+$color-hours-locations: $green-sea;
+$color-news-events: $orange-dark;
+$color-guides-experts: $magenta-dark;
+
+// Gradients
+
+@mixin gradient-blue {
+	background: #5889c2; /* Old browsers */
+	background: -moz-linear-gradient(45deg,  #5889c2 0%, #3fa0c9 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#5889c2), color-stop(100%,#3fa0c9)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(45deg,  #5889c2 0%,#3fa0c9 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(45deg,  #5889c2 0%,#3fa0c9 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(45deg,  #5889c2 0%,#3fa0c9 100%); /* IE10+ */
+	background: linear-gradient(45deg,  #5889c2 0%,#3fa0c9 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5889c2', endColorstr='#3fa0c9',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}

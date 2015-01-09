@@ -44,12 +44,12 @@
 								<tr class="<?php echo $rowOdd; ?>">
 									<td class="name">
 										<div class="nameHolder">
-											<h3><a href="<?php echo $pageLink; ?>"><?php the_title(); ?> <i class="icon-arrow-right"></i></a></h3>
+											<h3><a href="<?php echo $pageLink; ?>"><?php the_title(); ?></a></h3>
 											<?php if ($phone != ""): ?>
 												<?php echo $phone ?><br/>
 											<?php endif; ?>
 										</div>
-										<a class="map" href="<?php echo $mapPage.$slug; ?>">Map: <?php echo $building ?> <i class="icon-arrow-right"></i></a>									
+										<a class="map" href="<?php echo $mapPage.$slug; ?>">Map: <?php echo $building ?></a>									
 										<?php if ($study24 == 1): ?>
 											<a class="space247" href="/study/24x7/" alt="This location contains one or more study spaces available 24 hours a day, seven days a week. Click the link for more info." title="Study 24/7">Study 24/7</a>
 										<?php endif; ?>

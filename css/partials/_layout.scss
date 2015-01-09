@@ -1,0 +1,264 @@
+*,
+*:before,
+*:after {
+	 box-sizing: border-box;
+}
+
+img {
+	max-width: 100%;
+}
+
+svg {
+	max-height: 1em;
+	max-width: 1em;
+}
+
+// Clearfix
+.group:after {
+	clear: both;
+	content: '';
+	display: table;
+}
+
+html.js {
+	&.no-flexbox.no-flexboxlegacy {
+		.js-hidden {
+			display: none;
+		}
+	}
+	.js-hidden {
+		display: none;
+	}
+}
+
+html.no-js {
+	.no-js-hidden,
+	.wrap-page .no-js-hidden {
+		display: none;
+	}
+}
+
+html.no-js .js-hidden {
+	display: block;
+}
+
+.wrap-page {
+	margin: 0 auto;
+	@include bp-small {
+		max-width: 320px;
+		width: 100%;
+	}
+	@include bp-mobile--landscape {
+		max-width: 568px;
+		width: 100%;
+	}
+	@include bp-tablet--portrait {
+		max-width: 768px;
+		width: 100%;
+	}
+	@include bp-large {
+		max-width: 1024px;
+		width: 100%;
+	}
+}
+
+.h-inline {
+	display: inline-block;
+}
+
+.content-all {
+	margin-left: $margin-left;
+	@include bp-small {
+		@include rem-fallback--2-values(margin, 0, 16px);
+	}
+}
+
+.content-main {
+	flex-direction: column;
+	@include bp-tablet--portrait {
+		flex-direction: row;
+	}
+	.content-page {
+		@include rem-first--4-values(margin, 0, 1, 1.5, 1);
+		max-width: 100%;
+		@include bp-tablet--portrait {
+			@include rem-first--4-values(margin, 0, 0, 1.5, 0);
+			@include rem-first(padding-left, 1);
+			min-width: 44em;
+			width: 100%;
+			-ms-flex: 0 1 auto; // Corrects IE10 bug
+		}
+		&.col-1 {
+			@include bp-tablet--portrait {
+				@include rem-first(padding-right, 1.5);
+				-ms-flex: 0 1 auto; // Corrects IE10 bug
+			}
+		}
+		&.single-col {
+			@include bp-tablet--portrait {
+				@include rem-first(padding-right, 1); // To match .content-page padding-left
+			}
+		}
+	}
+	.col-2 {
+		width: 100%;
+		@include bp-tablet--portrait {
+			min-width: 18em;
+			width: auto;
+		}
+	}
+}
+
+.has-sidebar {
+	.content-main {
+		float: left;
+	  padding-right: 2em;
+		width: 76.05%;
+	}
+	.sidebar {
+		background: #ede8e2;
+		float: left;
+		width: 23.91%;
+	}
+	@include bp-small {
+		.content-main {
+			float: none;
+			padding-right: 0;
+			width: 100%;
+		}
+		.sidebar {
+			float: none;
+			width: 100%;
+		}
+	}
+}
+
+[class*="flex-container"] {
+	display: flex;
+}
+
+[class*="flex-container--wrap"] {
+	flex-wrap: wrap;
+}
+
+.flex-container--wrap--2-col > * {
+	width: 50%;
+	@include bp-mobile--only {
+		width: 100%;
+	}
+}
+
+.flex-container--wrap--3-col > * {
+	width: 33%;
+	@include bp-mobile--only {
+		width: 100%;
+	}
+}
+
+.flex-container--wrap--4-col > * {
+	width: 25%;
+	@include bp-mobile--only {
+		width: 100%;
+	}
+}
+
+.space-between {
+	justify-content: space-between;
+}
+
+.flex-end {
+	align-items: flex-end;
+}
+
+.no-flexbox.no-flexboxlegacy {
+	.flex-clear {
+		clear: both;
+	}
+	.flex-container {
+		display: block;
+		> a,
+		> button,
+		> div,
+		> form,
+		> header,
+		> h1,
+		> h2,
+		> h3,
+		> input,
+		> nav,
+		> span,
+		> svg,
+		> ul {
+			float: left;
+			width: auto;
+		}
+		&:after {
+			clear: both;
+			content: '';
+			display: table;
+		}
+	}
+	.flex-item {
+		float: left;
+	}
+}
+
+.nav-page {
+	li {
+		display: inline-block;
+		&:not(:first-of-type) {
+			@include rem-first(margin-left, 1);
+		}
+	}
+	> ul {
+		border-top: 1px solid #aaa;
+		border-bottom: 1px solid #aaa;
+		@include rem-first(padding, 1);
+	}
+}
+
+// .nav-page--dynamic {
+// 	border-left: 4px solid $color-hours-locations;
+// 	font-size: 80%;
+// 	margin-left: 1em;
+// 	margin-bottom: 530px;
+// 	padding-left: 1em;
+// 	position: fixed;
+// 	max-width: 22em;
+// 	z-index: map-get($zindex, main);
+// 	a {
+// 		color: #111;
+// 		display: block;
+// 		overflow: hidden;
+// 		text-overflow: ellipsis;
+// 		transition: background 0.1s ease,
+// 								color 0.1s ease;
+// 		white-space: nowrap;
+// 		&:hover {
+// 			background: $color-hours-locations;
+// 			color: #fff;
+// 		}
+// 	}
+// }
+
+.hidden-mobile {
+	display: none;
+	@include bp-tablet--portrait {
+		display: block;
+	}
+}
+
+// Sets opacity for transitions
+.inactive-mobile {
+	opacity: 0;
+	@include bp-mobile--landscape {
+		opacity: 1;
+	}
+}
+
+.hidden-non-mobile {
+	display: block;
+	@include bp-tablet--portrait {
+		display: none;
+	}
+}

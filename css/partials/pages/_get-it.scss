@@ -1,0 +1,96 @@
+.page-getit {
+	.content-main {
+		.flex-item {
+			background: #ede8e2;
+			border-radius: 3px;
+			box-shadow: 0 0 3px #444;
+			margin: 1em;
+			padding: 1em;
+			position: relative;
+			text-align: center;
+			width: 33%;
+			&.first {
+				margin-left: 0;
+			}
+			&.second {
+				background: #fff9ef;
+				width: 34%;
+			}
+			&.third {
+				margin-right: 0;
+			}
+			div {
+				background: #333;
+				border-radius: 3px;
+				color: #eee8e1;
+				font-size: 1.25em;
+				line-height: 1.25;
+				padding: 1em;
+				text-align: left;
+			}
+			a {
+				color: #ffcc33;
+			}
+			p a:first-of-type {
+				display: block;
+				margin-bottom: 0.25em;
+				font-weight: bold;
+				text-align: center;
+			}
+		}
+		.flex-item h3,
+		.flex-item h4 {
+			color: #3f1c08;
+			font-family: 'Open Sans';
+			text-shadow: 1px 1px #fff6ed;
+		}
+		.flex-item h3 {
+			font-size: 1.5em;
+			margin-bottom: 1em;
+		}
+		.flex-item h4 {
+			font-size: 1.25em;
+			margin-top: 2em;
+			&:after {
+				content: '\f175';
+				display: block;
+				font-family: 'fontawesome-MITLibraries';
+				font-size: 2em;
+				margin: 1em;
+			}
+		}
+	}
+	.postContent {
+		line-height: 1.5;
+	}
+	.postTitle {
+		font-size: 1.5em;
+		line-height: 1.5;
+		margin-bottom: 0.5em;
+	}
+	.yourSearch {
+		&.header {
+			background: #333;
+			border: 2px solid #333;
+			border-radius: 3px;
+			box-shadow: 0 0 3px #444;
+			color: #f7f7f7;
+			font-family: 'Open Sans';
+			font-size: 1.2em;
+			margin: 2em 0 0;
+			padding: 1em;
+			a {
+				color: #ffcc33;
+			}
+			p {
+				font-size: 1.1em;
+				line-height: 1.5;
+			}
+		}
+		h2 {
+			color: #ffcc33;
+			font-size: 1.5em;
+			margin-bottom: 0;
+		}
+	}
+}

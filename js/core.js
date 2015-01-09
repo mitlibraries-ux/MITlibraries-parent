@@ -1,37 +1,10 @@
-var needMap = 1;
-var map;
-var arMarkers = new Array();
-var focusMarker;
-
-var lastMarker = "";
-
-var showMap = 0;
-
-var mapIconBase = '/wp-content/themes/libraries/images/';
-
 (function($){
 
 var Core = {
 	ondomready: function(){
-		// page functions go here
-		
-		Core.linkLogo();
 		Core.linkExpandable();
 		Core.linkTabs();
-		Core.buildUberMenu();
-		
-		Core.buildLocationGallery();
-		
-		Core.fixSidebar();
-		
-		Core.buildDatePicker();
-		
-		Core.buildMap();
-		
 		Core.nullAlt();
-
-		Core.buildHours();
-		
 		$(window).resize(function() {
 			Core.handleResize();
 		});
@@ -64,269 +37,6 @@ var Core = {
 		});
 	},	
 	
-	buildMap: function() {
-		$(".map").click(function(e) {
-			//e.preventDefault();
-			var stage = $("#stage");
-			if (needMap) Core.initMap();
-
-			if (stage.hasClass("activeMap")) {
-				// map open
-			} else {
-				// open map
-				$("#showMap").click();
-			}
-			
-			var id = $(this).attr("data-target");
-			
-			
-			for(i=0;i<arMarkers.length;i++) {
-				var marker = arMarkers[i];
-				
-				if (marker.id == id) {
-					focusMarker = marker;
-					map.panTo(marker.getPosition());
-					google.maps.event.trigger(marker, "click");
-					
-				}
-			}
-
-			
-			$("html, body").animate({scrollTop: 0}, 500);
-			
-
-
-			
-			
-			
-		});
-		
-		$("#showMap").click(function(e) {
-			e.preventDefault();
-			if (needMap) Core.initMap();
-			
-			if ($(this).hasClass("btn-warning")) {
-				$(this).toggleClass("btn-warning", false);
-				$(this).html("Hide map");
-				$("#stage").toggleClass("activeMap", true);
-				Core.showMap();
-				location.hash = "!map";
-				
-
-				
-			} else {
-				$(this).toggleClass("btn-warning", true);
-				$(this).html("Show map");
-				$("#stage").toggleClass("activeMap", false);
-				Core.hideMap();
-				// reset hash
-				location.hash = "!";
-			}
-		});
-		
-		
-		if (showMap) {
-			$("#showMap").click();
-		}
-		
-		var hash = location.hash.substr(2);
-		if (hash != "") {
-			if (hash == "map") {
-				$("#showMap").click();
-			} else {
-				$("a[href='#!"+hash+"']").click();
-			}
-		}
-		
-		
-		
-		
-
-	},
-	
-	initMap: function() {
-		var canvas = document.getElementById('map');
-		var opts = {
-			center: new google.maps.LatLng(42.35978069999999, -71.09360909999998),
-			zoom: 15,
-			mapTypeId: google.maps.MapTypeId.ROADMAP
-		};
-		map = new google.maps.Map(canvas, opts);
-		needMap = 0;		
-		
-		Core.buildMarkers();
-		
-		google.maps.event.addListener(map, 'idle', function() { // remove .gm-style added by GMAPs API
-    		jQuery('.gm-style').removeClass('gm-style');
-		});
-		
-	},
-	
-	buildMarkers: function() {
-		$("#mapMarkers .location").each(function() {
-			var name = $(this).find(".name").html();
-			name = name.replace("&amp;", "&");
-			var lat = parseFloat($(this).find(".lat").html());
-			var lng = parseFloat($(this).find(".lng").html());
-			var description = $(this).find(".description").html();
-			var id = $(this).find(".id").html();
-			
-			var latlng = new google.maps.LatLng(lat, lng);
-			//var latlng = new google.maps.LatLng(42.358330, -71.093173)
-			
-			var infowindow = new google.maps.InfoWindow({
-				
-			});
-			
-			var infoBox = new InfoBox({
-				content: description,
-				disableAutoPan: false,
-				maxWidth: 280,
-				pixelOffset: new google.maps.Size(-140,-181),
-				boxStyle: {
-					//background: 'url(http://mitlibraries.seangw.com/wp-content/themes/libraries/images/infobox.png)',
-					opacity: 1,
-					
-					//width: "280px",
-					//height: "180px",
-				},
-				closeBoxURL: mapIconBase + "close-sfw.gif",
-				closeBoxMargin: "4px 4px 4px 4px",
-				infoBoxClearance: new google.maps.Size(1,1),
-				isHidden: false,
-				pane: "floatPane",
-				enableEventPropagation: false
-			});
-			
-			var activeMarker = new google.maps.MarkerImage(mapIconBase + 'map-marker-active.png');
-
-			var defaultMarker = new google.maps.MarkerImage(mapIconBase + 'map-marker-default.png');
-			
-			
-			var marker = new google.maps.Marker({
-				position: latlng,
-				map: map,
-				icon: defaultMarker,
-				html: description,
-				id: id,
-				title: name
-			});
-			
-			google.maps.event.addListener(marker, "click", function () {
-				for (var i=0; i<arMarkers.length; i++) {
-					arMarkers[i].setIcon(defaultMarker);
-					}
-					this.setIcon(activeMarker);
-			});
-			
-			google.maps.event.addListener(marker, 'click', function() {
-				//infowindow.setContent(this.html);
-				//infowindow.open(map,marker);
-				
-				if (lastMarker != "")
-					lastMarker.close();
-				lastMarker = infoBox;
-				infoBox.open(map, marker);
-				
-			});
-			
-			google.maps.event.addListener(map, 'click', function() {
-				if(infoBox) {
-					infoBox.close();
-					marker.setIcon(defaultMarker);
-				}					
-			});
-			
-			google.maps.event.addListener(infoBox, "closeclick", function() {
-				marker.setIcon(defaultMarker);
-			});
-			
-			arMarkers.push(marker);
-		});
-	},
-	
-	showMap: function() {
-		$("#map").slideDown(200, function() {
-			google.maps.event.trigger(map, 'resize');
-		});
-	},
-	
-	hideMap: function() {
-		$("#map").slideUp(200);
-	},
-	
-	buildDatePicker: function() {
-		$("#hourCalendar").glDatePicker({
-				showAlways: true,
-				selectedDate: todayDate,
-				
-				prevArrow: '<i class="icon-arrow-left"></i>',
-				nextArrow: '<i class="icon-arrow-right"></i>',
-				dowNames: "SMTWTFS",
-				dowOffset: 1,
-				onClick: function(target, cell, date, date2) {
-					var newDate = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate();
-					
-					var path = window.location.pathname;
-					var newUrl = path+"?d="+newDate;
-
-					window.location = newUrl;
-				}
-				
-		});
-		
-	},
-	
-	fixSidebar: function() {
-		$(".sidebarWidgets").each(function() {
-			$(this).find(".widget:last").toggleClass("lastWidget", true);
-		});
-	},
-	
-	buildLocationGallery: function() {
-		$(".slideshow").cycle({
-			fx: "fade",
-			speed: 1500,
-			pause: 0,
-			/*
-			pager: "#slideshowNav",
-			
-			pagerAnchorBuilder: function(idx, slide) {
-				var obj = $(slide);
-				
-				return "<a href='#' class='thumb'><img src='"+obj.attr('data-thumb')+"' width='38' height='38' /></a>";
-			}
-			*/
-
-		});		
-	},
-	
-	buildUberMenu: function() {
-		
-		// cancel wrong clicks
-		$("#megaMenu .ss-nav-menu-item-depth-1>a").click(function(e) {
-			e.preventDefault();
-		});
-		
-		$(".megaMenu>li").each(function() {
-			$(this).find(".ss-nav-menu-item-depth-1:not(.ss-nav-menu-highlight):nth-child(odd)").each(function() {
-				var obj = $(this);
-				var next = $(this).next();
-								
-				if (next.height() > obj.height()) {
-					obj.toggleClass("noBorderRight", true);
-					next.toggleClass("borderLeft", true);
-				}
-				
-				if (obj.is(":last-child") || next.is(".ss-nav-menu-highlight")) {
-					obj.toggleClass("noBorderRight", true);
-				}
-			});
-			$(this).find(".ss-nav-menu-item-depth-1:not(.ss-nav-menu-highlight):nth-child(even)").toggleClass("lastSubMenu", true);
-			$(this).find(".ss-nav-menu-item-depth-1:not(.ss-nav-menu-highlight):nth-child(odd)").toggleClass("firstSubMenu", true);
-		});
-	},
-	
 	linkTabs: function() {
 		$(".tabnav h2 a").click(function(e) {
 			e.preventDefault();
@@ -345,6 +55,23 @@ var Core = {
 			
 			tar.toggleClass("active", true);
 		});
+		// Check if there are tabs
+		if($('.tabnav').length) {
+			// Store a var
+			var tabnav = $('.tabnav');
+			// Check if URL has hash
+			if(window.location.hash) {
+			  var hash = window.location.hash;
+			  // Remove all active classes from tabnav
+			  $('> li', tabnav).removeClass('active');
+			  // Add active class to tab that contains the hash
+			  $('h2 a[href="'+hash+'"]', tabnav).parent().parent().addClass('active');
+			  // Get the top offset of the active tab
+			 	var activePos = $('li.active', tabnav).offset().top;
+			 	// ...and scroll down to it
+			 	$(window).scrollTop(activePos);
+			}
+		}
 	},
 	
 	linkExpandable: function() {
@@ -372,57 +99,8 @@ var Core = {
 		
 	},
 	
-	linkLogo: function() {
-		$("#logo").click(function(e) {
-			e.preventDefault();
-			document.location = "/";
-		});
-	},
-	
 	nullAlt: function() {
 		$("img[alt='null'], img[alt='Null'], img[alt='NULL']").attr("alt", "");
-	},
-
-	findToday: function(testDay) {
-		var today, d, m, yyyy;
-		if (!testDay) {
-			today = new Date();
-			d = today.getDate();
-			m = today.getMonth() + 1;
-			yyyy = today.getFullYear();
-			today = m + "/" + d + "/" + yyyy;
-		} else {
-			today = testDay;
-		}
-		return today;
-	},
-
-	buildHours: function() {
-		var loc, name, thisDay, msg;
-		loc = jQuery('[data-location-hours]');
-		msg = "unavailable";
-		jQuery.getJSON("/wp-content/themes/libraries/hours.json")
-			.done(function (json) {
-				jQuery.each(loc, function() {
-					// get the name of this library
-					name = jQuery(this).data("location-hours");
-					// look up that library's hours in JSON
-					thisDay = '4/26/2014';
-					thisDay = Core.findToday(thisDay);
-					if (json[name] && json[name].hours[thisDay]) {
-						jQuery(this).text(json[name].hours[thisDay]);
-					} else {
-						jQuery(this).html(msg);
-					}
-				});
-			})
-			.fail(function (textStatus, error) {
-				var err = textStatus + ", " + error;
-				console.log("Hours lookup failed: " + err);
-				jQuery.each(loc, function() {
-					jQuery(this).html(msg);
-				});
-			});
 	}
 	
 }

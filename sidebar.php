@@ -10,7 +10,7 @@
  */
 ?>
 	
-	<div id="sidebarContent" class="span3">
+	<div id="sidebarContent" class="sidebar span3">
 		<div class="sidebarWidgets">
 			<?php dynamic_sidebar( 'sidebar-1' ); ?>
 		</div>

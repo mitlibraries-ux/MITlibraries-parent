@@ -2,12 +2,6 @@
 Styles for older IE versions (previous to IE9).
 */
 
-body {
-	background-color: #e6e6e6;
-}
-body.custom-background-empty {
-	background-color: #fff;
-}
 body.custom-background-empty .site,
 body.custom-background-white .site {
 	box-shadow: none;

@@ -1,657 +1,231 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-	<head>
-		<title>	MIT Libraries, MIT Library</title>
-		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-		<meta name="description" content="Gateway to the MIT Libraries' wide range of services and resources including research help, study spaces, print and electronic books/journals and more." />
-		<meta name="keywords" lang="en-us" content="library, barton, vera, dspace, librarian" />
-		<meta http-equiv="pragma" content="no-cache" />
-		<link rel="icon" href="favicon.ico" type="image/x-icon" />
-		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-		<link rel="stylesheet" type="text/css" href="styles/styles1.css" media="all" />
-		<!--[if lt IE 8]>
-			<link href="styles/ie1.css" media="screen" rel="stylesheet" type="text/css" />
-		<![endif]-->
-		<!--[if IE 6]>
-			<link href="styles/ie6.css" media="screen" rel="stylesheet" type="text/css" />
-		<![endif]-->
-		<!--[if IE 7]>
-			<link href="styles/ie71.css" media="screen" rel="stylesheet" type="text/css" />
-		<![endif]-->
-		<link rel="stylesheet" type="text/css" href="styles/print.css" media="print" />
-		<script type="text/javascript" src="scripts/jquery.js"></script>
-		<script type="text/javascript" src="scripts/jquery-ui.js"></script>
-		<script type="text/javascript" src="scripts/jquery.cookie.js"></script>
-		<!--[if IE]>
-			<script type="text/javascript" src="scripts/iescriptfixes.js"></script>
-		<![endif]-->
-		<script type="text/javascript" src="scripts/swfobject.js"></script>
-		<script type="text/javascript" src="scripts/jquery.infieldlabel.js"></script>
-		<!-- 
-			ga_discovery.js allows for event tracking within the discovery environment.
-			Updated 7/23/13 - MB
-		 -->
-		<script type="text/javascript" src="scripts/ga_discovery.js?130723b"></script>
-		<!-- 
-			discovery_router.js connects each tab's search form with its resource.
-			Updated 6/13/13 - MB
-		 -->
-		<script type="text/javascript" src="scripts/discovery-router.js?130710b"></script>
-		<script type="text/javascript" src="/wp-content/themes/libraries/js/nullAlt.js"></script>
-		<!--The meta tag below is to allow Google Webmaster tools to know we own this site - DD 20120329-->
-		<meta name="google-site-verification" content="82Cv3HFWvcefC_9XauvglcfB4h3o0uuiC3nKWWkL_eE" />
-		<!--
-			Google Analytics being called in asynchronous mode in order to accommodate 
-			event tracking. 
-			Implemented 12/14/2012 - MB
-		-->
-		<script type="text/javascript" src="/scripts/googleanalytics-async.js"></script>
-	</head>
-<body class="nojs">
-<!-- Beta site indicator...use if we need an urgent home page message
-<div id="betastripe">
-	<strong>Message</strong> <a href="/homepage-feedback">include link as needed</a>
-</div> -->
+<?php 
+	get_header();
+?>
 
-<div id="container" class="home floatwrapper">
-	
-	<!-- Masthead area -->
-	<div id="masthead">
-		<!-- Skip nav link -->
-		<a href="#searchcontainer" id="skipnav">Skip navigation</a>
-		
-		<!-- Logo -->
-		<h1 class="siteName"><a href="/">MIT Libraries</a></h1> 
- 		<img src="/images/logo_printonly.gif" width="172" height="72" alt="" class="printonly" />
-
-		<!-- Main nav -->
-		<ul id="mainnav" class="floatwrapper">
-			<li><a href="/barton-account">YOUR ACCOUNT</a></li>
-			<li><a href="/hours">HOURS</a></li>
-			<li><a href="/locations">LIST OF LIBRARIES</a></li>
-			<li><a href="/about/site-search">SITE SEARCH</a></li>
-		</ul>
-		
-		<!-- Ask us / Tell us navigation area -->
-		<div id="suggestionnav" class="floatwrapper">
-			<a href="/ask" id="askus">ASK US!</a>
-			<a href="/suggestions" id="tellus">TELL US!</a>
+	<div id="search-main" class="search--lib-resources flex-container">
+		<h2>Search</h2>
+		<div class="search-options--static flex-container js-hidden">
+			<div class="col-1">
+				<div>Articles, e-books, &amp; more:</div>
+				<div>E-Journals &amp; databases:</div>
+				<div>Books &amp; more at MIT:</div>
+				<div>Books &amp; more worldwide:</div>
+			</div>
+			<div class="col-2">
+				<a href="/bartonplus">BartonPlus (mega search)</a>
+				<a href="/vera">Vera</a>
+				<a href="/barton">Barton (classic search)</a>
+				<a href="/worldcat">WorldCat</a>
+				<a href="/course-reserves">Course reserves</a>
+				<a href="/about/site-search">Site search</a>
+			</div>
 		</div>
-	</div>
-	
-	<!-- Search boxes and photo -->
-	<div id="searchcontainer" class="floatwrapper">
-		<!-- Search box with tabs -->
-		<div id="mitlibrarysearches" class="floatwrapper">
-			<!-- Tab titles -->
-			<ul id="mitlibrarysearchnav">
-				<li><a href="#tab_start" title="Search for articles, books, and more">Start your search</a></li>
-				<li><a href="#tab_ejournals" title="Search for e-journals and databases by title">E-journals &amp; databases</a></li>
-				<li><a href="#tab_books" title="Search books and media">Books &amp; media</a></li>
-				<li><a href="#tab_coursereserves" title="Search the Barton Catalog for your course reserves">Course reserves</a></li>
-				<li><a href="#tab_more" title="Search for specialized content">More search options</a></li>
+		<div class="wrap-select--resources no-js-hidden">
+			<div class="selected"></div>
+			<ul id="resources" class="resource-list">
+				<li class="bartonplus active" data-target="bartonplus" data-option="option-1"><span class="main">Articles, e-books, &amp; more <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="8.071px" height="14px" viewBox="0 0 8.071 14" enable-background="new 0 0 8.071 14" xml:space="preserve" class="select-arrows"><path d="M0.069 8.74c0.08-0.159 0.252-0.264 0.436-0.274 0.023 0 1.743-0.104 3.531-0.104s3.508 0.104 3.53 0.104C7.751 8.476 7.911 8.581 8.003 8.74c0.092 0.161 0.092 0.356 0 0.517 -1.364 2.431-3.508 4.517-3.6 4.598 -0.206 0.194-0.528 0.194-0.734 0 -0.091-0.081-2.235-2.167-3.6-4.598C-0.023 9.096-0.023 8.901 0.069 8.74M8.003 5.259c-0.08 0.16-0.252 0.264-0.437 0.275 -0.022 0-1.742 0.103-3.53 0.103S0.528 5.535 0.505 5.535C0.321 5.523 0.161 5.419 0.069 5.259c-0.092-0.161-0.092-0.355 0-0.516 1.365-2.431 3.508-4.517 3.6-4.598 0.206-0.194 0.528-0.194 0.734 0 0.092 0.081 2.235 2.167 3.6 4.598C8.095 4.904 8.095 5.099 8.003 5.259"/></svg></span> <span class="name">BartonPlus (mega-search)</span></li>
+				<li class="vera" data-target="vera" data-option="option-2"><span class="main">E-journals &amp; databases <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="8.071px" height="14px" viewBox="0 0 8.071 14" enable-background="new 0 0 8.071 14" xml:space="preserve" class="select-arrows"><path d="M0.069 8.74c0.08-0.159 0.252-0.264 0.436-0.274 0.023 0 1.743-0.104 3.531-0.104s3.508 0.104 3.53 0.104C7.751 8.476 7.911 8.581 8.003 8.74c0.092 0.161 0.092 0.356 0 0.517 -1.364 2.431-3.508 4.517-3.6 4.598 -0.206 0.194-0.528 0.194-0.734 0 -0.091-0.081-2.235-2.167-3.6-4.598C-0.023 9.096-0.023 8.901 0.069 8.74M8.003 5.259c-0.08 0.16-0.252 0.264-0.437 0.275 -0.022 0-1.742 0.103-3.53 0.103S0.528 5.535 0.505 5.535C0.321 5.523 0.161 5.419 0.069 5.259c-0.092-0.161-0.092-0.355 0-0.516 1.365-2.431 3.508-4.517 3.6-4.598 0.206-0.194 0.528-0.194 0.734 0 0.092 0.081 2.235 2.167 3.6 4.598C8.095 4.904 8.095 5.099 8.003 5.259"/></svg></span> <span class="name">Vera</span></li>
+				<li class="barton" data-target="barton" data-option="option-3"><span class="main">Books &amp; more at MIT <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="8.071px" height="14px" viewBox="0 0 8.071 14" enable-background="new 0 0 8.071 14" xml:space="preserve" class="select-arrows"><path d="M0.069 8.74c0.08-0.159 0.252-0.264 0.436-0.274 0.023 0 1.743-0.104 3.531-0.104s3.508 0.104 3.53 0.104C7.751 8.476 7.911 8.581 8.003 8.74c0.092 0.161 0.092 0.356 0 0.517 -1.364 2.431-3.508 4.517-3.6 4.598 -0.206 0.194-0.528 0.194-0.734 0 -0.091-0.081-2.235-2.167-3.6-4.598C-0.023 9.096-0.023 8.901 0.069 8.74M8.003 5.259c-0.08 0.16-0.252 0.264-0.437 0.275 -0.022 0-1.742 0.103-3.53 0.103S0.528 5.535 0.505 5.535C0.321 5.523 0.161 5.419 0.069 5.259c-0.092-0.161-0.092-0.355 0-0.516 1.365-2.431 3.508-4.517 3.6-4.598 0.206-0.194 0.528-0.194 0.734 0 0.092 0.081 2.235 2.167 3.6 4.598C8.095 4.904 8.095 5.099 8.003 5.259"/></svg></span> <span class="name">Barton catalog (classic search)</span></li>
+				<li class="worldcat" data-target="worldcat" data-option="option-4"><span class="main">Books &amp; more worldwide <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="8.071px" height="14px" viewBox="0 0 8.071 14" enable-background="new 0 0 8.071 14" xml:space="preserve" class="select-arrows"><path d="M0.069 8.74c0.08-0.159 0.252-0.264 0.436-0.274 0.023 0 1.743-0.104 3.531-0.104s3.508 0.104 3.53 0.104C7.751 8.476 7.911 8.581 8.003 8.74c0.092 0.161 0.092 0.356 0 0.517 -1.364 2.431-3.508 4.517-3.6 4.598 -0.206 0.194-0.528 0.194-0.734 0 -0.091-0.081-2.235-2.167-3.6-4.598C-0.023 9.096-0.023 8.901 0.069 8.74M8.003 5.259c-0.08 0.16-0.252 0.264-0.437 0.275 -0.022 0-1.742 0.103-3.53 0.103S0.528 5.535 0.505 5.535C0.321 5.523 0.161 5.419 0.069 5.259c-0.092-0.161-0.092-0.355 0-0.516 1.365-2.431 3.508-4.517 3.6-4.598 0.206-0.194 0.528-0.194 0.734 0 0.092 0.081 2.235 2.167 3.6 4.598C8.095 4.904 8.095 5.099 8.003 5.259"/></svg></span> <span class="name">WorldCat</span></li>
+				<li class="course-reserves tall" data-target="course-reserves" data-option="option-5"><span class="main">Course reserves <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="8.071px" height="14px" viewBox="0 0 8.071 14" enable-background="new 0 0 8.071 14" xml:space="preserve" class="select-arrows"><path d="M0.069 8.74c0.08-0.159 0.252-0.264 0.436-0.274 0.023 0 1.743-0.104 3.531-0.104s3.508 0.104 3.53 0.104C7.751 8.476 7.911 8.581 8.003 8.74c0.092 0.161 0.092 0.356 0 0.517 -1.364 2.431-3.508 4.517-3.6 4.598 -0.206 0.194-0.528 0.194-0.734 0 -0.091-0.081-2.235-2.167-3.6-4.598C-0.023 9.096-0.023 8.901 0.069 8.74M8.003 5.259c-0.08 0.16-0.252 0.264-0.437 0.275 -0.022 0-1.742 0.103-3.53 0.103S0.528 5.535 0.505 5.535C0.321 5.523 0.161 5.419 0.069 5.259c-0.092-0.161-0.092-0.355 0-0.516 1.365-2.431 3.508-4.517 3.6-4.598 0.206-0.194 0.528-0.194 0.734 0 0.092 0.081 2.235 2.167 3.6 4.598C8.095 4.904 8.095 5.099 8.003 5.259"/></svg></span></li>
+				<li class="site-search" data-target="site-search" data-option="option-6"><span class="main">Website <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="8.071px" height="14px" viewBox="0 0 8.071 14" enable-background="new 0 0 8.071 14" xml:space="preserve" class="select-arrows"><path d="M0.069 8.74c0.08-0.159 0.252-0.264 0.436-0.274 0.023 0 1.743-0.104 3.531-0.104s3.508 0.104 3.53 0.104C7.751 8.476 7.911 8.581 8.003 8.74c0.092 0.161 0.092 0.356 0 0.517 -1.364 2.431-3.508 4.517-3.6 4.598 -0.206 0.194-0.528 0.194-0.734 0 -0.091-0.081-2.235-2.167-3.6-4.598C-0.023 9.096-0.023 8.901 0.069 8.74M8.003 5.259c-0.08 0.16-0.252 0.264-0.437 0.275 -0.022 0-1.742 0.103-3.53 0.103S0.528 5.535 0.505 5.535C0.321 5.523 0.161 5.419 0.069 5.259c-0.092-0.161-0.092-0.355 0-0.516 1.365-2.431 3.508-4.517 3.6-4.598 0.206-0.194 0.528-0.194 0.734 0 0.092 0.081 2.235 2.167 3.6 4.598C8.095 4.904 8.095 5.099 8.003 5.259"/></svg></span><span class="name">Site search</span></li>
+				<li class="has-link"><a href="/search" class="more"><span>More search tools &amp; help</span> <span class="name">Images, data, DSpace, etc.</span></a></li>
 			</ul>
-			
-			<!-- This div only shows if user does not have Javascript enabled, replaces tabs -->
-			<div id="nojstabnavreplacement" class="nojs">&nbsp;</div>
-			
-			<div class="mitlibrarysearchwrapper">
-				<div class="mitlibraryshadowwrapper">
-					<div class="searchshadowmid floatwrapper">
-						
-						<!-- 1: Start your search tab -->
-						<div id="tab_start" class="mitlibrarysearchtabcontent floatwrapper">
-							<div class="mitlibrarysearchform">
-								<h2 style="margin-bottom: 2px;">Start your search with BartonPlus</h2>
-								<h3>MIT catalog, articles, &amp; e-resources</h3>
-								<form id="bartonplus" name="bartonplus" action="" class="searchform bartonplus" method="get" target="_top">
-
-									<div class="hiddenfields"></div>
-
-									<!-- search text field -->
-									<div class="searchfield floatwrapper">
-										<label for="bartonrequest">Ex: carbon nanotubes, oliver twist, shakespeare</label>
-										<input type="text" id="bartonrequest" name="uquery" class="searchtext" title="Enter title, author, etc. (ex: game design)" />
-										<button type="submit">Search</button>
-									</div>
-
-									<!-- radio buttons -->
-									<div class="columns one-column floatwrapper">
-										<div class="column">
-											<div class="floatwrapper">
-												<input type="checkbox" name="articles" id="articles" value="articles" rel="Limit to articles &amp; e-resources only" /><label for="articles">Limit to articles &amp; e-resources only</label>
-											</div>
-											<div class="columns two-column bartonoptions floatwrapper radiorow">
-												<div class="column">
-													<div class="radiorow floatwrapper">
-														<input type="radio" name="r1" id="multi-keyword" value="" checked="checked" class="radio" rel="Enter title, author, etc. (ex: game design)" /><label for="multi-keyword">Keyword</label>
-													</div>
-													<div class="radiorow floatwrapper">
-														<input type="radio" name="r1" id="multi-title" value="TI " class="radio" rel="Enter title, author, etc. (ex: game design)" /><label for="multi-title">Title</label>
-													</div>
-													<div class="radiorow floatwrapper">
-														<input type="radio" name="r1" id="multi-author" value="AU " class="radio" rel="Enter title, author, etc. (ex: game design)" /><label for="multi-author">Author</label>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>	
-
-								</form>
-							</div>
-							<!-- sidebar -->
-							<div class="mitlibrarysearchoptions">
-								Looking for the classic <a href="/barton">Barton catalog</a>?<br>
-								<br>
-								Looking for non-MIT items?<br><a href="http://mit.worldcat.org/">MIT's WorldCat</a><br>
-								<br>
-								<h3 class="needHelp">Need help?</h3>
-								<ul>
-									<li><a href="/research-guides">Research guides</a></li>
-									<li><a href="/experts">Subject experts</a></li>
-								</ul>
-							</div>
-							<div class="whatami"><a class="panel" href="#">What am I searching?</a>
-								<span>        
-									<table>
-										<tr>
-											<th scope="row"><a href="/bartonplus">BartonPlus</a></th>
-											<td>Searches the Barton Catalog, as well as most MIT-licensed e-resources, including e-books and full-text articles. Extensive, but does not index ALL materials available to the MIT community. <a href="http://libguides.mit.edu/about-bartonplus">More about BartonPlus</a></td>
-										</tr>
-									</table>
-								</span>
-							</div>
-						</div>
-
-						<!-- 2: E-journals and databases tab -->
-						<div id="tab_ejournals" class="mitlibrarysearchtabcontent floatwrapper">
-							<div class="mitlibrarysearchform">
-								<h2>E-journals &amp; databases by title</h2>
-								<form name="az_user_form" method="get" accept-charset="UTF-8" action="http://owens.mit.edu/sfx_local/az/mit_all" class="searchform" id="verasearch">
-									<input type="hidden" name="param_perform_save" value="searchTitle" />
-									<input type="hidden" name="param_chinese_checkbox_save" value="0" />
-									<input type="hidden" name="param_type_save" value="textSearch" />
-									<input type="hidden" name="param_type_value" value="textSearch" />
-									<input type="hidden" name="param_jumpToPage_value" value="" />
-									<input type="hidden" name="param_services2filter_save" value="getAbstract" />
-									<input type="hidden" name="param_services2filter_save" value="getFullTxt" />
-
-									<!-- search text field -->
-									<div class="searchfield floatwrapper">
-										<label for="param_pattern_value">Ex: new eng j of med, AIP conf proc</label>
-										<input type="text" name="param_pattern_value" value="" id="param_pattern_value" class="searchtext" title="Enter words or parts of words in title (ex: new england journal med)" />
-										<button type="submit">SEARCH</button>
-									</div>
-
-									<!-- radio buttons -->
-									<div class="columns one-column floatwrapper">
-										<div class="column">
-											<div class="radiorow floatwrapper">
-												<input type="radio" name="param_textSearchType_value" id="contains" value="contains" checked="checked" class="radio" rel="Enter words or parts of words in title (ex: new england journal med)" /><label for="contains">Partial words in title</label>
-											</div>
-											<div class="radiorow floatwrapper">
-												<input type="radio" name="param_textSearchType_value" id="startsWith" value="startsWith" class="radio" rel="Enter first words in title (ex. journal of urban)" /><label for="startsWith">Title starts with</label>
-											</div>
-											<div class="radiorow floatwrapper">
-												<input type="radio" name="param_textSearchType_value" id="exactMatch" value="exactMatch" class="radio" rel="Enter complete title (ex. science)" /><label for="exactMatch">Exact title</label>
-											</div>
-										</div>
-									</div>
-
-								</form>
-							</div>
-							<!-- sidebar -->
-							<div class="mitlibrarysearchoptions">
-								See also:
-								<ul>
-									<li><a href="/barton">Barton Catalog</a></li>
-									<li><a href="/ejournals">Vera A-Z lists</a></li>
-								</ul>
-								Popular:
-								<ul>
-									<li><a href="/get/factiva">Factiva</a></li>
-									<li><a href="/get/ieee">IEEE Xplore</a></li>
-									<li><a href="/get/jstor">JSTOR</a></li>
-									<li><a href="/get/nature">Nature</a></li>
-									<li><a href="/get/pubmed">PubMed</a></li>
-									<li><a href="/get/science">Science</a></li>
-									<li><a href="/get/webofsci">Web of Science</a></li>
-								</ul>
-							</div>
-							<div class="whatami"><a class="panel" href="#">What am I searching?</a>
-						    <span>
-						    		<table>
-						    			<tr>
-						    				<th scope="row"><a href="/ejournals">Vera A-Z lists</a></th>
-						    				<td>Search by title for e-journals and databases provided by the MIT Libraries. Do not search for individual articles here.</td>
-						    			</tr>
-						    		</table>
-						    </span>
-						    </div>
-						</div>
-
-						<!-- 3: Books and media tab -->
-						<div id="tab_books" class="mitlibrarysearchtabcontent floatwrapper">
-							<div class="mitlibrarysearchform">
-								<h2>Books &amp; media</h2>
-								<form id="booksearch" name="booksearch" action="http://search.ebscohost.com/login.aspx" class="searchform" method="get">
-									<!-- container for hidden fields, inserted on form submit -->
-									<div class="hiddenfields"></div>
-
-									<!-- search text field -->
-									<div class="searchfield floatwrapper">
-										<label for="bookrequest">Ex: carbon nanotubes, game design</label>
-										<input type="text" id="bookrequest" name="request" class="searchtext" title="Enter title, author, etc. (ex: game design)" />
-										<button type="submit">SEARCH</button>
-									</div>
-
-									<!-- radio buttons -->
-									<div class="columns one-column floatwrapper">
-										<div class="column">
-											<div class="radiorow floatwrapper">
-												<input type="radio" name="BooksMediaSearch" id="Barton" value="Barton" checked="checked" class="radio" rel="Enter title, author, etc. (ex: game design)" /><label for="Barton"><strong>Barton:</strong> MIT catalog</label>
-												<!-- radio buttons -->
-												<div class="columns two-column bartonoptions floatwrapper">
-													<div class="column">
-														<div class="radiorow floatwrapper">
-															<input type="radio" name="code" id="bartonkeyword" value="find_WRD" checked="checked" class="radio" rel="Enter title, author, etc. (ex: game design)" /><label for="bartonkeyword">Keyword</label>
-														</div>
-														<div class="radiorow floatwrapper">
-															<input type="radio" name="code" id="bartontitle" value="scan_TTL" class="radio" rel="Enter first words in title (ex: introduction to fluid mechanics)" /><label for="bartontitle">Title begins with</label>	
-														</div>
-													</div>
-													<div class="column last">
-														<div class="radiorow floatwrapper">
-															<input type="radio" name="code" id="bartonauthor" value="scan_AUT" class="radio" rel="Enter author, last name first (ex: gates bill)" /><label for="bartonauthor">Author (last name first)</label>
-														</div>
-														<div class="radiorow floatwrapper">
-															<input type="radio" name="code" id="bartoncallnumber" value="scan_CND" class="radio" rel="Enter call# of item (ex: ta405.t5854)" /><label for="bartoncallnumber">Call number begins with</label>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="radiorow floatwrapper">
-												<input type="radio" name="BooksMediaSearch" id="WorldCat" value="WorldCat" class="radio" rel="Enter author, title, etc. (ex: game design)" /><label for="WorldCat"><strong>MIT's WorldCat:</strong> Libraries worldwide</label>					
-											</div>
-										</div>
-									</div>	
-								</form>
-							</div>
-							<!-- sidebar -->
-							<div class="mitlibrarysearchoptions">
-								Barton catalog:
-								<ul>
-									<li><a href="/barton-advanced">Advanced</a></li>
-									<li><a href="/barton-conferences">Conferences</a></li>
-									<li><a href="/barton-journals">Journals</a></li>
-									<li><a href="/barton-theses">MIT theses</a></li>
-								</ul>
-								Looking for non-MIT items?<br><a href="http://mit.worldcat.org/">MIT's WorldCat</a>
-							</div>
-							<div class="whatami"><a class="panel" href="#">What am I searching?</a>
-								<span>
-									<table>
-										<tr class="barton">
-											<th scope="row"><a href="/barton">Barton</a></th>
-											<td>The MIT Libraries catalog.  Search for and request items held in the MIT Libraries collections.</td>
-										</tr>
-										<tr class="worldcat">
-											<th scope="row"><a href="http://mit.worldcat.org/">MIT's WorldCat</a></th>
-											<td>A worldwide catalog. Search for and request items in the MIT Libraries and libraries beyond MIT, including Borrow Direct and the Boston Library Consortium.</td>
-										</tr>
-									</table>
-								</span>
-							</div>
-						</div>
-
-						<!-- 4: Course reserves tab -->
-						<div id="tab_coursereserves" class="mitlibrarysearchtabcontent floatwrapper">
-							<div class="mitlibrarysearchform">
-								<h2>Course reserves</h2>
-								<form name="getInfo" action="http://library.mit.edu/F/" class="searchform barton" id="bartoncoursesearch" method="get">
-									<div class="hiddenfields">
-										<input type='hidden' name='func' value=''/>
-									</div>
-
-									<!-- search text field -->
-									<div class="searchfield floatwrapper">
-										<label for="coursereservesrequest">Ex: 18.01, STS.320, 21F.108</label>
-										<input type="text" name="request" value="" id="coursereservesrequest" class="searchtext" title="Enter course number (ex: 18.01)" />
-										<button type="submit">SEARCH</button>
-									</div>
-
-									<!-- radio buttons -->
-									<div class="columns one-column floatwrapper">
-										<div class="column">
-											<div class="radiorow floatwrapper">
-												<input name="code" id="coursenumber" value="scan_CNB" checked="checked" type="radio" class="radio" rel="Enter course number (ex: 18.01)" /><label for="coursenumber">Course number begins with</label>
-											</div>
-											<div class="radiorow floatwrapper">
-												<input name="code" id="instructorkeyword" value="find_WIN" type="radio" class="radio" rel="Enter instructor name (ex. smith)" /><label for="instructorkeyword">Instructor keyword</label>
-											</div>
-											<div class="radiorow floatwrapper">
-												<input name="code" id="coursenamekeyword" value="find_WOU" type="radio" class="radio" rel="Enter course name (ex: introduction robotics)" /><label for="coursenamekeyword">Course name keyword</label>
-											</div>
-										</div>
-									</div>
-								</form>
-							</div>
-							<!-- sidebar -->
-							<div class="mitlibrarysearchoptions">
-								<p><a href="/barton-reserves">Search reserves by title, author, call#</a></p>
-								<p><a href="/reserves">Reserves &amp; TIP FAQ</a></p>
-								<p>E-reserves in <a href="http://stellar.mit.edu">Stellar</a></p>
-								<p><a href="/help/course.html">Class guides</a></p>
-							</div>
-							<div class="whatami"><a class="panel" href="#">What am I searching?</a>
-								<span>        
-									<table>
-										<tr>
-											<th scope="row"><a href="/barton-reserves">Course reserves</a></th>
-											<td>Search the MIT Libraries catalog for materials that have been put aside for your courses.</td>
-										</tr>
-									</table>
-								</span>
-							</div>
-						</div>
-
-						<!-- 5: More search options tab -->
-						<div id="tab_more" class="mitlibrarysearchtabcontent floatwrapper">
-							<div class="mitlibrarysearchform">
-								<h2>More search options</h2>
-								<form name="othersearch" method="get" accept-charset="UTF-8" action="" class="searchform" id="othersearch">
-									<div class="hiddenfields"></div>
-
-									<!-- search text field -->
-									<div class="searchfield floatwrapper">
-										<label for="searchtext">Ex: edgerton, mit press, carbon nanotubes</label>
-										<input type="text" name="searchtext" value="" id="searchtext" class="searchtext" title="Enter words or parts of words in title (ex: new england journal med)" />
-										<button type="submit">SEARCH</button>
-									</div>
-
-									<!-- radio buttons -->
-									<div class="columns one-column floatwrapper">
-										<div class="column">
-											<div class="radiorow floatwrapper">
-												<input type="radio" name="searchTarget" checked="checked" id="dspace" value="dspace" class="radio" rel="Enter first words in title (ex. journal of urban)" /><label for="dspace"><strong>DSpace@MIT:</strong> MIT theses and scholarly papers</label>
-											</div>
-											<div class="radiorow floatwrapper">
-												<input type="radio" name="searchTarget" id="dome" value="dome" class="radio" rel="Ex: hagia sophia, kevin lynch" /><label for="dome"><strong>Dome:</strong> MIT Libraries’ digital images, maps, etc.</label>
-											</div>
-											<div class="radiorow floatwrapper">
-												<input type="radio" name="searchTarget" id="archnet" value="archnet" class="radio" rel="Ex: mosque" /><label style="width:350px;" for="archnet"><strong>ArchNet Digital Library:</strong> architecture in Muslim societies</label>
-											</div>
-										</div>
-									</div>
-								</form>
-							</div>
-							<!-- sidebar -->
-							<div class="mitlibrarysearchoptions">
-								Looking for geospatial data? <a href="http://arrowsmith.mit.edu/">GeoWeb</a>
-								<br><br>
-								Help finding:
-								<ul>
-									<li><a href="http://libguides.mit.edu/finding-data">Data</a></li>
-									<li><a href="http://libguides.mit.edu/findingimages">Images</a></li>
-									<li><a href="/archives">Archival materials</a></li>
-								</ul>
-							</div>
-							<div class="whatami"><a class="panel" href="#">What am I searching?</a>
-						    	<span>
-						    		<table>
-						    			<tr>
-						    				<th scope="row"><a href="http://dspace.mit.edu/">DSpace@MIT</a></th>
-						    				<td>Search MIT's institutional repository for MIT's digital research materials including theses, conference papers, technical reports, preprints and more.</td>
-						    			</tr>
-						    			<tr>
-						    				<th scope="row"><a href="http://dome.mit.edu/">Dome</a></th>
-						    				<td>Search digital images, maps, and other documents from the MIT Libraries’ collections.</td>
-						    			</tr>
-						    			<tr>
-						    				<th scope="row"><a href="https://archnet.org/">Archnet</a></th>
-						    				<td>Search an international online community for architects, planners, urban designers, landscape architects, conservationists, and scholars, with a focus on Muslim cultures and civilizations.</td>
-						    			</tr>
-						    		</table>
-						        </span>
-						    </div>
-						</div>
-
-						<!-- Search box content for those without Javascript -->
-						<div id="nojstabreplacement" class="nojs">
-							<div class="mitlibrarysearchform">
-								<h2><span>MIT</span> Libraries Searches</h2>
-								<ul class="linklist">
-									<li>Start your search with <a href="/bartonplus">BartonPlus</a></li>
-									<li>E-Journals and databases: <a href="/ejournals">Vera A-Z lists</a></li>
-									<li>Books and media: <a href="/barton">Barton Catalog</a> and <a href="/worldcat">MIT's WorldCat</a></li>
-									<li><a href="/barton-reserves">Course Reserves</a></li>
-									<li>More search options: <a href="/dspace">DSpace@MIT</a>, <a href="/dome">Dome</a> and <a href="http://archnet.org">ArchNet</a></li>
-								</ul>
-							</div>
-						</div>
-				
-					</div>
-					<div class="searchshadowbot png"> </div>				
-				</div>
-			</div>
-		</div>	
-		
-		<!-- Featured Image -->
-		<?php
-			$featureImage = get_field("photo");
-			$featureImageUrl = get_field("photo_url");
-			if ($featureImage != ""): 
-		
-				if ($featureImageUrl != ""): ?>
-					<a href="<?php echo $featureImageUrl; ?>"><img src="<?php echo $featureImage; ?>" width="222" height="189" alt="" title="" id="featuredimage" /></a>
-				<?php else: ?>
-					<img src="<?php echo $featureImage; ?>" width="222" height="189" alt="" title="" id="featuredimage" />
-				
-		<?php 
-		
-				endif; 
-			else: ?>
-		<a href="/hayden/24study.html"><img src="/images/photos/24hr-1.jpg" width="222" height="189" alt="24 hour study space" title="24 hour study space, Hayden" id="featuredimage" /></a>
-		
-		<?php endif; ?>
-
-	</div>
-	
-	<!-- Overall content container (both content and sidebar) -->
-	<div id="contentcontainer" class="floatwrapper">
-		<div class="contentouterwrapper">
-			<div class="contentshadowwrapper">
-				<div class="contentshadowmid">
-		
-					<!-- Content area (at right, with gradient) -->
-					<div id="content" class="mainContent">
-						
-						<?php get_template_part('inc/alert'); ?>
-
-						<h2>Library Services</h2>
-						
-						<h3 class="allservices"><a href="/about/site-search">Services A-Z</a></h3>
-			
-						<!-- List of Library Services, first row -->
-						<div class="libraryservices columns three-column floatwrapper">
-						  <!-- Guides list -->
-						  <div class="column">
-						   <h3><a href="/locations">Hours &amp; locations</a></h3>
-						   <ul class="linklist">
-						    <li><a href="/hours">Hours</a></li>
-						    <li><a href="/locations">List of libraries</a></li>
-						    <li><a href="/study">Study spaces</a> <span class="pipe">|</span> <a href="/study/reserve/">Reserve a group study space</a></li>
-						    <li><a href="/exhibits">Exhibits &amp; galleries</a></li>
-						    <li><a href="/map">Map</a></li>
-						  </ul>
-						</div>
-
-						<!-- Borrow or request list -->
-						<div class="column">
-						  <h3><a href="/borrow">Borrow &amp; request</a></h3>
-						  <ul class="linklist">
-						    <li><a href="/barton-account">Your Account</a></li>
-						    <li><a href="/getit">Request from non-MIT libraries:</a> <a href="/ilb">ILB,</a> <a href="/ordering/borrowdirect.html">BorrowDirect</a></li>
-						    <li><a href="http://libguides.mit.edu/circfaq">Circulation FAQ</a></li>
-						    <li><a href="/reserves">Course reserves &amp; TIP FAQ</a></li>
-						    <li><a href="/ordering/non-mit-access/index.html">Visit non-MIT libraries:</a> <a href="/harvard"> Harvard,</a> <a href="/blc">BLC</a></li>
-						    <li><a href="/suggest-purchase">Suggest a purchase</a></li>
-						    <li><a href="/borrow">More&#8230;</a></li>
-						  </ul>
-						</div>
-
-						<!-- Help list -->
-						<div class="column last">
-						  <h3><a href="/research-support">Expert help</a></h3>
-						  <ul class="linklist">
-						    <li><a href="/ask">Ask Us!</a></li>
-						    <li><a href="/experts">Librarians &amp; subject experts</a></li>
-						    <li><a href="/research-guides">Research guides: tools and databases for your topic</a></li>
-						    <li><a href="http://libguides.mit.edu/classguides">Class &amp; program guides</a></li>
-						    <li><a href="/about/faqs/remote.html">E-resource troubleshooting</a></li>
-						    <li><a href="/research-support">More&#8230;</a></li>
-						  </ul>
-						</div>
-						</div>
-
-						<!-- List of Library Services, second row -->
-						<div class="libraryservices columns three-column floatwrapper">
-
-						 <!-- Tools list -->
-						 <div class="column">
-						  <h3><a href="/research-support">Publishing &amp; writing</a></h3>
-						  <ul class="linklist">
-						    <li><a href="scholarly">Scholarly publishing: open access &amp; copyright</a></li>
-						    <li><a href="http://dspace.mit.edu/">DSpace@MIT: MIT scholarly papers</a></li>
-						    <li><a href="/oapolicy">Faculty open access policy</a></li>
-						    <li><a href="http://libguides.mit.edu/publishing">Getting published: tools &amp; help</a></li>
-						    <li><a href="/archives/thesis-specs/index.html">MIT thesis specifications</a></li>
-						    <li><a href="/research-support">More&#8230;</a></li>
-						  </ul>                            
-						</div>
-
-
-						<!-- Publishing list -->
-						<div class="column">
-						  <h3><a href="/productivity-tools">Productivity tools</a></h3>
-						  <ul class="linklist">
-						    <li><a href="/references">Citation software:</a> <a href="/endnote">EndNote,</a> <a href="/refworks">RefWorks,</a> <a href="/zotero">Zotero,</a> <a href="/mendeley">Mendeley</a></li>
-						    <li><a href="http://libguides.mit.edu/manage-info">Manage your information</a></li>
-						    <li><a href="/apps">Apps for academics</a></li>
-						    <li><a href="/libx">LibX</a></li>
-						    <li><a href="/help/rss/barton/">New books RSS feeds</a></li>
-						    <li><a href="/productivity-tools">More&#8230;</a></li>
-						  </ul>
-						</div>
-
-						<!-- Visit the library list -->
-						<div class="column last">
-						  <h3><a href="/about">About us</a></h3>
-						  <ul class="linklist">
-						    <li><a href="http://libguides.mit.edu/directory">Staff directory</a></li>
-						    <li><a href="/news">News</a></li>
-						    <li><a href="/calendar">Calendar of events: classes &amp; workshops</a></li>
-						    <li><a href="/about/guidelines.html">Guidelines for use</a></li>
-						    <li><a href="/about">More&#8230;</a></li>
-						  </ul>
-						</div>
-						</div>
-
+		</div>
+		<span class="label no-js-hidden">for</span>
+		<form id="bartonplus" class="input-submit flex-container active no-js-hidden">
+			<div class="hidden-fields"></div>
+			<input type="text" class="option-1 active" placeholder="ex: carbon nanotubes" autofocus="autofocus" tabindex="1">
+			<button type="submit">
+				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="16" viewBox="0 0 12 12" alt="search" class="icon-search">
+					<path d="M7.273 0.727q1.187 0 2.19 0.585t1.588 1.588 0.585 2.19-0.585 2.19-1.588 1.588-2.19 0.585q-1.278 0-2.33-0.676l-3.284 3.301q-0.295 0.284-0.688 0.284-0.403 0-0.688-0.284t-0.284-0.688 0.284-0.688l3.301-3.284q-0.676-1.051-0.676-2.33 0-1.188 0.585-2.19t1.588-1.588 2.19-0.585zM7.273 8q0.591 0 1.128-0.23t0.929-0.622 0.622-0.929 0.23-1.128-0.23-1.128-0.622-0.929-0.929-0.622-1.128-0.23-1.128 0.23-0.929 0.622-0.622 0.929-0.23 1.128 0.23 1.128 0.622 0.929 0.929 0.622 1.128 0.23z"></path>
+				</svg>
+			</button>
+		</form>
+		<form id="vera" class="no-js-hidden">
+			<div class="hidden-fields"></div>
+			<input type="text" class="option-2" placeholder="ex: new eng j of med, AIP conf proc">
+			<button type="submit">
+				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="16" viewBox="0 0 12 12" alt="search" class="icon-search">
+					<path d="M7.273 0.727q1.187 0 2.19 0.585t1.588 1.588 0.585 2.19-0.585 2.19-1.588 1.588-2.19 0.585q-1.278 0-2.33-0.676l-3.284 3.301q-0.295 0.284-0.688 0.284-0.403 0-0.688-0.284t-0.284-0.688 0.284-0.688l3.301-3.284q-0.676-1.051-0.676-2.33 0-1.188 0.585-2.19t1.588-1.588 2.19-0.585zM7.273 8q0.591 0 1.128-0.23t0.929-0.622 0.622-0.929 0.23-1.128-0.23-1.128-0.622-0.929-0.929-0.622-1.128-0.23-1.128 0.23-0.929 0.622-0.622 0.929-0.23 1.128 0.23 1.128 0.622 0.929 0.929 0.622 1.128 0.23z"></path>
+				</svg>
+			</button>
+		</form>
+		<form id="barton" class="no-js-hidden">
+			<div class="hidden-fields"></div>
+			<input type="text" class="option-3 searchtext" id="bookrequest" placeholder="ex: carbon nanotubes, game design">
+			<button type="submit">
+				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="16" viewBox="0 0 12 12" alt="search" class="icon-search">
+					<path d="M7.273 0.727q1.187 0 2.19 0.585t1.588 1.588 0.585 2.19-0.585 2.19-1.588 1.588-2.19 0.585q-1.278 0-2.33-0.676l-3.284 3.301q-0.295 0.284-0.688 0.284-0.403 0-0.688-0.284t-0.284-0.688 0.284-0.688l3.301-3.284q-0.676-1.051-0.676-2.33 0-1.188 0.585-2.19t1.588-1.588 2.19-0.585zM7.273 8q0.591 0 1.128-0.23t0.929-0.622 0.622-0.929 0.23-1.128-0.23-1.128-0.622-0.929-0.929-0.622-1.128-0.23-1.128 0.23-0.929 0.622-0.622 0.929-0.23 1.128 0.23 1.128 0.622 0.929 0.929 0.622 1.128 0.23z"></path>
+				</svg>
+			</button>
+		</form>
+		<form id="worldcat" class="no-js-hidden">
+			<div class="hidden-fields"></div>
+			<input type="text" class="option-4" placeholder="ex: carbon nanotubes, game design">
+			<button type="submit">
+				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="16" viewBox="0 0 12 12" alt="search" class="icon-search">
+					<path d="M7.273 0.727q1.187 0 2.19 0.585t1.588 1.588 0.585 2.19-0.585 2.19-1.588 1.588-2.19 0.585q-1.278 0-2.33-0.676l-3.284 3.301q-0.295 0.284-0.688 0.284-0.403 0-0.688-0.284t-0.284-0.688 0.284-0.688l3.301-3.284q-0.676-1.051-0.676-2.33 0-1.188 0.585-2.19t1.588-1.588 2.19-0.585zM7.273 8q0.591 0 1.128-0.23t0.929-0.622 0.622-0.929 0.23-1.128-0.23-1.128-0.622-0.929-0.929-0.622-1.128-0.23-1.128 0.23-0.929 0.622-0.622 0.929-0.23 1.128 0.23 1.128 0.622 0.929 0.929 0.622 1.128 0.23z"></path>
+				</svg>
+			</button>
+		</form>	
+		<form id="course-reserves" class="no-js-hidden">
+			<div class="hidden-fields"></div>
+			<input type="text" id="coursereservesrequest" value="" class="option-5 searchtext" placeholder="ex: 18.01, STS.320, 21F.108">
+			<button type="submit">
+				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="16" viewBox="0 0 12 12" alt="search" class="icon-search">
+					<path d="M7.273 0.727q1.187 0 2.19 0.585t1.588 1.588 0.585 2.19-0.585 2.19-1.588 1.588-2.19 0.585q-1.278 0-2.33-0.676l-3.284 3.301q-0.295 0.284-0.688 0.284-0.403 0-0.688-0.284t-0.284-0.688 0.284-0.688l3.301-3.284q-0.676-1.051-0.676-2.33 0-1.188 0.585-2.19t1.588-1.588 2.19-0.585zM7.273 8q0.591 0 1.128-0.23t0.929-0.622 0.622-0.929 0.23-1.128-0.23-1.128-0.622-0.929-0.929-0.622-1.128-0.23-1.128 0.23-0.929 0.622-0.622 0.929-0.23 1.128 0.23 1.128 0.622 0.929 0.929 0.622 1.128 0.23z"></path>
+				</svg>
+			</button>
+		</form>
+		<form id="site-search" class="no-js-hidden">
+			<div class="hidden-fields"></div>
+			<input type="text" class="option-6" placeholder="ex: hours">
+			<button type="submit">
+				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="16" viewBox="0 0 12 12" alt="search" class="icon-search">
+					<path d="M7.273 0.727q1.187 0 2.19 0.585t1.588 1.588 0.585 2.19-0.585 2.19-1.588 1.588-2.19 0.585q-1.278 0-2.33-0.676l-3.284 3.301q-0.295 0.284-0.688 0.284-0.403 0-0.688-0.284t-0.284-0.688 0.284-0.688l3.301-3.284q-0.676-1.051-0.676-2.33 0-1.188 0.585-2.19t1.588-1.588 2.19-0.585zM7.273 8q0.591 0 1.128-0.23t0.929-0.622 0.622-0.929 0.23-1.128-0.23-1.128-0.622-0.929-0.929-0.622-1.128-0.23-1.128 0.23-0.929 0.622-0.622 0.929-0.23 1.128 0.23 1.128 0.622 0.929 0.929 0.622 1.128 0.23z"></path>
+				</svg>
+			</button>
+		</form>
+		<span class="label no-js-hidden">by</span>
+		<div class="wrap-select--keywords flex-container active no-js-hidden">
+			<select name="" id="" class="keywords option-1 search-by active" tabindex="3" autocomplete="off">
+				<option value="">Keyword</option>
+				<option value="TI ">Title</option>
+				<option value="AU ">Author</option>
+			</select>
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="8.071px" height="14px" viewBox="0 0 8.071 14" enable-background="new 0 0 8.071 14" xml:space="preserve" class="select-arrows"><path d="M0.069 8.74c0.08-0.159 0.252-0.264 0.436-0.274 0.023 0 1.743-0.104 3.531-0.104s3.508 0.104 3.53 0.104C7.751 8.476 7.911 8.581 8.003 8.74c0.092 0.161 0.092 0.356 0 0.517 -1.364 2.431-3.508 4.517-3.6 4.598 -0.206 0.194-0.528 0.194-0.734 0 -0.091-0.081-2.235-2.167-3.6-4.598C-0.023 9.096-0.023 8.901 0.069 8.74M8.003 5.259c-0.08 0.16-0.252 0.264-0.437 0.275 -0.022 0-1.742 0.103-3.53 0.103S0.528 5.535 0.505 5.535C0.321 5.523 0.161 5.419 0.069 5.259c-0.092-0.161-0.092-0.355 0-0.516 1.365-2.431 3.508-4.517 3.6-4.598 0.206-0.194 0.528-0.194 0.734 0 0.092 0.081 2.235 2.167 3.6 4.598C8.095 4.904 8.095 5.099 8.003 5.259"/></svg>
+		</div>
+		<div class="wrap-select--keywords flex-container long no-js-hidden">
+			<select name="" id="" class="keywords search-by option-2" tabindex="3" autocomplete="off">
+				<option value="contains">Partial Words In Title</option>
+				<option value="startsWith">Title Starts With</option>
+				<option value="exactMatch">Exact Title</option>
+			</select>
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="8.071px" height="14px" viewBox="0 0 8.071 14" enable-background="new 0 0 8.071 14" xml:space="preserve" class="select-arrows"><path d="M0.069 8.74c0.08-0.159 0.252-0.264 0.436-0.274 0.023 0 1.743-0.104 3.531-0.104s3.508 0.104 3.53 0.104C7.751 8.476 7.911 8.581 8.003 8.74c0.092 0.161 0.092 0.356 0 0.517 -1.364 2.431-3.508 4.517-3.6 4.598 -0.206 0.194-0.528 0.194-0.734 0 -0.091-0.081-2.235-2.167-3.6-4.598C-0.023 9.096-0.023 8.901 0.069 8.74M8.003 5.259c-0.08 0.16-0.252 0.264-0.437 0.275 -0.022 0-1.742 0.103-3.53 0.103S0.528 5.535 0.505 5.535C0.321 5.523 0.161 5.419 0.069 5.259c-0.092-0.161-0.092-0.355 0-0.516 1.365-2.431 3.508-4.517 3.6-4.598 0.206-0.194 0.528-0.194 0.734 0 0.092 0.081 2.235 2.167 3.6 4.598C8.095 4.904 8.095 5.099 8.003 5.259"/></svg>
+		</div>
+		<div class="wrap-select--keywords flex-container long no-js-hidden">
+			<select name="" id="" class="keywords search-by option-3" tabindex="3" autocomplete="off">
+				<option value="find_WRD">Keyword</option>
+				<option value="scan_TTL">Title starts with</option>
+				<option value="scan_AUT">Author (last name first)</option>
+				<option value="scan_CND">Call number starts with</option>
+			</select>
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="8.071px" height="14px" viewBox="0 0 8.071 14" enable-background="new 0 0 8.071 14" xml:space="preserve" class="select-arrows"><path d="M0.069 8.74c0.08-0.159 0.252-0.264 0.436-0.274 0.023 0 1.743-0.104 3.531-0.104s3.508 0.104 3.53 0.104C7.751 8.476 7.911 8.581 8.003 8.74c0.092 0.161 0.092 0.356 0 0.517 -1.364 2.431-3.508 4.517-3.6 4.598 -0.206 0.194-0.528 0.194-0.734 0 -0.091-0.081-2.235-2.167-3.6-4.598C-0.023 9.096-0.023 8.901 0.069 8.74M8.003 5.259c-0.08 0.16-0.252 0.264-0.437 0.275 -0.022 0-1.742 0.103-3.53 0.103S0.528 5.535 0.505 5.535C0.321 5.523 0.161 5.419 0.069 5.259c-0.092-0.161-0.092-0.355 0-0.516 1.365-2.431 3.508-4.517 3.6-4.598 0.206-0.194 0.528-0.194 0.734 0 0.092 0.081 2.235 2.167 3.6 4.598C8.095 4.904 8.095 5.099 8.003 5.259"/></svg>
+		</div>
+		<div class="wrap-select--keywords flex-container no-js-hidden">
+			<select name="" id="" class="keywords search-by option-4" tabindex="3" autocomplete="off">
+				<option value="keyword">Keyword</option>
+				<option value="author">Author</option>
+				<option value="title">Title</option>
+			</select>
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="8.071px" height="14px" viewBox="0 0 8.071 14" enable-background="new 0 0 8.071 14" xml:space="preserve" class="select-arrows"><path d="M0.069 8.74c0.08-0.159 0.252-0.264 0.436-0.274 0.023 0 1.743-0.104 3.531-0.104s3.508 0.104 3.53 0.104C7.751 8.476 7.911 8.581 8.003 8.74c0.092 0.161 0.092 0.356 0 0.517 -1.364 2.431-3.508 4.517-3.6 4.598 -0.206 0.194-0.528 0.194-0.734 0 -0.091-0.081-2.235-2.167-3.6-4.598C-0.023 9.096-0.023 8.901 0.069 8.74M8.003 5.259c-0.08 0.16-0.252 0.264-0.437 0.275 -0.022 0-1.742 0.103-3.53 0.103S0.528 5.535 0.505 5.535C0.321 5.523 0.161 5.419 0.069 5.259c-0.092-0.161-0.092-0.355 0-0.516 1.365-2.431 3.508-4.517 3.6-4.598 0.206-0.194 0.528-0.194 0.734 0 0.092 0.081 2.235 2.167 3.6 4.598C8.095 4.904 8.095 5.099 8.003 5.259"/></svg>
+		</div>
+		<div class="wrap-select--keywords flex-container long no-js-hidden">
+			<select name="" id="" class="keywords search-by option-5" tabindex="3" autocomplete="off">
+				<option value="scan_CNB">Course number starts with</option>
+				<option value="find_WIN">Instructor keyword</option>
+				<option value="find_WOU">Course name keyword</option>
+			</select>
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="8.071px" height="14px" viewBox="0 0 8.071 14" enable-background="new 0 0 8.071 14" xml:space="preserve" class="select-arrows"><path d="M0.069 8.74c0.08-0.159 0.252-0.264 0.436-0.274 0.023 0 1.743-0.104 3.531-0.104s3.508 0.104 3.53 0.104C7.751 8.476 7.911 8.581 8.003 8.74c0.092 0.161 0.092 0.356 0 0.517 -1.364 2.431-3.508 4.517-3.6 4.598 -0.206 0.194-0.528 0.194-0.734 0 -0.091-0.081-2.235-2.167-3.6-4.598C-0.023 9.096-0.023 8.901 0.069 8.74M8.003 5.259c-0.08 0.16-0.252 0.264-0.437 0.275 -0.022 0-1.742 0.103-3.53 0.103S0.528 5.535 0.505 5.535C0.321 5.523 0.161 5.419 0.069 5.259c-0.092-0.161-0.092-0.355 0-0.516 1.365-2.431 3.508-4.517 3.6-4.598 0.206-0.194 0.528-0.194 0.734 0 0.092 0.081 2.235 2.167 3.6 4.598C8.095 4.904 8.095 5.099 8.003 5.259"/></svg>
+		</div>
+		<div class="wrap-select--keywords flex-container no-js-hidden">
+			<select name="" id="" class="keywords search-by option-6" tabindex="3" disabled>
+				<option value="keyword">Keyword</option>
+			</select>
+		</div>
+		<a href="http://libraries.mit.edu/bartonplus-advanced" class="search-advanced bartonplus active no-js-hidden">Go to BartonPlus advanced search</a>
+		<a href="http://libraries.mit.edu/barton-advanced" class="search-advanced barton no-js-hidden">Go to Barton advanced search</a>
+		<a href="http://mit.worldcat.org/advancedsearch" class="search-advanced worldcat no-js-hidden">Go to WorldCat advanced search</a>
+		<a href="http://libraries.mit.edu/barton-reserves" class="search-advanced course-reserves no-js-hidden">Go to Course Reserves advanced search</a>
+	</div><!-- end div.search-main -->
+	<div class="content-main flex-container">
+		<div class="col-1 flex-item">
+			<div class="hours-locations">
+				<h2>Hours &amp; locations</h2>
+				<div class="location">
+					<a href="/barker" class="img-loc barker"></a>
+					<div class="wrap-loc-info">
+						<h3><a class="name-location" href="/barker">Barker Library</a></h3><div class="hours" data-location-hours="Barker Library"></div> <a href="/study/24x7/" class="special">24/7 Study</a><div class="location-info"><a href="/locations/#!barker-library" class="map-location">10-500</a><a href="tel:617-253-0968" class="phone"><span class="number">617-253-0968</span></a></div>
 					</div>
 				</div>
-				<div class="contentshadowbot png"> </div>
-			</div>
-		</div>
-		
-		<!-- Sidebar area on left -->
-		<div id="sidebar">
-			
-			<?php get_template_part( 'inc/homepage', 'news' ); ?>
-						
-			<!-- Ask the Expert section -->
-			<div class="section last">
-			<h2>Ask the expert</h2>
+				<div class="location">
+					<a href="/dewey" class="img-loc dewey"></a>
+					<div class="wrap-loc-info">
+						<h3><a class="name-location" href="/dewey">Dewey Library</a></h3><div class="hours" data-location-hours="Dewey Library"></div> <a href="/study/24x7/" class="special">24/7 Study</a><div class="location-info"><a href="/locations/#!dewey-library" class="map-location">E53-100</a><a href="tel:617-253-5676" class="phone"><span class="number">617-253-5676</span></a></div>
+					</div>
+				</div>
+				<div class="location">
+					<a href="/hayden" class="img-loc hayden"></a>
+					<div class="wrap-loc-info">
+						<h3><a class="name-location" href="/hayden">Hayden Library</a></h3><div class="hours" data-location-hours="Hayden Library"></div> <a href="/study/24x7/" class="special">24/7 Study</a><div class="location-info"><a href="/locations/#!hayden-library" class="map-location">14S-100</a><a href="tel:617-253-5671" class="phone"><span class="number">617-253-5671</span></a></div>
+					</div>
+				</div>
+				<a href="#0" class="show-more hidden-non-mobile">
+					<svg class="icon-arrow-down" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="16.3" height="9.4" viewBox="2.7 8.3 16.3 9.4" enable-background="new 2.7 8.3 16.3 9.4" xml:space="preserve"><path d="M18.982 9.538l-8.159 8.159L2.665 9.538l1.284-1.283 6.875 6.875 6.875-6.875L18.982 9.538z"/></svg>Show 3 More
+				</a>
+				<div class="location hidden-mobile inactive-mobile">
+					<a href="/archives" class="img-loc archives"></a>
+					<div class="wrap-loc-info">
+						<h3><a class="name-location" href="/archives">Institute Archives &amp; Special Collections</a></h3><div class="hours" data-location-hours="Institute Archives & Special Collections"></div><div class="location-info"><a href="/locations/#!institute-archives-special-collections" class="map-location">14N-118</a><a href="tel:617-253-5136" class="phone"><span class="number">617-253-5136</span></a></div>
+					</div>
+				</div>
+				<div class="location hidden-mobile inactive-mobile">
+					<a href="/music" class="img-loc lewis"></a>
+					<div class="wrap-loc-info">
+						<h3><a class="name-location" href="/music">Lewis Music Library</a></h3><div class="hours" data-location-hours="Lewis Music Library"></div><div class="location-info"><a href="/locations/#!lewis-music-library" class="map-location">14E-109</a><a href="tel:617-253-5689" class="phone"><span class="number">617-253-5689</span></a></div>
+					</div>
+				</div>
+				<div class="location hidden-mobile inactive-mobile">
+					<a href="/rotch" class="img-loc rotch"></a>
+					<div class="wrap-loc-info">
+						<h3><a class="name-location" href="/rotch">Rotch Library</a></h3><div class="hours" data-location-hours="Rotch Library"></div><div class="location-info"><a href="/locations/#!rotch-library" class="map-location">7-238</a><a href="tel:617-258-5592" class="phone"><span class="number">617-258-5592</span></a></div>
+					</div>
+				</div>
+				<a href="/hours" class="button-primary--green full add-margin link-hours">All hours &amp; locations</a>
+				<div class="extra">
+					<a href="/map" class="button-tertiary link-map more"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve"><path d="M16 2.922v12.695c0 0.211-0.117 0.336-0.273 0.336 -0.055 0-0.117-0.016-0.18-0.039l-4.344-2.109c-0.125-0.055-0.281-0.086-0.438-0.086 -0.172 0-0.336 0.031-0.461 0.094l-4.109 2.086C6.062 15.969 5.883 16 5.711 16c-0.156 0-0.305-0.023-0.422-0.07l-4.828-2.141C0.203 13.68 0 13.359 0 13.078V0.383c0-0.219 0.117-0.344 0.289-0.344 0.055 0 0.109 0.008 0.172 0.031l4.828 2.141c0.117 0.047 0.266 0.078 0.422 0.078 0.172 0 0.352-0.039 0.484-0.102l4.109-2.086C10.43 0.039 10.594 0 10.766 0c0.156 0 0.312 0.031 0.438 0.086l4.344 2.109C15.797 2.312 16 2.641 16 2.922zM5.5 14.805V3.484L1 1.523v11.32L5.5 14.805zM10.5 12.508V1.242L6 3.492v11.266L10.5 12.508zM15 3.133l-4-1.906v11.289l4 1.898V3.133z"/></svg> View map</a>
+					<a href="/study" class="button-tertiary link-study more"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="14" height="16" viewBox="0 0 14 16" enable-background="new 0 0 14.001 16" xml:space="preserve"><path d="M13.8 10.2C14.2 10.6 14 11 13.4 11H6c-1.1 0-2-0.9-2-2H1v6.5C1 15.8 0.8 16 0.5 16S0 15.8 0 15.5v-15C0 0.2 0.2 0 0.5 0S1 0.2 1 0.5V1h5.5c1.1 0 2 0.9 2 2h4.9c0.6 0 0.8 0.4 0.4 0.8l-1.9 2.4c-0.3 0.4-0.3 1.2 0 1.6L13.8 10.2zM7.5 8V3c0-0.6-0.4-1-1-1H1v6H7.5zM12.4 10L11.2 8.4c-0.6-0.8-0.6-2 0-2.8L12.4 4H9.5h-1v5H5c0 0.6 0.4 1 1 1H12.4z"/></svg> Find a study space</a>
+					<p>Quiet, group, and 24/7 study spaces available</p>
+				</div><!-- end div.extra -->
+			</div><!-- end div.hours-locations -->
+		</div><!-- end div.col-1 -->
+		<div class="col-2 flex-item">
+			<div id="home-posts-news" class="posts--preview news-events">
+				<h2>News &amp; events</h2>
+				<div class="flex-container">
+					<!-- loading element -->
+					<div class="spinner">
+						<div class="rect1"></div>
+						<div class="rect2"></div>
+						<div class="rect3"></div>
+						<div class="rect4"></div>
+						<div class="rect5"></div>
+					</div>
+				</div>
+				<a href="/news" class="button-primary--orange link-news">All news &amp; events</a>
+			</div><!-- end div.news-events -->
+			<div class="guides-experts">
+				<h2>Research guides &amp; experts</h2>
+				<p class="caption">Specialized guides for every research interest.</p>
+				<p class="caption">Not sure where to start? <a href="/ask" class="link-ask no-underline"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="16" height="16" viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve"><path d="M16 5v2c0 2.8-2.2 5-5 5h-1l-5 4v-4c-2.7 0-5-2.2-5-5V5c0-2.7 2.3-5 5-5h6C13.8 0 16 2.3 16 5zM15 5c0-2.2-1.8-4-4-4H5C2.8 1 1 2.8 1 5v2c0 2.2 1.8 4 4 4h1v1 1.9l3.4-2.7L9.6 11H10h1c2.2 0 4-1.8 4-4V5zM13 4.8C13 4.9 12.9 5 12.8 5h-9.5C3.1 5 3 4.9 3 4.8S3.1 4.5 3.3 4.5h9.5C12.9 4.5 13 4.6 13 4.8zM13 7.3c0 0.1-0.1 0.3-0.2 0.3h-9.5C3.1 7.5 3 7.4 3 7.3S3.1 7 3.3 7h9.5C12.9 7 13 7.1 13 7.3z"/></svg> Ask Us</a></p>
+				<div id="guide-list-home" class="guide-list">
+				</div>
+				<div class="experts-group flex-container">
+					<div class="expert">
+					</div>
+					<div class="expert">
+					</div>
+					<div class="expert">
+					</div>
+					<div class="expert">
+					</div>
+				</div>
+				<a href="/experts" class="button-primary--magenta view-experts">All <span class="count">32</span> experts</a>
+			</div><!-- end div.guides-experts -->
+		</div><!-- end div.col-2 -->
+	</div><!-- end div.content-main -->
+
 <?php 
-
-$arexpert = get_field("featured_expert");
-
-
-if ($arexpert) {
-	$expertIndex = array_rand($arexpert);
-	$expert = $arexpert[$expertIndex];
-	
-	
-	$name = $expert->post_title;
-	$bio = $expert->post_excerpt;
-	$url = get_post_meta($expert->ID, "expert_url", 1);
-	
-	if (has_post_thumbnail($expert->ID)) {
-		$thumb = get_the_post_thumbnail($expert->ID, array(108,108));
-	} else {
-		$thumb = "";
-	}
-		
+	get_footer();
 ?>
- 
- <a href="<?php echo $url; ?>"><?php echo $thumb ?></a><br/>
- <h3><a href="<?php echo $url; ?>"><?php echo $name; ?></a></h3>
-		<p><?php echo $bio; ?></p>
-				<ul class="linklist">
- <li><a href="<?php echo $url; ?>">How can <?php echo $name; ?> help you?</a></li>
-<li><a href="http://libguides.mit.edu/content.php?pid=110460&sid=1651114">More experts</a></li>
-      </ul>
-<?php 
-	} else {
-?>
- <a href="/profile/willer"><img src="/img/staff-photos/willer-100x100.jpg" width="100" alt="Ann Marie Willer" class="portrait" /></a>
- <h3><a href="/profile/willer">Ann Marie Willer</a></h3>
-		<p>Preservation Librarian</p>
-				<ul class="linklist">
- <li><a href="/profile/willer">How can Ann Marie help you?</a></li>
-<li><a href="http://libguides.mit.edu/content.php?pid=110460&sid=1651114">More experts</a></li>
-      </ul>
-<?php } ?>
-</div>
-
-			
-		</div>
-		
-		<!-- Footer area -->
-		<div id="footer" class="floatwrapper">
-			
-			<!-- Footer nav -->
-			<div id="footernav">
-				<p><a href="/faculty">Faculty</a> | <a href="/alumni">Alumni</a> | <a href="/visitors">Visitors</a> | <a href="/giving/">Giving</a> | <a href="/mobile">Mobile version</a></p>
-				<p><a href="http://libguides.mit.edu/directory">Staff Directory</a> | <a href="/about/contact.html">Contact us</a></p>
-		  </div>
-			
-			<!-- Social networking links -->
-			<div id="socialnetworking">
-				<h2 class="follow">Follow MIT Libraries:</h2>
-				<ul class="floatwrapper">
-					<li><a href="http://twitter.com/mitlibraries" class="icon twitter" title="Twitter">Twitter</a></li>
-					<li><a href="/facebook" class="icon facebook" title="Facebook">Facebook</a></li>
-					<li><a href="https://foursquare.com/mitlibraries" class="icon foursquare" title="Foursquare">Foursquare</a></li>
-					<li><a href="/news/rss-feeds/" class="icon rss" title="RSS Feeds">RSS Feeds</a></li>
-					<li><a href="http://libguides.mit.edu/content.php?pid=104796&sid=788991" class="icon google" title="Google Scholar">Google Scholar</a></li>
-					<li><a href="http://www.flickr.com/photos/mit-libraries/" class="icon flickr" title="Flickr">Flickr</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	
-	<!-- MIT footer -->
-	<div id="mitfooter">
-		<a href="http://web.mit.edu/"><img src="images/logo_mit.png" width="54" height="28" alt="MIT" id="mitlogo" class="png" /></a>
-		<img src="images/logo_mit_printonly.gif" width="54" height="28" alt="MIT" class="printonly" />
-		<div class="address">
-			<a href="http://web.mit.edu/">Massachusetts Institute of Technology</a><br />
-			77 Massachusetts Avenue<br />
-			Cambridge MA 02139-4307
-		</div>
-	</div>
-</div>
-
-</body>
-</html>

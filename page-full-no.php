@@ -27,7 +27,7 @@ get_header(); ?>
 		
 		<div id="stage" class="inner column1 row">
 	
-			<div class="title span12">
+			<div class="title-page">
 				<?php if ($isRoot): ?>
 				<h1><?php echo $section->post_title; ?></h1>
 				<?php else: ?>
@@ -35,16 +35,11 @@ get_header(); ?>
 				<?php endif; ?>
 			</div>
 			
-			<div id="content" class="span12">
+			<div class="content-main flex-container">
 	
 				<?php get_template_part( 'content', 'full-no' ); ?>
 			
 			</div>
-			
-			
-			
-		
-			<div class="clear"></div>
 		
 		</div>
 		

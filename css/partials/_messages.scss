@@ -1,0 +1,61 @@
+.maintenance {
+	.name-site {
+		color: $color-accent-primary;
+		span {
+			color: $white;
+			@include bp-small {
+				color: lighten($color-primary, 20%);
+			}
+		}
+		@include bp-small {
+			color: $color-primary;
+		}
+	}
+	&.siteTitle h1 {
+		@include bp-small {
+			border-bottom: none;
+		}
+	}
+}
+
+.content.maintenance {
+	background: url(#{$imagesPath}/dome-indoor-blurred-sfw.jpg) top;
+	background-size: cover;
+	border: none;
+	font-size: 2em;
+	line-height: 1.5;
+	margin: 2em auto 0;
+	padding: 5em;
+	width: 100%;
+	@include bp-small {
+		background: none;
+		margin: 0 auto;
+		padding: 0;
+	}
+	.message-maintenance {
+		background: #fffbf0;
+		background: hsla(45, 100.0000%, 97.0000%, 1.0000);
+		border-top: 4px solid #fc3;
+		box-shadow: 0 0 3px #333;
+		color: hsla(45, 100.0000%, 9.0000%, 1.0000);
+		font-size: 1.5em;
+		line-height: 1.5;
+		margin: 0 auto;
+		padding: 2em;
+		width: 72%;
+		h2 {
+			margin-bottom: 1em;
+		}
+		p {
+			font-size: 1.25rem;
+		}
+		@include bp-small {
+			border-right: 1px solid #ccc;
+			border-bottom: 1px solid #ccc;
+			border-left: 1px solid #ccc;
+			box-shadow: none;
+			padding: 0.667em;
+			width: 100%;
+		}
+	}
+}

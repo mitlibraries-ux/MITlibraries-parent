@@ -29,19 +29,19 @@ get_header(); ?>
 					  </div>
 					</form>
 
-					<h2><?php _e('Browse our <a href="/site-index.html">A-Z index of pages</a> on this site.', 'twentytwelve' ); ?></h2>
+					<h2><?php _e('Browse our <a href="/about/site-search">A-Z index of pages</a> on this site.', 'twentytwelve' ); ?></h2>
 
 					<p><?php _e('You can also check out these commonly-used resources:', 'twentytwelve'); ?></p>
 
 					<ul>
 						<li><?php _e('<a href="http://libraries.mit.edu/bartonplus">BartonPlus</a>', 'twentytwelve'); ?></li>
-						<li><?php _e('<a href="/about/staff.html">Staff directory</a>', 'twentytwelve'); ?></li>
-						<li><?php _e('<a href="/multi/research-guides.html">Research guides - databases by subject</a>', 'twentytwelve'); ?></li>
-						<li><?php _e('<a href="/shortcuts.html">Shortcuts to frequently used pages</a>', 'twentytwelve'); ?></li>
+						<li><?php _e('<a href="http://libguides.mit.edu/directory">Staff directory</a>', 'twentytwelve'); ?></li>
+						<li><?php _e('<a href="/research-guides">Research guides - databases by subject</a>', 'twentytwelve'); ?></li>
+						<li><?php _e('<a href="/about/shortcuts/">Shortcuts to frequently used pages</a>', 'twentytwelve'); ?></li>
 						<li><?php _e('<a href="http://web.mit.edu/search.html">MIT web site search</a>', 'twentytwelve'); ?></li>
 					</ul>
 
-					<p><?php _e('Need more help? <a href="/ask">Ask us</a> or <a href="/research/help-yourself.html">help yourself</a>.', 'twentytwelve'); ?></p>
+					<p><?php _e('<a href="/ask">Need more help? Ask us!</a>', 'twentytwelve'); ?></p>
 
 				</div><!-- .entry-content -->
 

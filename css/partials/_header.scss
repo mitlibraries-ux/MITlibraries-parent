@@ -1,0 +1,155 @@
+.header-main {
+	background: $color-background--dark;
+	@include span-12-12;
+	@include bp-tablet--portrait {
+		justify-content: space-between;
+		padding: 0 1em;
+	}
+	> [class*="link"] {
+		color: #fff;
+		order: 400;
+		text-transform: uppercase;
+		@include bp-mobile--only {
+			font-size: 0.4375em;
+		}
+	}
+	.logo-mit-lib {
+		fill: $color-text--light;
+		svg {
+			@include rem-first(max-height, 2.75);
+			height: auto;
+		}
+		.arch {
+			display: none;
+			@include bp-tablet--portrait {
+				display: block;
+			}
+		}
+	}
+	.link-account {
+		margin-right: 1em;
+		margin-left: 2em;
+	}
+	.link-logo-mit {
+		display: none;
+		max-width: 59px;
+		@include rem-first(max-width, 3.6875);
+		@include bp-tablet--portrait {
+			align-self: flex-end;
+			display: block;
+			order: 4;
+			@include rem-first(margin-bottom, 0.5);
+		}
+	}
+	.link-site-search {
+		margin-left: auto;
+	}
+	.link-account,
+	.link-site-search {
+		align-self: flex-end;
+		display: flex;
+		flex-direction: column;
+		line-height: 1; // To match MIT Lib Logo line-height
+		@include rem-first(padding-bottom, 0.5);
+		svg {
+			fill: #c8c8c8;
+			margin: 0 auto;
+			padding-bottom: 0.25em;
+			width: 2em;
+		}
+		@include bp-tablet--portrait {
+			display: none;
+		}
+	}
+	.logo-mit {
+		display: none;
+		margin-left: 0.5em;
+		@include bp-tablet--portrait {
+			display: block;
+			height: auto;
+			@include rem-first(max-height, 2.8125);
+			fill: #b9b7b6;
+			.color {
+				fill: #fff;
+			}
+		}
+	}
+	.name-site {
+		@include rem-first(font-size, 0.9);
+		line-height: 1;
+		margin-top: -1.25em; // Accounts for removal of SVG arch paths
+		margin-left: -0.25em; // Accounts for hamburger menu on mobile
+		order: 2;
+		@include rem-first(padding-bottom, 0.5);
+		@include rem-first(min-width, 4.8125);
+		@include bp-tablet--portrait {
+			margin-top: 0;
+			@include rem-first(margin-bottom, 0.5); // Matches nav link padding
+			@include rem-first(margin-left, 2.6875); // 3.6875 - 1 (header margin-left)
+			padding-top: 0.5em;
+			padding-bottom: 0;
+			max-width: 6.4375em;
+		}
+		@include bp-tablet--landscape-below {
+			@include rem-first(margin-left, 1);
+		}
+		@include bp-tablet--landscape-above {
+			@include rem-first(font-size, 1);
+		}
+		@include bp-tablet--portrait-below {
+			@include rem-first(font-size, 0.75);
+			margin-left: -0.25em; // Accounts for hamburger menu on mobile
+		}
+		a {
+			display: block;
+			width: auto;
+		}
+	}
+}
+
+.no-flexbox.flexboxlegacy {
+	.header-main {
+		.icon-account,
+		.icon-search {
+			@include bp-small {
+				@include rem-first(max-height, 1);
+				@include rem-first(max-width, 1);
+			}
+		}
+		.menu--toggle {
+			svg {
+				@include bp-small {
+					height: 100%;
+					padding: 1em;
+					width: auto;
+				}
+			}
+		}
+	}
+}
+
+.lte-ie9 {
+	.header-main {
+		height: 62px;
+		overflow: hidden;
+		* {
+			height: 62px;
+			overflow: hidden;
+		}
+		.name-site {
+			margin-left: 32px;
+			max-width: 103px;
+		}
+		.logo-mit {
+			margin-top: 24px;
+			margin-left: 40px;
+		}
+		.small {
+			@include rem-first(font-size, 0.625);
+			@include rem-first(padding-top, 1.625);
+			svg {
+				display: none;
+			}
+		}
+	}
+}

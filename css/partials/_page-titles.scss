@@ -1,0 +1,98 @@
+.title-page {
+	color: $black;
+	justify-content: space-between;
+	margin-bottom: calculateRem(28px);
+	@include rem-first(padding, 1);
+	@include bp-small {
+		background: none;
+		box-shadow: 0 0 5px #111;
+		color: #111;
+		display: block;
+		text-align: center;
+	}
+	.rss-link {
+		display: inline-block;
+		height: calculateRem(28px);
+		margin-left: calculateRem(7px);
+		vertical-align: bottom;
+		width: calculateRem(28px);
+		&:hover .icon-rss {
+			fill: darken($color-accent-primary, 20%);
+		}
+		@include bp-small {
+			color: $color-text-minor;
+			height: auto;
+			@include font-size(16px);
+			margin-top: calculateRem(8px);
+			margin-left: 0;
+			text-align: center;
+			vertical-align: baseline;
+			width: 100%;
+			&:after {
+				content: 'View RSS';
+				display: block;
+			}
+		}
+	}
+	.hours-today {
+		margin-top: 1em;
+		> span {
+			&:after {
+				content: '|';
+				display: inline-block;
+				margin-left: 0.25em;
+			}
+		}
+	}
+	.icon-rss {
+		fill: $color-accent-primary;
+		@include bp-small {
+			display: none;
+		}
+	}
+	.link-hours-all {
+		display: block;
+		width: auto;
+	}
+	.subject-library {
+		display: block;
+		font-size: 0.75em;
+		font-weight: 600;
+	}
+}
+//
+// Begin old styles. Clean this stuff up, when time.
+//
+.title {
+	color: #111;
+	@include rem-first--2-values(padding, 1, 3);
+	position: relative;
+	margin-bottom: 20px;
+}
+
+.pageTitle {
+	background: #333;
+	color: #f7f7f7;
+	font-size: 1.75rem;
+	line-height: 1;
+	padding: 0.7em 0 0.7em 0.75em;
+	position: relative;
+	width: 100%;
+}
+
+.page-hours .libraryAlert a:after {
+	content: '\f061';
+	display: inline-block;
+	font-family: 'fontawesome-MITLibraries';
+	font-size: 0.75em;
+	font-style: normal;
+	margin-left: 0.5em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+}
+
+.libraryAlert h3 {
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 20px;
+}

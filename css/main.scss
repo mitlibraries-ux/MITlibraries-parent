@@ -1,0 +1,260 @@
+/*
+Reset CSS
+*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, a, abbr, acronym, big, font, img, small, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, tbody, tfoot, thead, tr, th, td {margin:0; padding:0; border:0; outline:0; font-size:100%; vertical-align:baseline; background:transparent;}
+body {line-height:1;}
+ol, ul {list-style:none;}
+blockquote, q {quotes:none;}
+:focus {outline:0;}
+ins {text-decoration:none;}
+del {text-decoration:line-through;}
+table {border-collapse:collapse; border-spacing:0;}
+
+/*
+Main CSS
+*/
+
+.inner { // Affects some pages, including /hours. TODO: make this an @extend?
+	position: relative;
+	display: block;
+}
+
+.tabcontent .tab .row>div {
+	position: relative;
+}
+
+p, .entry-content p {
+	margin-bottom: 10px !important;
+}
+
+.entry-content object {
+	margin-bottom: 10px;
+}
+
+.entry-content ul {
+	margin-bottom: 10px;
+}
+
+.clear {
+	clear: both;
+}
+
+img {
+	margin: 0px;
+	padding: 0px;
+}
+
+#mainContent {
+	position: relative;
+}
+
+.page-barton-help .mainContent {
+	width: 100%;
+}
+
+#mainContent>.space247 {
+	top: 10px;
+}
+
+#mainContent .entry-content {
+	padding: 20px 20px 20px 20px;
+}
+
+.entry-content ul li {
+	list-style: disc;
+	margin-left: 40px;
+	margin-bottom: 5px;
+}
+
+.entry-content ul, #mainContent ul {
+	margin-bottom: 10px;
+}
+
+.snav li.active a, .pagenav ul li.active a{
+	color: #666;
+}
+
+.snav li, .pagenav ul li {
+	list-style-image: url(#{$imagesPath}/nav-arrow-blue.png);
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+.snav li.active, .pagenav ul li.active {
+	list-style-image: none;
+	color: #666;
+}
+
+.widgetButton {
+	display: block;
+	margin: 0 0 10px 0;
+}
+
+.study247 {
+	text-indent: -9999px;
+	display: block;
+	width: 56px;
+	height: 30px;
+	background: transparent url(#{$imagesPath}/study247.png) no-repeat;
+	margin: 0 0 5px 0;
+}
+
+ul.checklist li {
+	list-style-image: url(#{$imagesPath}/icon-check.png);
+	margin-left: 15px;
+}
+
+/** Locations Home **/
+
+.profile {
+	background: #ede8e2;
+	font-size: 14px;
+	margin: 0 0 15px;
+	padding: 15px 10px 0px 10px;
+	position: relative;
+}
+
+.profile img {
+	position: relative;
+	float: left;
+	border: 1px solid #999999;
+
+}
+
+#mainContent .size-thumbnail, #mainContent img {
+	border-radius: 3px;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+	border: 1px solid #999;
+}
+
+.profile .profileContent {
+	position: relative;
+	float: left;
+	top: 0px;
+	left: 20px;
+	width: 150px;
+}
+
+.profile .intro {
+	color: #666666;
+}
+
+#mainContent .profile h3 {
+	margin: 0;
+}
+
+.profile h3 span {
+	display: block;
+}
+
+.profile h3 .intro,
+.profile h3 .bio {
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+}
+
+.profile h3 .name {
+	margin: 10px 0 0;
+	margin: 0.625rem 0 0;
+}
+
+.profile .links {
+	margin: 5px 0 15px 0;
+}
+
+.profile .links a {
+	display: block;
+}
+
+.profile .links a.primary {
+	font-weight: bold;
+}
+
+ul.arrows li,
+.single-location .tab ul.arrows li,
+.page-template-page-location-php .tab ul.arrows li
+{
+	list-style-image: url(#{$imagesPath}/arrow-right-blue.png);
+	margin-left: 15px;
+}
+
+.locationContent ul li {
+	list-style-type: disc;
+	margin-left: 15px;
+}
+
+.single-location #sidebarContent {
+	position: relative;
+	margin-top: -50px;
+}
+
+.sideContent {
+	float: right;
+	width: 350px;
+	line-height: 18px;
+}
+
+.sideContent p {
+	line-height: 18px;
+}
+
+.infoBox>img {
+	z-index: 500;
+}
+
+.meta {
+	display: none;
+}
+
+.InfoWindow { // Google Maps div
+	background: #f00;
+}
+
+.sideContent .videoRight {
+	display: block;
+	position: relative;
+}
+
+.sideContent .videoRight:after { /* clearfix */
+	clear: both;
+	content: '';
+	display: table;
+}
+
+.sideContent .videoRight  iframe {
+	float: right;
+	margin-bottom: 0;
+}
+
+.sideContent .videoRight a {
+	clear: both;
+	display: block;
+	float: right;
+	width: 240px;
+}
+
+.sideContent .videoRight > div {
+	clear: right;
+	position: relative;
+}
+
+.sideContent .videoRight > div a {
+	padding: 0;
+	position: relative;
+}
+
+.entry-content iframe {
+	margin: 0;
+}
+
+.entry-content .aboutVideoLink {
+	display: block;
+	max-width: 240px;
+}
+
+#mainContent ol {
+	list-style: decimal;
+	margin: 1em 1.5em;
+}

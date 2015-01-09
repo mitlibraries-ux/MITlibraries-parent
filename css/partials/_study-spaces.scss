@@ -1,0 +1,67 @@
+.list--study-spaces {
+	> li {
+		&:nth-of-type(odd) {
+			background-color: darken(#fff, 10%);
+		}
+	}
+	.content--study-space {
+		@include rem-first--4-values(padding, 1, 0, 1, 1);
+	}
+	.image-study-space {
+		background-size: cover;
+		@include rem-first--4-values(margin, 1, 0, 1, 1);
+		width: 8em;
+	}
+	.info--study-space {
+		justify-content: space-between;
+		@include rem-first(margin-top, 1);
+		[class*="col-"] {
+			min-width: 0;
+			width: 33%;
+		}
+		.col-1,
+		.col-2 {
+			border-right: 1px solid #aaa;
+			@include rem-first(padding-right, 1);
+		}
+		.col-2,
+		.col-3 {
+			@include rem-first(padding-left, 1);
+		}
+	}
+	.space247 {
+		color: #43926a;
+	}
+}
+
+.list--study-spaces .content .description {
+	width: 400px;
+}
+
+.list--study-spaces .info {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}	
+
+.list--study-spaces .infoCol h4 {
+	font-weight: normal;
+	text-transform: none;
+	color: #737373;
+	margin-bottom: 0px;
+	font-size: 12px;
+	line-height: 15px;
+}
+
+.list--study-spaces .hours {
+	display: block;
+	color: #666666;
+	font-weight: bold;
+	margin-top: 5px;
+}
+
+.list--study-spaces ul li {
+	list-style-type: disc;
+	margin-left: 15px;
+	font-size: 11px;
+	line-height: 14px;
+}

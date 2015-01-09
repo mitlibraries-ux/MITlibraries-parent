@@ -1,0 +1,41 @@
+.breadcrumbs--better {
+	background: $color-secondary;
+	@include font-size(12px);
+	line-height: 1.5;
+	padding: 5px $margin-left;
+	span {
+		display: block;
+		float: left;
+		position: relative;
+		&:not(:last-of-type):after {
+			content: '\00bb';
+			display: inline-block;
+			margin: 0 3px;
+		}
+	}
+}
+//
+// Begin old styles. Clean this stuff up, when time.
+//
+#breadcrumb {
+	background: #eceaea;
+	clear: both; /* Fixes IE8 issue */
+	color: #666666;
+	font-size: 12px;
+	@include rem-first--4-values(padding, 0.5, 0.5, 0.5, 3);
+}
+
+.betterBreadcrumbs {
+	background: #eceaea;
+	clear: both; /* Fixes IE8 issue */
+	color: #666666;
+	font-size: 12px;
+	font-size: 0.75rem;
+	line-height: 1;
+	@include rem-first--4-values(padding, 0.5, 0.5, 0.5, 3);
+	span:not(:last-of-type):after {
+		content: '\00bb';
+		display: inline-block;
+		margin: 0 0.25em;
+	}
+}

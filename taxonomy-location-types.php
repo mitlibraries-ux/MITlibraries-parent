@@ -14,7 +14,7 @@ get_header(); ?>
 			&raquo; <?php the_title(); ?>
 		</div>
 
-		<div id="stage" class="inner thinSidebar" role="main">
+		<div id="stage" class="inner" role="main">
 			<div class="title">
 				<h2>Locations</h2>
 				<div class="extraInfo">

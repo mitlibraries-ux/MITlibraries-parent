@@ -1,0 +1,26 @@
+.rss-feed {
+	@include body-text;
+	.timestamp,
+	.callnos {
+		color: $color-text-minor;
+		@include font-size(16px);
+		margin-left: 0;
+	}
+	.callnos {
+		&:after {
+			background: #333;
+			content: '';
+			display: block;
+			height: 1px;
+			@include rem-fallback(margin-top, 16px);
+			@include rem-fallback(margin-bottom, 24px);
+			width: 100%;
+		}
+	}
+	ul {
+		li {
+			list-style: none;
+			margin-left: 0;
+		}
+	}
+}

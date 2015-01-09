@@ -25,9 +25,9 @@ get_header(); ?>
 
 		<?php while ( have_posts() ) : the_post(); ?>
 		
-		<div id="stage" class="inner row" role="main">
+		<div id="stage" class="" role="main">
 	
-			<div class="title span12">
+			<div class="title-page">
 				<?php if ($isRoot): ?>
 				<h1><?php echo $section->post_title; ?></h1>
 				<?php else: ?>
@@ -35,14 +35,9 @@ get_header(); ?>
 				<?php endif; ?>
 			</div>
 			
-			<div id="content" class="span12">
+			<div id="content" class="content-main flex-container">
 				<?php get_template_part( 'content', 'pagefull' ); ?>
 			</div>
-			
-			
-			
-		
-			<div class="clear"></div>
 		
 		</div>
 		

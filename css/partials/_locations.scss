@@ -1,0 +1,152 @@
+.locationPage {
+	.profile {
+		align-items: flex-start;
+	}
+	.reserve {
+		background: #666;
+		color: #fff;
+		display: block;
+		margin: 1em 0;
+		padding: 1em;
+	}
+	.tab {
+		display: none;
+		&.active {
+			display: flex;
+		}
+		.first {
+			@include bp-tablet--portrait {
+				margin-right: 1.5em;
+				width: 50%;
+			}
+		}
+		.second {
+			@include bp-tablet--portrait {
+				width: 50%;
+			}
+		}
+	}
+}
+
+.page-locations {
+	h2.more-locations {
+		padding-bottom: 0;
+	}
+	.locations-main,
+	.locations-secondary {
+		flex-wrap: wrap;
+		li {
+			@include rem-first(padding-right, 1);
+			width: 33%;
+		}
+	}
+	.map-locations {
+		background: #ccc;
+		height: 340px;
+		position: relative;
+		margin-bottom: 1.5em;
+		width: 100%;
+		@include bp-small {
+			margin: 0 auto;
+			width: 90%;
+		}
+		img {
+		  max-width: none;
+		}
+		.building {
+			font-size: 12px;
+			font-weight: bold;
+			color: #ccc;
+		}
+		.content {
+			float: left;
+			width: 127px;
+			margin: 0.5em 0 0.5em 0.5em;
+			@include bp-small {
+				width: 100px;
+			}
+			h3 {
+				font-size: 16px;
+				font-weight: bold;
+				color: #ffcc33;
+				line-height: 1;
+				margin: 0px;
+				a {
+					color: #ffcc33;
+				}
+			}
+		}
+		.directions {
+			font-size: 12px;
+			color: #ffcc33;
+			a {
+				color: #ffcc33;
+			}
+		}
+		.infoBox {
+			display: block;
+			width: 280px;
+			&:after { /* Tool tip triangle */
+				content: '';
+				border-right: 10px solid transparent;
+				border-top: 10px solid #333;
+				border-left: 10px solid transparent;
+				display: block;
+				height: 0;
+				margin: 0 auto;
+				position: relative;
+				width: 0;
+			}
+			@include bp-small {
+				margin-left: 67px;
+				width: 140px;
+			}
+		}
+		.infoContent {
+			background: #333;
+			display: block;
+			padding: 3px 0 3px 3px;
+			position: relative;
+			width: 100%;
+		}
+		.infoImage {
+			display: block;
+			float: left;
+			width: 116px;
+			height: 107px;
+			margin: 0 0px 0 0;
+			background-size: cover;
+			@include bp-small {
+				display: none;
+			}
+		}
+	}
+	.name-location {
+		@include rem-first(font-size, 1.375);
+		font-weight: bold;
+	}
+	.name-location--secondary {
+		@include rem-first(font-size, 1.25);
+		font-weight: bold;
+		margin-top: 1em;
+	}
+	.title-page {
+		align-items: center;
+	}
+}
+
+.no-flexbox {
+	.page-locations {
+		.locations-main,
+		.locations-secondary {
+			display: block;
+			li {
+				display: block;
+				float: left;
+				min-height: 200px;
+				@include rem-first(padding-right, 1);
+				width: 33%;
+			}
+		}
+	}
+}

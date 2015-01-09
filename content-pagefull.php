@@ -8,9 +8,7 @@
  */
 global $isRoot;
 ?>
-<div class="row">
-	<div id="mainContent" class="span9">
-	
+<div class="col-1 content-page">
 		<?php if (has_post_thumbnail()): ?>
 		<div class="featuredImage">
 			<?php echo the_post_thumbnail(700, 300); ?>
@@ -29,8 +27,7 @@ global $isRoot;
 		<footer class="entry-meta">
 			<?php edit_post_link( __( 'Edit', 'twentytwelve' ), '<span class="edit-link">', '</span>' ); ?>
 		</footer><!-- .entry-meta -->
-		
-	</div>
-	
+</div>
+<div class="col-2">
 	<?php get_sidebar(); ?>
 </div>

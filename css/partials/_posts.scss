@@ -1,0 +1,35 @@
+.wrap-page > [class*="posts"], // Covers top-level alert posts
+.content-main [class*="posts"] {
+	@include bp-tablet--portrait {
+		background: $gray-light;
+		border-bottom: 3px solid #dedede;
+		padding: 1.25em;
+	}
+}
+
+[class*="posts--preview"] .post,
+[class*="posts--preview"] .post--full-bleed {
+	@include bp-tablet--portrait {
+		box-shadow: 0 3px 3px $color-shadow;
+	}
+	background: #fff;
+	color: $black;
+	overflow: hidden; // Prevent preview text from overflowing container
+	padding: 0.8125em;
+}
+
+[class*="posts--preview"] .post--full-bleed { // Allows for full bleed of images
+	padding: 0;
+}
+
+.content-main [class*="posts"] {
+	@include bp-tablet--portrait {
+		background: $gray-light;
+	}
+}
+
+[class*="posts"] .post {
+	@include bp-tablet--portrait {
+		box-shadow: 0 3px 3px $color-shadow;
+	}
+}

@@ -1,0 +1,162 @@
+// Break points
+
+@mixin bp-small {
+	@media only screen and (max-width: 320px) {
+		@content;
+	}
+}
+
+@mixin bp-mobile--landscape {
+	@media only screen and (min-width: 321px) {
+		@content;
+	}
+}
+
+@mixin bp-mobile--only {
+	@media only screen and (max-width: 568px) {
+		@content;
+	}
+}
+
+@mixin bp-tablet--portrait-only {
+	@media only screen and (max-width: 768px) and (min-width: 569px) {
+		@content;
+	}
+}
+
+@mixin bp-tablet--portrait-below {
+	@media only screen and (max-width: 768px) {
+		@content;
+	}
+}
+
+@mixin bp-tablet--portrait {
+	@media only screen and (min-width: 569px) {
+		@content;
+	}
+}
+
+@mixin bp-tablet--portrait-above {
+	@media only screen and (min-width: 768px) {
+		@content;
+	}
+}
+
+@mixin bp-tablet--landscape {
+	@media only screen and (min-width: 769px) {
+		@content;
+	}
+}
+
+@mixin bp-tablet--landscape-small-below {
+	@media only screen and (max-width: 800px) {
+		@content;
+	}
+}
+
+@mixin bp-tablet--landscape-below {
+	@media only screen and (max-width: 1023px) {
+		@content;
+	}
+}
+
+@mixin bp-tablet--landscape-above {
+	@media only screen and (min-width: 1024px) {
+		@content;
+	}
+}
+
+@mixin bp-large {
+	@media only screen and (min-width: 769px) {
+		@content;
+	}
+}
+
+// Font Size
+
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+@mixin line-height($size) {
+	line-height: $size;
+	line-height: calculateRem($size);
+}
+
+%line-length {
+	max-width: 586px;
+	max-width: 36.625rem;
+}
+
+$font-body: 'Open Sans', sans-serif;
+
+@mixin body-text {
+	@include font-size(18px);
+	@include line-height(24px);
+	font-family: $font-body;
+	p, li, a {
+		@extend %line-length;
+	}
+}
+
+@mixin rem-first ($property, $value) {
+	$remSize: $value+rem; 
+	#{$property}: #{$value * 16px};
+	#{$property}: #{$remSize};
+}
+
+@mixin rem-first--2-values ($property, $value-1, $value-2) {
+	$remSizes: $value-1+rem $value-2+rem; 
+	#{$property}: #{$value-1 * 16px} #{$value-2 * 16px};
+	#{$property}: #{$remSizes};
+}
+
+@mixin rem-first--4-values ($property, $value-1, $value-2, $value-3, $value-4) {
+	$remSizes: $value-1+rem $value-2+rem $value-3+rem $value-4+rem; 
+	#{$property}: #{$value-1 * 16px} #{$value-2 * 16px} #{$value-3 * 16px} #{$value-4 * 16px};
+	#{$property}: #{$remSizes};
+}
+
+@mixin rem-fallback ($property, $value) {
+	#{$property}: #{$value};
+	#{$property}: $value / 16px * 1rem;
+}
+
+@mixin rem-fallback--2-values($property, $value-1, $value-2) {
+	#{$property}: #{$value-1} #{$value-2};
+	@if $value-1 != 0 {
+		#{$property}: $value-1 / 16px * 1rem $value-2 / 16px * 1rem;
+	}
+	@else {
+		#{$property}: $value-1 $value-2 / 16px * 1rem;
+	}
+}
+
+@mixin hidden-visually {
+  margin: 0;
+  padding: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+@mixin image-replacement {
+	border: 0;
+	color: transparent;
+  font: 0/0 a;
+  text-shadow: none;
+  white-space: nowrap;
+}
+
+@mixin svg-max-height-width {
+	max-height: 1em;
+	max-width: 1em;
+}
+
+$margin-left: 20px;

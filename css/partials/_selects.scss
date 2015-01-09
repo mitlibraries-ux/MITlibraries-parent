@@ -1,0 +1,9 @@
+.appearance-none { // Note that these rules are not Autoprefixed, because `appearance` is a non-standard css property
+	background: none;
+	border: none;
+	-ms-appearance: none; // not sure if MS needs/uses this
+	-moz-appearance: none;
+	-o-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+}

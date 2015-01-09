@@ -1,0 +1,5 @@
+@keyframes selected {
+  0%   { box-shadow: none; }
+  20% { box-shadow: 0 0 5px 5px $orange-dark; }
+  0%   { box-shadow: none; }
+}

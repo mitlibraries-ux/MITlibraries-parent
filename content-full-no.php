@@ -8,8 +8,8 @@
  */
 global $isRoot;
 ?>
-	<div class="row">
-		<div id="mainContent" class="span12">
+
+		<div class="content-page">
 		
 			<?php if (has_post_thumbnail()): ?>
 			<div class="featuredImage">
@@ -31,6 +31,3 @@ global $isRoot;
 			</footer><!-- .entry-meta -->
 			
 		</div>
-	
-	</div>
-

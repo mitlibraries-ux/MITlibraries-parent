@@ -76,14 +76,6 @@ function twentytwelve_setup() {
 	register_nav_menu( 'primary', __( 'Primary Menu', 'twentytwelve' ) );
 	register_nav_menu( 'footer', __( 'Footer Menu', 'twentytwelve' ) );
 
-	/*
-	 * This theme supports custom background color and image, and here
-	 * we also set up the default background color.
-	 */
-	add_theme_support( 'custom-background', array(
-		'default-color' => 'e6e6e6',
-	) );
-
 	// This theme uses a custom image size for featured images, displayed on "standard" posts.
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 624, 9999 ); // Unlimited height, soft crop
@@ -111,51 +103,17 @@ function twentytwelve_scripts_styles() {
 		wp_enqueue_script( 'comment-reply' );
 
 	/*
-	 * Adds JavaScript for handling the navigation menu hide-and-show behavior.
-	 */
-	wp_enqueue_script( 'twentytwelve-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '1.0', true );
-
-	/*
-	 * Loads our special font CSS file.
-	 *
-	 * The use of Open Sans by default is localized. For languages that use
-	 * characters not supported by the font, the font can be disabled.
-	 *
-	 * To disable in a child theme, use wp_dequeue_style()
-	 * function mytheme_dequeue_fonts() {
-	 *     wp_dequeue_style( 'twentytwelve-fonts' );
-	 * }
-	 * add_action( 'wp_enqueue_scripts', 'mytheme_dequeue_fonts', 11 );
-	 */
-
-	/* translators: If there are characters in your language that are not supported
-	   by Open Sans, translate this to 'off'. Do not translate into your own language. */
-	if ( 'off' !== _x( 'on', 'Open Sans font: on or off', 'twentytwelve' ) ) {
-		$subsets = 'latin,latin-ext';
-
-		/* translators: To add an additional Open Sans character subset specific to your language, translate
-		   this to 'greek', 'cyrillic' or 'vietnamese'. Do not translate into your own language. */
-		$subset = _x( 'no-subset', 'Open Sans font: add new subset (greek, cyrillic, vietnamese)', 'twentytwelve' );
-
-		if ( 'cyrillic' == $subset )
-			$subsets .= ',cyrillic,cyrillic-ext';
-		elseif ( 'greek' == $subset )
-			$subsets .= ',greek,greek-ext';
-		elseif ( 'vietnamese' == $subset )
-			$subsets .= ',vietnamese';
-
-		$protocol = is_ssl() ? 'https' : 'http';
-		$query_args = array(
-			'family' => 'Open+Sans:400italic,700italic,400,700',
-			'subset' => $subsets,
-		);
-		wp_enqueue_style( 'twentytwelve-fonts', add_query_arg( $query_args, "$protocol://fonts.googleapis.com/css" ), array(), null );
-	}
-
-	/*
 	 * Loads our main stylesheet.
 	 */
 	wp_enqueue_style( 'twentytwelve-style', get_stylesheet_uri() );
+
+	wp_register_style('libraries-global', get_template_directory_uri() . '/css/build/minified/global.css', array('twentytwelve-style'), '2.2.0');
+
+	wp_enqueue_style('libraries-global');
+
+	wp_register_style('get-it', get_template_directory_uri() . '/css/build/minified/get-it.min.css', array('libraries-global'), '1.0');
+
+	wp_register_style('hours', get_template_directory_uri() . '/css/build/minified/hours.min.css', array('libraries-global'), '1.0');
 
 	/*
 	 * Loads the Internet Explorer specific stylesheet.
@@ -164,32 +122,65 @@ function twentytwelve_scripts_styles() {
 	$wp_styles->add_data( 'twentytwelve-ie', 'conditional', 'lt IE 9' );
 	
 	/*  Register JS */
+
+	// Deregister WP Core jQuery, load Google's
+  wp_deregister_script('jquery');
+  wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js', array(), '1.11.1', false);
 	
-	wp_register_script('modernizr', get_template_directory_uri() . '/js/modernizr.js', array(), '2.6.2', false);
-	 
-	wp_register_script('sticky', get_template_directory_uri() . '/js/sticky/jquery.sticky.js', array('jquery'), false, true);
+	wp_register_script('modernizr', get_template_directory_uri() . '/js/modernizr.js', array(), '2.8.1', false);
 
-	wp_register_script('stickyhours', get_template_directory_uri() . '/js/sticky/sticky-hours.menu.js', array('jquery'), false, true);
+	wp_register_script('homeJS', get_template_directory_uri() . '/js/build/home.min.js', array('jquery', 'modernizr'), '2.2.0', true);
 
-	wp_register_script('cookieJS', get_template_directory_uri() . '/js/sticky/scrollStick/jquery.cookie.js', array('jquery'), false, true);
+	wp_register_script('productionJS', get_template_directory_uri() . '/js/build/production.min.js', array('jquery'), '2.2.0', true);
 
-	wp_register_script('scrollStickHours', get_template_directory_uri() . '/js/sticky/scrollStick/hours.scrollStick.js', array('jquery'), false, true);
+	wp_register_script('hoursJS', get_template_directory_uri() . '/js/build/hours.min.js', array('jquery', 'productionJS'), '20140312', true);
 
-	wp_register_script('nullAlt', get_template_directory_uri() . '/js/nullAlt.js', array(), false, false);
+	wp_register_script('searchJS', get_template_directory_uri() . '/js/build/search.min.js', array('jquery', 'modernizr'), '20140811', false);
+
+	wp_register_script('mapJS', get_template_directory_uri() . '/js/build/map.min.js', array('jquery'), '20140813', true);
+
+	wp_register_script('googleMapsAPI', 'http://maps.googleapis.com/maps/api/js?sensor=false', array(), false, true );
+
+	wp_register_script('infobox', get_template_directory_uri() . '/libs/infobox/infobox.js', array('googleMapsAPI'), '1.1.12', true);
+
+	wp_register_script('term-hours', get_template_directory_uri() . '/js/build/term-hours.min.js', array('jquery', 'productionJS'), false, true);
 
 	/* All-site JS */
 	
 	wp_enqueue_script('modernizr');
-	wp_enqueue_script('nullAlt');
 
-	/* Page-specific JS */
-	
+	/* Page-specific JS & CSS */
+
+	if (!is_front_page() || is_child_theme()) {
+		wp_enqueue_script('productionJS');
+	}
+
+	if (is_front_page() && !is_child_theme()) {
+		wp_enqueue_script('homeJS');
+	}
+
 	if (is_page('hours')) {
-		wp_enqueue_script('sticky');
-		wp_enqueue_script('stickyhours');
-		wp_enqueue_script('cookieJS');
-		wp_enqueue_script('scrollStickHours');
-		}
+		wp_enqueue_style('hours');
+		wp_enqueue_script('hoursJS');
+	}
+
+	if (is_page('locations')) {
+		wp_enqueue_script('googleMapsAPI');
+		wp_enqueue_script('mapJS');
+		wp_enqueue_script('infobox');
+	}
+
+	if (is_page('search')) {
+		wp_enqueue_script('searchJS');
+	}
+
+	if (is_page('term-hours')) {
+		wp_enqueue_script('term-hours');
+	}
+
+	if (is_page('getit')) {
+		wp_enqueue_style('get-it');
+	}
 	
 }
 
@@ -427,9 +418,7 @@ if (!function_exists('is_child_page')) {
  *    or full-width template.
  * 2. Front Page template: thumbnail in use and number of sidebars for
  *    widget areas.
- * 3. White or empty background color to change the layout and spacing.
- * 4. Custom fonts enabled.
- * 5. Single or multiple authors.
+ * 3. Single or multiple authors.
  *
  * @since Twenty Twelve 1.0
  *
@@ -438,7 +427,6 @@ if (!function_exists('is_child_page')) {
  */
 function twentytwelve_body_class( $classes ) {
 	global $post;
-	$background_color = get_background_color();
 
 	if ( isset( $post ) ) {
 		$classes[] = $post->post_type . '-' . $post->post_name;
@@ -470,15 +458,6 @@ function twentytwelve_body_class( $classes ) {
 	if (is_page_template('page-location.php')) {
 		$classes[] = 'locationPage';
 	}
-
-	if ( empty( $background_color ) )
-		$classes[] = 'custom-background-empty';
-	elseif ( in_array( $background_color, array( 'fff', 'ffffff' ) ) )
-		$classes[] = 'custom-background-white';
-
-	// Enable custom font class only if the font CSS is queued to load.
-	if ( wp_style_is( 'twentytwelve-fonts', 'queue' ) )
-		$classes[] = 'custom-font-enabled';
 
 	if ( ! is_multi_author() )
 		$classes[] = 'single-author';
@@ -694,4 +673,71 @@ function getExpert($expert) {
 	
 	print_r($qExpert);
 	
+}
+
+if (!function_exists('better_breadcrumbs')) {
+
+	function better_breadcrumbs() {
+
+	  global $post;
+
+	  if(is_search()) {
+	    echo "<span>Search</span>";
+	  }
+
+	  if(!is_child_page() && is_page() || is_category() || is_single()) {
+	    echo "<span>".the_title()."</span>";
+	    return;
+	  }
+
+	  if(is_child_page()) {
+	  	$hideParent = get_field('hide_parent_breadcrumb');
+	    $parentLink = get_permalink($post->post_parent);
+	    $parentTitle = get_the_title($post->post_parent);
+	    $startLink = '<a href="';
+	    $endLink = '">';
+	    $closeLink = '</a>';
+	    $parentBreadcrumb = $startLink.$parentLink.$endLink.$parentTitle.$closeLink;
+	    $pageTitle = get_the_title($post);
+	    $pageLink = get_permalink($post);
+	    $childBreadcrumb = $startLink.$pageLink.$endLink.$pageTitle.$closeLink;
+
+		  if ($parentBreadcrumb !="" && $hideParent != 1) {echo "<span>".$parentBreadcrumb."</span>";}
+		  if ($childBreadcrumb != "") {echo "<span>".$pageTitle."</span>";}
+		}
+	}
+
+	add_action('after_setup_theme', 'better_breadcrumbs');
+}
+
+// Check for performance issues
+function no_post_limit( $query ) {
+  if ( is_home() && !is_child_theme()) {
+    // No post limit on homepage
+    $query->set( 'posts_per_page', -1 );
+    return;
+  }
+}
+add_action( 'pre_get_posts', 'no_post_limit', 1 );
+
+// Prevent Wordpress from "guessing" redirects instead of showing a 404 page
+if (!function_exists('stop_404_guessing')) {
+	add_filter('redirect_canonical', 'stop_404_guessing');
+	function stop_404_guessing($url) {
+		if (is_404()) {
+			return false;
+		}
+		return $url;
+	}
+}
+
+// Add ACF fields to WP REST API JSON output
+
+function wp_api_encode_acf($data,$post,$context){
+	$data['meta'] = array_merge($data['meta'],get_fields($post['ID']));
+	return $data;
+}
+ 
+if( function_exists('get_fields') ){
+	add_filter('json_prepare_post', 'wp_api_encode_acf', 10, 3);
 }

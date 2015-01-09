@@ -1,0 +1,112 @@
+@mixin span-12-12 {
+	clear: both;
+	width: 100%;
+	@include bp-tablet--portrait {
+		width: 100%;
+	}
+}
+
+@mixin span-11-12 {
+	width: 100%;
+	@include bp-tablet--portrait {
+		float: left;
+		margin-left: 1.875%;
+		width: 91.51%;
+	}
+}
+
+@mixin span-10-12 {
+	width: 100%;
+	@include bp-tablet--portrait {
+		float: left;
+		margin-left: 1.875%;
+		width: 83.02%;
+	}
+}
+
+@mixin span-9-12 {
+	width: 100%;
+	@include bp-tablet--portrait {
+		float: left;
+		margin-left: 1.875%;
+		width: 74.53%;
+	}
+}
+
+@mixin span-8-12 {
+	width: 100%;
+	@include bp-tablet--portrait {
+		float: left;
+		margin-left: 1.875%;
+		width: 66.04%;
+	}
+}
+
+@mixin span-7-12 {
+	width: 100%;
+	@include bp-tablet--portrait {
+		float: left;
+		margin-left: 1.875%;
+		width: 57.55%;
+	}
+}
+
+@mixin span-6-12 {
+	width: 100%;
+	@include bp-tablet--portrait {
+		float: left;
+		margin-left: 1.875%;
+		width: 49.06%;
+	}
+}
+
+@mixin span-5-12 {
+	width: 100%;
+	@include bp-tablet--portrait {
+		float: left;
+		margin-left: 1.875%;
+		width: 40.57%;
+	}
+}
+
+@mixin span-4-12 {
+	width: 100%;
+	@include bp-tablet--portrait {
+		float: left;
+		margin-left: 1.875%;
+		width: 32.08%;
+	}
+}
+
+@mixin span-3-12 {
+	width: 100%;
+	@include bp-tablet--portrait {
+		float: left;
+		margin-left: 1.875%;
+		width: 23.59%;
+	}
+}
+
+@mixin span-2-12 {
+	width: 100%;
+	@include bp-tablet--portrait {
+		float: left;
+		margin-left: 1.875%;
+		width: 15.10%;
+	}
+}
+
+@mixin span-1-12 {
+	width: 100%;
+	@include bp-tablet--portrait {
+		float: left;
+		margin-left: 1.875%;
+		width: 6.614%;
+	}
+}
+
+@mixin span-first-child {
+	@include bp-tablet--portrait {
+		margin-left: 0;
+	}
+}

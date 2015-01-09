@@ -1,0 +1,281 @@
+.footer-main {
+	background: $color-primary;
+	flex-wrap: wrap;
+	@include bp-tablet--portrait {
+		padding: 2em 1.375em;
+	}
+	@include span-12-12;
+	a {
+		color: $color-secondary;
+	}
+	.identity {
+		flex-wrap: wrap;
+		padding: 2em 0 0;
+		@include bp-tablet--portrait {
+			align-items: flex-end;
+			justify-content: space-between;
+			width: 100%;
+		}
+	}
+	.links-all {
+		display: none;
+		@include bp-tablet--portrait {
+			display: flex;
+			width: 100%;
+		}
+		h4 {
+			font-size: 1.125em;
+			font-weight: normal;
+			padding-bottom: 1em;
+		}
+		.flex-item {
+			margin-right: 1.75em;
+		}
+		.link-sub {
+			display: block;
+			font-size: 0.75em;
+			@include bp-tablet--portrait {
+				font-size: 0.75em;
+				font-weight: 300;
+				&:not(:last-of-type) {
+					padding-bottom: 1em;
+				}
+			}
+		}
+	}
+	.links-primary {
+		border-top: 1px solid #808285;
+		border-bottom: 1px solid #808285;
+		flex-wrap: wrap;
+		font-size: 0.8125em;
+		margin-top: 2em;
+		padding: 2rem 1.375rem;
+		width: 100%;
+		@include bp-tablet--portrait {
+			border-top: none;
+			border-bottom: none;
+			font-size: 0.875em;
+			@include rem-first(margin-top, -1.4);
+			@include rem-first(margin-left, 11.5); // Match logo width
+			padding: 0;
+			z-index: map-get($zindex, main-secondary);
+		}
+		@include bp-tablet--landscape-below { // Prevent these links from overflowing into Social icons
+			@include rem-first(margin-top, 1.5);
+			@include rem-first(margin-left, 0);
+		}
+		span {
+			display: block;
+			width: 50%;
+			&:not(:last-of-type) {
+				margin-bottom: 1.5em;
+			}
+			@include bp-tablet--portrait {
+				font-weight: 300;
+				padding-left: 1em;
+				width: auto;
+				&:not(:last-of-type):after {
+					color: #dedede;
+					content: '|';
+					display: inline-block;
+					margin-left: 1em;
+				}
+			}
+		}
+		span:first-of-type {
+			@include bp-tablet--landscape-below {
+				padding-left: 0; // So that primary links are flush with left edge
+			}
+		}
+	}
+	.logo-mit-lib {
+		display: block;
+		fill: #fff;
+		padding-left: 1.375em;
+		width: 10.3125em;
+		@include bp-tablet--portrait {
+			padding-left: 0;
+			max-width: 9.5em;
+			width: 9.5em;
+		}
+		svg {
+			max-height: 4em;
+			max-width: 9.5em;
+		}
+	}
+	.text-find-us {
+		color: #ebebeb;
+		display: none;
+		font-size: 0.625em;
+		font-weight: bold;
+		text-transform: uppercase;
+		min-width: 7em;
+		@include bp-tablet--portrait {
+			display: block;
+		}
+	}
+	.social {
+		align-items: center;
+		flex-wrap: wrap;
+		padding-left: 1.375em;
+		width: auto;
+		@include bp-tablet--portrait {
+			flex-wrap: nowrap;
+			margin-bottom: -0.8em;
+			z-index: map-get($zindex, main);
+		}
+		a {
+			width: 33%;
+			&:hover {
+				text-decoration: none;
+			}
+			@include bp-tablet--portrait {
+				width: 20%;
+				&:not(:last-of-type) {
+					margin-right: 0.5em;
+				}
+			}
+		}
+		[class*="icon-social"] {
+			background: $color-secondary;
+			border-radius: 50%;
+			height: 1.5em;
+			padding: 0.2em;
+			width: 1.5em;
+			path {
+				fill: #474747;
+			}
+			@include bp-tablet--portrait {
+				height: 2em;
+				padding: 0.2em;
+				width: 2em;
+			}
+		}
+	}
+} // End .footer-main
+.footer-info-institute {
+	align-items: baseline;
+	background: #595959;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	padding: 1.5em 1em;
+	@include bp-tablet--portrait {
+		flex-direction: row;
+	}
+	.about-mit {
+		font-size: 0.625em;
+		margin-bottom: 2em;
+		@include bp-tablet--portrait {
+			margin-bottom: 0;
+		}
+		span {
+			color: #eeeeee;
+			text-transform: uppercase;
+			&:first-of-type {
+				font-weight: bold;
+			}
+			@include bp-tablet--portrait {
+				color: #ededed;
+				&:not(:last-of-type):after {
+					content: '|';
+					font-weight: normal;
+				}
+			}
+		}
+	}
+	.license {
+		color: #bbb9b8;
+		font-size: 0.6875em;
+		width: 100%;
+		a {
+			color: #ededed;
+		}
+	}
+	.link-mit-home {
+		display: block;
+		@include bp-tablet--portrait{
+			margin: 0 1em 1.5em 0;
+		}
+	}
+	.logo-mit {
+		fill: #bbb9b8;
+		width: 3.375em;
+		.color {
+			fill: #ededed;
+		}
+	}
+}
+// Old browser fixes
+.no-flexbox {
+	.footer-info-institute {
+		display: block;
+		&:after {
+			clear: both;
+			content: '';
+			display: table;
+		}
+		> a,
+		> div {
+			float: left;
+		}
+		.about-mit {
+			padding-top: 4em;
+		}
+		.link-mit-home {
+			padding-top: 1.5em;
+		}
+	}
+	.footer-main {
+		&.flex-container {
+			display: block;
+			float: left;
+		}
+		&:after {
+			clear: both;
+			content: '';
+			display: table;
+		}
+		.identity {
+			position: relative;
+			width: 100%;
+			.logo-mit-lib {
+				display: block;
+				float: left;
+			}
+			.social {
+				bottom: 0;
+				display: block;
+				right: 22px;
+				position: absolute;
+			}
+		}
+		.links-primary {
+			display: block;
+			margin-top: 0;
+			margin-left: 0;
+			left: 202px;
+			position: absolute;
+			top: 79px;
+			width: 100%;
+			span {
+				display: block;
+				float: left;
+				position: relative;
+			}
+		}
+	}
+}
+
+.no-flexbox.flexboxlegacy {
+	.footer-main {
+		overflow-x: hidden;
+	}
+}
+.lte-ie9.no-flexbox {
+	.footer-main {
+		.identity {
+			width: 100%;
+		}
+	}
+}
