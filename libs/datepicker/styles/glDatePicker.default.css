@@ -1,8 +1,3 @@
-.gldp-default {
-	position: absolute;
-	font-family: 'helvetica';
-}
-
 /* Core style for every cell */
 .gldp-default .core {
 	box-sizing: border-box;
