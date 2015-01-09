@@ -6,12 +6,6 @@ We're currently handling hours two ways on libraries.mit.edu:
 
 ### Hours in WordPress
 
-__Update 11/13/14__
-
-Recently the /hours page began experiencing some pretty significant issues relating to load time, max exectuion errors, caching errors, other as yet unknown problems. The page now redirects to [libraries.mit.edu/term-hours](http://libraries.mit.edu/term-hours), and all other references to the "Hours" post type have been removed from the theme.
-
-----
-
 At [libraries.mit.edu/hours](http://libraries.mit.edu/hours), one can view a weekly display of each library location's hours, with a date picker, next week/last week navigation, etc.
 
 These hours entries exist in Wordpress. Broadly speaking, each hours entry exists as a single post in Wordpress. This is hugely inefficient, and has been a big problem for the site. The hours have to be uploaded as a crazy multi-sheet spreadsheet ([here](//wikis.mit.edu/confluence/display/UXWS/Hours)) via an [Excel-to-PHP](https://github.com/zgreen/MITlibraries-parent/tree/prod/libs/PHPExcel-develop) spreadsheet plugin, parsed with [a heavy PHP script](github.com/zgreen/MITlibraries-parent/blob/prod/lib/hours.php), and spat out onto the page. The only reason this page doesn't take many, many seconds to load is that all that data gets cached by Wordpress (using the W3 Total Cache plugin). These hours posts also heavily pollute the site, are indexed by search engines, confuse users, etc.
