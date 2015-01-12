@@ -4,9 +4,11 @@
 
 $(function(){
 	// Use WP API, don't cache requests
+        // old url: '/news/wp-json/posts',
+        // new url: '/posts-front.json',
 	$.ajax({
 		cache: false,
-		url: '/news/wp-json/posts',
+		url: '/posts-front.json',
 		dataType: "json"
 	})
 	.done(function(json){
