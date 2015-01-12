@@ -146,19 +146,19 @@
 				<div class="location">
 					<a href="/barker" class="img-loc barker"></a>
 					<div class="wrap-loc-info">
-						<h3><a class="name-location" href="/barker">Barker Library</a></h3><div class="hours" data-location-hours="Barker Library"></div> <a href="/study/24x7/" class="special">24/7 Study</a><div class="location-info"><a href="/locations/#!barker-library" class="map-location">10-500</a><a href="tel:617-253-0968" class="phone"><span class="number">617-253-0968</span></a></div>
+						<h3><a class="name-location" href="/barker">Barker Library</a></h3><div class="hours"><span data-location-hours="Barker Library"></span> today,</div> <a href="/study/24x7/" class="special">24/7 Study</a><div class="location-info"><a href="/locations/#!barker-library" class="map-location">10-500</a><a href="tel:617-253-0968" class="phone"><span class="number">617-253-0968</span></a></div>
 					</div>
 				</div>
 				<div class="location">
 					<a href="/dewey" class="img-loc dewey"></a>
 					<div class="wrap-loc-info">
-						<h3><a class="name-location" href="/dewey">Dewey Library</a></h3><div class="hours" data-location-hours="Dewey Library"></div> <a href="/study/24x7/" class="special">24/7 Study</a><div class="location-info"><a href="/locations/#!dewey-library" class="map-location">E53-100</a><a href="tel:617-253-5676" class="phone"><span class="number">617-253-5676</span></a></div>
+						<h3><a class="name-location" href="/dewey">Dewey Library</a></h3><div class="hours"><span data-location-hours="Dewey Library"></span> today,</div> <a href="/study/24x7/" class="special">24/7 Study</a><div class="location-info"><a href="/locations/#!dewey-library" class="map-location">E53-100</a><a href="tel:617-253-5676" class="phone"><span class="number">617-253-5676</span></a></div>
 					</div>
 				</div>
 				<div class="location">
 					<a href="/hayden" class="img-loc hayden"></a>
 					<div class="wrap-loc-info">
-						<h3><a class="name-location" href="/hayden">Hayden Library</a></h3><div class="hours" data-location-hours="Hayden Library"></div> <a href="/study/24x7/" class="special">24/7 Study</a><div class="location-info"><a href="/locations/#!hayden-library" class="map-location">14S-100</a><a href="tel:617-253-5671" class="phone"><span class="number">617-253-5671</span></a></div>
+						<h3><a class="name-location" href="/hayden">Hayden Library</a></h3><div class="hours"><span data-location-hours="Hayden Library"></span> today,</div> <a href="/study/24x7/" class="special">24/7 Study</a><div class="location-info"><a href="/locations/#!hayden-library" class="map-location">14S-100</a><a href="tel:617-253-5671" class="phone"><span class="number">617-253-5671</span></a></div>
 					</div>
 				</div>
 				<a href="#0" class="show-more hidden-non-mobile">
@@ -167,19 +167,19 @@
 				<div class="location hidden-mobile inactive-mobile">
 					<a href="/archives" class="img-loc archives"></a>
 					<div class="wrap-loc-info">
-						<h3><a class="name-location" href="/archives">Institute Archives &amp; Special Collections</a></h3><div class="hours" data-location-hours="Institute Archives & Special Collections"></div><div class="location-info"><a href="/locations/#!institute-archives-special-collections" class="map-location">14N-118</a><a href="tel:617-253-5136" class="phone"><span class="number">617-253-5136</span></a></div>
+						<h3><a class="name-location" href="/archives">Institute Archives &amp; Special Collections</a></h3><div class="hours"><span data-location-hours="Institute Archives & Special Collections"></span> today</div><div class="location-info"><a href="/locations/#!institute-archives-special-collections" class="map-location">14N-118</a><a href="tel:617-253-5136" class="phone"><span class="number">617-253-5136</span></a></div>
 					</div>
 				</div>
 				<div class="location hidden-mobile inactive-mobile">
 					<a href="/music" class="img-loc lewis"></a>
 					<div class="wrap-loc-info">
-						<h3><a class="name-location" href="/music">Lewis Music Library</a></h3><div class="hours" data-location-hours="Lewis Music Library"></div><div class="location-info"><a href="/locations/#!lewis-music-library" class="map-location">14E-109</a><a href="tel:617-253-5689" class="phone"><span class="number">617-253-5689</span></a></div>
+						<h3><a class="name-location" href="/music">Lewis Music Library</a></h3><div class="hours"><span data-location-hours="Lewis Music Library"></span> today</div><div class="location-info"><a href="/locations/#!lewis-music-library" class="map-location">14E-109</a><a href="tel:617-253-5689" class="phone"><span class="number">617-253-5689</span></a></div>
 					</div>
 				</div>
 				<div class="location hidden-mobile inactive-mobile">
 					<a href="/rotch" class="img-loc rotch"></a>
 					<div class="wrap-loc-info">
-						<h3><a class="name-location" href="/rotch">Rotch Library</a></h3><div class="hours" data-location-hours="Rotch Library"></div><div class="location-info"><a href="/locations/#!rotch-library" class="map-location">7-238</a><a href="tel:617-258-5592" class="phone"><span class="number">617-258-5592</span></a></div>
+						<h3><a class="name-location" href="/rotch">Rotch Library</a></h3><div class="hours"><span data-location-hours="Rotch Library"></span> today</div><div class="location-info"><a href="/locations/#!rotch-library" class="map-location">7-238</a><a href="tel:617-258-5592" class="phone"><span class="number">617-258-5592</span></a></div>
 					</div>
 				</div>
 				<a href="/hours" class="button-primary--green full add-margin link-hours">All hours &amp; locations</a>

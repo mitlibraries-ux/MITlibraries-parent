@@ -74,6 +74,7 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+.title-page{position:relative;}
 caption,
 th,
 td {
@@ -1190,6 +1191,22 @@ a.comment-edit-link:hover {
 }
 .required {
 	color: red;
+}
+/* Hours */
+#prevWeek {
+	width:33%;
+	float:left
+}
+#thisWeek {
+	width:33%;
+	float:left;
+	text-align: center;
+	
+}
+#nextWeek {
+	width:33%;
+	float:right;
+	text-align: right;
 }
 
 /* =Media queries

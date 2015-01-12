@@ -145,9 +145,19 @@ function twentytwelve_scripts_styles() {
 
 	wp_register_script('term-hours', get_template_directory_uri() . '/js/build/term-hours.min.js', array('jquery', 'productionJS'), false, true);
 
+	wp_register_script('moment',     '//' . $_SERVER["SERVER_NAME"] . '/app/libhours/js/vendor/moment.js', false, false, true);
+
+	wp_register_script('tabletop',   '//' . $_SERVER["SERVER_NAME"] . '/app/libhours/js/vendor/tabletop.js', false, false, true);
+	
+	wp_register_script('underscore', '//' . $_SERVER["SERVER_NAME"] . '/app/libhours/js/vendor/underscore.js', false, false, true);
+	
+	wp_register_script('lib-hours',  '//' . $_SERVER["SERVER_NAME"] . '/app/libhours/js/libhours.js', array('moment','tabletop','underscore'), false, true);
+
 	/* All-site JS */
 	
 	wp_enqueue_script('modernizr');
+
+	wp_enqueue_script('lib-hours');
 
 	/* Page-specific JS & CSS */
 
