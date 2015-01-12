@@ -24,7 +24,7 @@
       <div class="col-2 flex-item">
         <span class="heading-col">Also try</span>
         <a href="/fulltext">FullText Finder <span class="about">Find specific citations</span></a>
-        <a href="http://libguides.mit.edu/googlescholar">Google Scholar for MIT <span class="about">Change settings to get better access</span></a>
+        <a href="http://libguides.mit.edu/google/googlescholar">Google Scholar for MIT <span class="about">Change settings to get better access</span></a>
         <a href="/libx">LibX <span class="about">Search/authenticate via browser</span></a>
         <a href="http://dspace.mit.edu/">DSpace@MIT <span class="about">MIT research</span></a>
         <a href="http://dome.mit.edu/">Dome <span class="about">MIT-digitized images, maps, etc.</span></a>
