@@ -17,16 +17,32 @@
 		.first {
 			@include bp-tablet--portrait {
 				margin-right: 1.5em;
-				width: 50%;
+				  width: 42%;
+				
 			}
+			
 		}
 		.second {
 			@include bp-tablet--portrait {
-				width: 50%;
+			
+			
 			}
 		}
 	}
+	.tab2 {
+		
+		.first{
+			width: 20%;
+			}
+		.second{
+			width: 70%;
+			}
+		}
 }
+
+
+
+
 
 .page-locations {
 	h2.more-locations {
@@ -150,3 +166,5 @@
 		}
 	}
 }
+
+

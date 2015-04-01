@@ -55,6 +55,11 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 body {
 	line-height: 1;
 }
+body{
+	
+	background-color: #ff00b4;
+}
+
 ol,
 ul {
 	list-style: none;
@@ -1249,7 +1254,7 @@ a.comment-edit-link:hover {
 		line-height: 1.846153846;
 		margin-bottom: 0;
 	}
-	
+		
 	.menu-toggle {
 		display: none;
 	}
@@ -1397,4 +1402,5 @@ a.comment-edit-link:hover {
 		margin-left: 50px;
 		margin-left: 3.57142857rem;
 	}
+	
 }

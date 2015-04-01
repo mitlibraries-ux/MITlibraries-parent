@@ -62,9 +62,11 @@ img {
 }
 
 .entry-content ul li {
+	line-height: 23px;
 	list-style: disc;
 	margin-left: 40px;
 	margin-bottom: 5px;
+	
 }
 
 .entry-content ul, #mainContent ul {
@@ -132,7 +134,7 @@ ul.checklist li {
 	position: relative;
 	float: left;
 	top: 0px;
-	left: 20px;
+	left: 10px;
 	width: 150px;
 }
 
@@ -178,6 +180,10 @@ ul.arrows li,
 {
 	list-style-image: url(#{$imagesPath}/arrow-right-blue.png);
 	margin-left: 15px;
+}
+ul.arrows {
+	
+	margin-bottom: 20px;
 }
 
 .locationContent ul li {
