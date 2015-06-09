@@ -1,4 +1,21 @@
 // Note: much of this is leftover from v1 of this theme (the "L+T" theme), and needs to be cleaned up.
+#prevWeek {
+	width:33%;
+	float:left;
+}
+
+#thisWeek { 
+	width:33%;
+	float:left; 
+	text-align:center;
+}
+
+#nextWeek {
+	width:33%;
+	float:right;
+	text-align:right;
+}
+
 .specialHours {
 	font-weight: bold;
 }
