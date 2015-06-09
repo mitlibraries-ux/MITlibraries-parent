@@ -27,7 +27,6 @@
 		}
 	}
 	.title-sub {
-		display: block;
 		font-size: 0.75em;
 		font-weight: normal;
 	}
@@ -39,3 +38,44 @@
 		}
 	}
 }
+
+/* ---- Responsive Styles ---- */
+
+@media screen and (max-width:520px) {
+	.tabnav {
+		display: inline;
+		width: 100%;
+		}
+	.tab1st {
+		float: left;
+		margin-top: -25px;
+	}
+	.tab2nd {
+		float: right;
+		margin-top: -25px;
+	}
+	.hidden-mobile {
+		display: none;
+	}
+	.tabcontent {
+		border-top: 1px solid #dedede;
+		padding-top: 20px;
+		clear: both;
+	}
+	.tabnav h2 a {
+		display: inline-block;
+		padding: .5em 1em;
+		border-radius: 3px;
+		text-align: center;
+		color: white;
+		background: #338bc5;
+		text-decoration: none;
+		-webkit-transition: background .1s ease;
+  		transition: background .1s ease;
+		margin: 0 15px;
+			&:hover {
+				background: darken(#338bc5, 20%);
+			}
+	}
+}
+		
