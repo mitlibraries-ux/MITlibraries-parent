@@ -25,28 +25,43 @@
 				width: 50%;
 			}
 		}
-		&.tab2 {
-			.first {
-				width: 20%;
-			}
-			.second {
-				width: 80%;
-			}
-		}
-		h3,
-		h4,
-		ul.arrows {
-			margin-bottom: 20px;
-		}
 	}
-	.profile {
-		align-items: flex-start;
-		h3 {
-			margin-bottom: 0px;
+	.tab2.active {
+		p {
+			margin: 15px 0;
 		}
+		ul li {
+			list-style: disc;
+			margin-left: 20px;
+			}
+			li ul li {
+				list-style: circle;
+			}
 	}
 }
-
+				
+.locationPage {
+	.tab.tab2 {
+		.first {
+			width: 20%;
+		}
+		.second {
+			width: 80%;
+			}
+	}
+	ul.with-bullets li {
+			list-style: disc;
+			margin-left: 20px;
+			}
+}
+.locationPage {
+	h3 {
+		padding-bottom: 15px;
+	}
+	h4 {
+		padding: 15px 0;
+	}
+}
 .page-locations {
 	h2.more-locations {
 		padding-bottom: 0;
