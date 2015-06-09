@@ -189,11 +189,14 @@ display: none !important;
 
 /* for screen readers */
 .hidden-text {
-text-indent: -9999px;
-white-space: nowrap;
-overflow: hidden;
+position:absolute;
+left:-10000px;
+top:auto;
+width:1px;
+height:1px;
+overflow:hidden;
 }
- 
+
 /* =Repeatable patterns
 -------------------------------------------------------------- */
 
