@@ -1,14 +1,20 @@
 .title-page {
 	color: $black;
 	justify-content: space-between;
-	margin-bottom: calculateRem(28px);
-	@include rem-first(padding, 1);
-	@include bp-small {
+	padding: 1rem 0;
+	padding-left: 16px;
+	@include bp-mobile--only {
 		background: none;
-		box-shadow: 0 0 5px #111;
 		color: #111;
 		display: block;
 		text-align: center;
+		padding: 1rem;
+	}
+	a.title-page {
+		@include rem-first(font-size, 2.25);
+		font-weight: 500;
+		padding-left: 0;
+		color: #338bc5;
 	}
 	.rss-link {
 		display: inline-block;
