@@ -32,6 +32,7 @@
 			color: #000;
 			a {
 				color: #000;
+				font-weight: 400;
 			}
 			&:before {
 				@include downArrow(5px, #000);
