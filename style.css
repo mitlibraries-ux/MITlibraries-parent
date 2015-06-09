@@ -837,11 +837,11 @@ article.sticky .featured-post {
 }
 .entry-content table,
 .comment-content table {
-	border-bottom: 1px solid #ededed;
+/*	border-bottom: 1px solid #ededed;  */
 	color: #000; /* was #757575 */
 	font-size: 12px;
 	font-size: 0.857142857rem;
-	line-height: 2;
+/*	line-height: 2;  */
 	margin: 0 0 24px;
 	margin: 0 0 1.714285714rem;
 	width: 100%;
@@ -853,10 +853,19 @@ article.sticky .featured-post {
 	margin: 24px 0;
 	margin: 1.714285714rem 0;
 }
-.entry-content td,
-.comment-content td {
-	border-top: 1px solid #ededed;
-	padding: 6px 10px 6px 0;
+.entry-content td {
+/*	border-top: 1px solid #ededed;  */
+	padding: 15px 0;
+	width: 80%;
+}
+.entry-content td:first-child {
+	padding: 15px 0;
+	width: 20%;
+}
+.comment-content td,
+.entry-content>table.experts td {
+	padding: 10px 10px 10px 0;
+	width:auto;
 }
 .site-content article {
 	border-bottom: 4px double #ededed;
