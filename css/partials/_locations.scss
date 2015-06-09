@@ -184,3 +184,24 @@
 		}
 	}
 }
+
+.name {
+	font-weight: 600;
+}
+
+/* ---- Responsive Styles ---- */
+@media screen and (max-width:480px) {
+	.locationPage {
+		img.lsa {
+			display: none;
+		}
+		.tab.tab2 {
+			.first {
+				width: 100%;
+			}
+				.second {
+				width: 100%;
+				}
+		}
+	}
+}
