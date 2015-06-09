@@ -123,7 +123,7 @@
 			</div><!-- end div.librarySlideshow -->
 		</div><!-- end div.flex-item -->
 	</div><!-- end div.libraryTitle -->
-	
+
 	<div class="content-main flex-container group <?php echo $strLocation; ?>">
 		<div class="col-1 content-page">
 
@@ -131,10 +131,10 @@
 				<?php $noTab = "";  ?>
 			<ul class="tabnav">
 				<?php if ($title1 != ""): ?>
-				<li class="active"><h2 class="title-tab"><a href="#tab1"><?php echo $title1 ?><div><?php echo $subtitle1 ?></div></a></h2></li>
+				<li class="active tab1st"><h2 class="title-tab"><a href="#tab1"><?php echo $title1 ?><span class="title-sub hidden-mobile"><?php echo $subtitle1 ?></span class="title-sub"></a></h2></li>
 				<?php endif; ?>
 				<?php if ($title2 != ""): ?>
-				<li><h2 class="title-tab"><a href="#tab2"><?php echo $title2 ?><span class="title-sub"><?php echo $subtitle2 ?></span class="title-sub"></a></h2></li>
+				<li class="tab2nd"><h2 class="title-tab"><a href="#tab2"><?php echo $title2 ?><span class="title-sub hidden-mobile"><?php echo $subtitle2 ?></span class="title-sub"></a></h2></li>
 				<?php endif; ?>
 			</ul>
 			<?php else: ?>
@@ -146,27 +146,27 @@
 				<div class="tab tab1 active flex-container group" id="tab1">
 
 						<div class="flex-item first group <?php if($content1wide): ?>span7 wideColumn<?php else: ?>span4<?php endif; ?>">
-						
+
 							<?php
 								if ($arexpert) {
 									$expertIndex = array_rand($arexpert);
 									$expert = $arexpert[$expertIndex];
-									
-									
+
+
 									$name = $expert->post_title;
 									$bio = $expert->post_excerpt;
 									//$url = $expert->guid;
 									$url = get_post_meta($expert->ID, "expert_url", 1);
-									
+
 									if (has_post_thumbnail($expert->ID)) {
 										$thumb = get_the_post_thumbnail($expert->ID, array(108,108));
 									} else {
 										$thumb = "";
 									}
-									
+
 							?>
 							<div class="profile flex-container group">
-								<?php if ($thumb != ""): 
+								<?php if ($thumb != ""):
 									echo $thumb;
 								endif; ?>
 								<div class="profileContent">
