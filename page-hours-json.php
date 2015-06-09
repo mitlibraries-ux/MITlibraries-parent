@@ -393,7 +393,7 @@ $next = "";
     <!-- TABLE ENDS -->
     
     <div class="locations-more">
-      <h3>Other locations</h3>
+      <h3>Locations without hours</h3>
       <h4>Digital Instruction Resource Center (DIRC)</h4>
       <a href="/locations/#!digital-instruction-resource-center-dirc">Map:&nbsp; 14N-132</a>
       <h4>Information Intersection at Stata Center</h4>
