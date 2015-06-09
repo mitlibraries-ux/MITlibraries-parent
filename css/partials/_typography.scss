@@ -6,28 +6,30 @@ body {
 }
 
 h1 {
-	@include rem-first(font-size, 2.125);
-	font-weight: 300;
+	@include rem-first(font-size, 2.25);
+	font-weight: 400;
 }
 
 h2 {
-	@include rem-first(font-size, 1.8125);
+	@include rem-first(font-size, 1.825);
 	font-weight: 300;
 	padding: 1em 0;
 	@include bp-tablet--landscape {
 		font-size: 2.125em;
 	}
+	a {
+		font-weight: 300;
+	}
 }
 
 h3 {
-	font-size: 1.125em;
+	font-size: 1.25em;
 	font-weight: 300;
-	padding-bottom: 3px;
-	padding-top: 0px;
-	margin-top: 0px;
-	margin-bottom: 0px;
 	@include bp-tablet--portrait {
 		font-size: 1.375em;
+	}
+	a {
+		font-weight: 300;
 	}
 }
 
