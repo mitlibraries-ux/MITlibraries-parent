@@ -74,7 +74,6 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-.title-page{position:relative;}
 caption,
 th,
 td {
@@ -190,11 +189,14 @@ display: none !important;
 
 /* for screen readers */
 .hidden-text {
-text-indent: -9999px;
-white-space: nowrap;
-overflow: hidden;
+position:absolute;
+left:-10000px;
+top:auto;
+width:1px;
+height:1px;
+overflow:hidden;
 }
- 
+
 /* =Repeatable patterns
 -------------------------------------------------------------- */
 
@@ -369,7 +371,7 @@ video {
 	font-style: italic;
 	font-size: 12px;
 	font-size: 0.857142857rem;
-	line-height: 2;
+	line-height: 1.5;
 	color: #757575;
 }
 img.wp-smiley,
@@ -637,8 +639,12 @@ article.sticky .featured-post {
 	line-height: 1.714285714;
 }
 .entry-content h1,
-.comment-content h1,
-.entry-content h2,
+.comment-content h1 {
+	margin-bottom: 24px;
+	margin-bottom: 1.714285714rem;
+	line-height: 1.714285714;
+}
+/* .entry-content h2,
 .comment-content h2,
 .entry-content h3,
 .comment-content h3,
@@ -651,7 +657,7 @@ article.sticky .featured-post {
 	margin: 24px 0;
 	margin: 1.714285714rem 0;
 	line-height: 1.714285714;
-}
+} */
 .entry-content h1,
 .comment-content h1 {
 	font-size: 21px;

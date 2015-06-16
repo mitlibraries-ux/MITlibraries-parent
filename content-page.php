@@ -32,8 +32,8 @@ global $isRoot;
 			?>
 		</ul>
 	</div><!-- end div.pagenav -->
-	<div class="content-page flex-container">
-		<div class="col-1">
+	<div class="content-main flex-container">
+		<div class="col-1 content-page">
 			<div class="entry-content">
 				<?php if (!$isRoot): ?>
 				<h1><?php the_title(); ?></h1>

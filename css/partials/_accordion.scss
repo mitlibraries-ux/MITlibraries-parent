@@ -14,6 +14,7 @@
 			line-height: 14px;
 			a {
 				color: $color-text-accent-primary;
+				font-weight: 400;
 			}
 			&:before {
 				@include rightArrow(5px, $color-text-accent-primary);
@@ -31,6 +32,7 @@
 			color: #000;
 			a {
 				color: #000;
+				font-weight: 400;
 			}
 			&:before {
 				@include downArrow(5px, #000);

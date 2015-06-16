@@ -197,6 +197,7 @@
 		<div class="col-2 flex-item">
 			<div id="home-posts-news" class="posts--preview news-events">
 				<h2><a href="/news">News &amp; events</a></h2>
+                <h3 class="hidden-text">News &amp; events</h3><!-- per accesibility review for screen readers -->
 				<div class="flex-container">
 
 		<?php
