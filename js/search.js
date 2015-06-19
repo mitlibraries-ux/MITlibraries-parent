@@ -283,7 +283,8 @@ $(function(){
 		// Get the value of the selected option...
 		state.resource = $('#resources li.active').attr('data-option');
 		// Advanced search
-		state.search = $('#resources li.active').attr('data-target');
+		// toolname - was .search
+		state.tool = $('#resources li.active').attr('data-target');
 		console.log(state);
 		return state;
 	}
@@ -300,13 +301,13 @@ $(function(){
 		console.log("Setting search UI state to:");
 		console.log(state);
 		// Tool
-		$('#search-main input.'+state.search).parent().addClass('active input-submit');
-		$('#search-main input.'+state.search).addClass('active');
+		$('#search-main input.'+state.tool).parent().addClass('active input-submit');
+		$('#search-main input.'+state.tool).addClass('active');
 		// Refine
-		$('#search-main .keywords.'+state.search).addClass('active');
-		$('#search-main .keywords.'+state.search).parent().addClass('active');
+		$('#search-main .keywords.'+state.tool).addClass('active');
+		$('#search-main .keywords.'+state.tool).parent().addClass('active');
 		// Advanced search
-		$('#search-main a.search-advanced.'+state.search).addClass('active');
+		$('#search-main a.search-advanced.'+state.tool).addClass('active');
 
 		// Trigger option-change (better to use callback function?)
 		$(this).trigger('option-change');
@@ -483,14 +484,9 @@ $(function(){
     // reset search UI
     resetSearch();
 
-    // faked initial setting
-    $("#resources li").removeClass("active");
-    $("#resources li.course-reserves").addClass("active");
+    // just in case .resource is still used anywhere...
+    searchFormState.resource = "option-5";
 
-    console.log("Setting default search to Vera");
-    var testState = {};
-    testState.resource = "option-5";
-    testState.search = "course-reserves";
-    setSearchState(testState);
+    setSearchState(searchFormState);
 
 });
