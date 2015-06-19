@@ -13,7 +13,7 @@ $(function(){
 		if (Modernizr.localstorage) {
 			console.log("saving form state");
 			searchTool = readToolState();
-			options.tool = searchTool.search;
+			options.tool = searchTool.tool;
 			options.refine = readRefineState();
 			console.log(options);
 			localStorage.setItem('tool',options.tool);
