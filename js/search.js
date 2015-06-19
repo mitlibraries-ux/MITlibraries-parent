@@ -45,7 +45,6 @@ $(function(){
 			}
 		}
 
-		console.log(formState);
 		return formState;
 	}
 
@@ -295,15 +294,17 @@ $(function(){
 	}
 
 	function setSearchState(state) {
+		// This adds 'active' classes on the three relevant parts of the search
+		// interface: tool, refine, and advanced search link. The placeholder text
+		// is changed after this function
 		console.log("Setting search UI state to:");
 		console.log(state);
-		// ...and show the corresponding form
-		$('#search-main input.'+state.resource).parent().addClass('active input-submit');
-		// ...and active input
-		$('#search-main input.'+state.resource).addClass('active');
-		// ... and keywords
-		$('#search-main .keywords.'+state.resource).addClass('active');
-		$('#search-main .keywords.'+state.resource).parent().addClass('active');
+		// Tool
+		$('#search-main input.'+state.search).parent().addClass('active input-submit');
+		$('#search-main input.'+state.search).addClass('active');
+		// Refine
+		$('#search-main .keywords.'+state.search).addClass('active');
+		$('#search-main .keywords.'+state.search).parent().addClass('active');
 		// Advanced search
 		$('#search-main a.search-advanced.'+state.search).addClass('active');
 
