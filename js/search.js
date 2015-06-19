@@ -85,6 +85,7 @@ $(function(){
 			// $('#search-main form').attr('id', searchSelected);
 		}
 	});
+
 	// Close the faux select menu when clicking outside it 
 	$(document).on('click', function(event){
 		if(!$('#resources.active').has(event.target).length == 0) {
@@ -158,8 +159,6 @@ $(function(){
 			}
 		}
 	}
-	// Run searchby
-	searchBy();
 
 	function searchBySwitch() {
 		// Get the value of the active "search-by" option
@@ -173,8 +172,6 @@ $(function(){
 		});
 
 	}
-
-	searchBySwitch();
 
 	// Handles hidden fields
 	function hiddenFields() {
@@ -472,6 +469,11 @@ $(function(){
 			}
 		}
 	});
+
+	// Run searchBy
+	searchBy();
+	// Run searchBySwitch
+	searchBySwitch();
 
     // Initialize
     console.log("SearchJS loaded");
