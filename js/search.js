@@ -6,6 +6,7 @@ $(function(){
 
 	function saveFormState() {
 		"use strict";
+
 		var options = {};
 		var searchTool = '';
 
@@ -26,22 +27,25 @@ $(function(){
 	function loadFormState() {
 		"use strict";
 
+		// initial/default values
 		var formState = {};
+		formState.status = 'unsupported';
+		formState.tool = 'bartonplus';
+		formState.refine = 'keyword';
+		console.log("default form state defined");
 
 		if (Modernizr.localstorage) {
+			console.log("LocalStorage detected");
 			if (localStorage.getItem('tool') !== null) {
 				formState.status = 'return visit';
 				formState.tool = localStorage.getItem('tool');
 				formState.refine = localStorage.getItem('refine');
 			} else {
 				formState.status = 'first visit';
-				formState.tool = 'vera';
-				formState.refine = 'startsWith';
 			}
-		} else {
-			formState.status = 'unsupported';
 		}
 
+		console.log(formState);
 		return formState;
 	}
 
@@ -471,6 +475,7 @@ $(function(){
     console.log("SearchJS loaded");
 
     // load previous search state
+    console.log("Loading last form state");
     var searchFormState = loadFormState();
     console.log(searchFormState);
 
