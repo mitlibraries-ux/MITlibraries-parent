@@ -86,7 +86,7 @@
 	<span class="label no-js-hidden">by</span>
 	<div class="wrap-select--keywords flex-container active no-js-hidden">
 		<select name="" id="" class="keywords search-by option-1 bartonplus active" tabindex="3" autocomplete="off">
-			<option value="">Keyword</option>
+			<option value="" selected="selected">Keyword</option>
 			<option value="TI ">Title</option>
 			<option value="AU ">Author</option>
 		</select>
@@ -94,7 +94,7 @@
 	</div>
 	<div class="wrap-select--keywords flex-container long no-js-hidden">
 		<select name="" id="" class="keywords search-by option-2 vera" tabindex="3" autocomplete="off">
-			<option value="contains">Partial Words In Title</option>
+			<option value="contains" selected="selected">Partial Words In Title</option>
 			<option value="startsWith">Title Starts With</option>
 			<option value="exactMatch">Exact Title</option>
 		</select>
@@ -102,7 +102,7 @@
 	</div>
 	<div class="wrap-select--keywords flex-container long no-js-hidden">
 		<select name="" id="" class="keywords search-by option-3 barton" tabindex="3" autocomplete="off">
-			<option value="find_WRD">Keyword</option>
+			<option value="find_WRD" selected="selected">Keyword</option>
 			<option value="scan_TTL">Title starts with</option>
 			<option value="scan_AUT">Author (last name first)</option>
 			<option value="scan_CND">Call number starts with</option>
@@ -111,7 +111,7 @@
 	</div>
 	<div class="wrap-select--keywords flex-container no-js-hidden">
 		<select name="" id="" class="keywords search-by option-4 worldcat" tabindex="3" autocomplete="off">
-			<option value="keyword">Keyword</option>
+			<option value="keyword" selected="selected">Keyword</option>
 			<option value="title">Title</option>
 			<option value="author">Author</option>
 		</select>
@@ -119,7 +119,7 @@
 	</div>
 	<div class="wrap-select--keywords flex-container long no-js-hidden">
 		<select name="" id="" class="keywords search-by option-5 course-reserves" tabindex="3" autocomplete="off">
-			<option value="scan_CNB">Course number starts with</option>
+			<option value="scan_CNB" selected="selected">Course number starts with</option>
 			<option value="find_WIN">Instructor keyword</option>
 			<option value="find_WOU">Course name keyword</option>
 		</select>
@@ -127,7 +127,7 @@
 	</div>
 	<div class="wrap-select--keywords flex-container no-js-hidden">
 		<select name="" id="" class="keywords search-by option-6 site-search" tabindex="3" disabled>
-			<option value="keyword">Keyword</option>
+			<option value="keyword" selected="selected">Keyword</option>
 		</select>
 	</div>
 	<a href="http://libraries.mit.edu/bartonplus-advanced" class="search-advanced bartonplus active no-js-hidden">Go to BartonPlus advanced search</a>
