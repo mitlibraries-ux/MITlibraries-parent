@@ -4,6 +4,8 @@
 
 $(function(){
 
+	// This saves the current search UI state to localstorage as the form is
+	// submitted, allowing the patron's next visit to start from this point
 	function saveFormState() {
 		"use strict";
 
@@ -11,19 +13,20 @@ $(function(){
 		var searchTool = '';
 
 		if (Modernizr.localstorage) {
-			console.log("saving form state");
 			searchTool = readToolState();
 			options.tool = searchTool.tool;
 			options.refine = readRefineState();
-			console.log(options);
 			localStorage.setItem('tool',options.tool);
 			localStorage.setItem('refine',options.refine);
 		} else {
+			// This can be removed in the future
 			console.log("LocalStorage not supported - could not save state");
 		}
-		alert("check console...");
 	}
 
+	// This looks for a previously-saved search UI state from the patron's
+	// last visit. If found, this will be used as the starting point for this
+	// session.
 	function loadFormState() {
 		"use strict";
 
@@ -31,11 +34,10 @@ $(function(){
 		var formState = {};
 		formState.status = 'unsupported';
 		formState.tool = 'bartonplus';
-		formState.refine = 'keyword';
-		console.log("default form state defined");
+		formState.refine = '';
 
+		// If localstorage is supportd, look for saved search
 		if (Modernizr.localstorage) {
-			console.log("LocalStorage detected");
 			if (localStorage.getItem('tool') !== null) {
 				formState.status = 'return visit';
 				formState.tool = localStorage.getItem('tool');
@@ -44,6 +46,9 @@ $(function(){
 				formState.status = 'first visit';
 			}
 		}
+
+		// read option number - this probably needs to be refactored
+		formState.resource = $("#resources").children("."+formState.tool).attr('data-option');
 
 		return formState;
 	}
@@ -95,6 +100,7 @@ $(function(){
 			$('#resources').removeClass('active');
 			$('#search-main .selected').removeClass('active').text('');
 		}
+		searchBySwitch();
 	});
 	
 	// Placeholder text changes
@@ -204,17 +210,17 @@ $(function(){
 			// Check the select val...
 			if (selectVal == 'contains') {
 				// and append a radio input to the form
-				$('#vera').append('<input type="radio" name="param_textSearchType_value" id="contains" value="contains" checked="checked" class="radio" />')
+				$('#vera').append('<input type="radio" name="param_textSearchType_value" id="contains" value="contains" checked="checked" class="radio" />');
 			}
 			if (selectVal == 'startsWith') {
 				$('#vera').append('<input type="radio" name="param_textSearchType_value" id="startsWith" value="startsWith" class="radio" checked="checked" />');
 			}
 			if (selectVal == 'exactMatch') {
-				$('#vera').append('<input type="radio" name="param_textSearchType_value" id="exactMatch" value="exactMatch" class="radio" checked="checked" />')
+				$('#vera').append('<input type="radio" name="param_textSearchType_value" id="exactMatch" value="exactMatch" class="radio" checked="checked" />');
 			}
 		}
 		if($('#barton.active').length) {
-			$('#barton').append("<input type='hidden' name='func' value='scan'/>")
+			$('#barton').append("<input type='hidden' name='func' value='scan'/>");
 			// Keyword search
 			if (selectVal == 'find_WRD') {
 				$('#barton').append('<input type="radio" name="code" id="bartonkeyword" value="find_WRD" checked="checked" class="radio" />');
@@ -262,8 +268,34 @@ $(function(){
 		}
 	}
 
-	function resetSearch() {
-		console.log("Resetting search UI");
+	// This is the initial setup of the search UI, along the lines of what was loaded from localstorage
+	function initSearchUI(state) {
+		resetSearchUI();
+
+		// Faked select box
+		$('#resources li').removeClass('active');
+		// Refine select
+		$('#search-main .keywords.'+state.tool).val(state.refine);
+
+		setSearchState(state);
+
+		searchBy();
+
+		return state;
+	}
+
+	// This reads the current search UI state (from markup), and logs it to the console.
+	// Used only for debugging
+	function logSearchState() {
+		"use strict"
+		var tempState = {};
+		tempState = readToolState();
+		tempState.refine = readRefineState();
+		console.log("Markup is now:");
+		console.log(tempState);
+	}
+
+	function resetSearchUI() {
 		// Hide all forms on option change
 		$('#search-main form').removeClass('input-submit active');
 		// Hide all inputs on option change
@@ -275,28 +307,26 @@ $(function(){
 	}
 
 	function readToolState() {
-		console.log("Reading tool selection state:");
+		// This looks at the faked selection UI, #resources, and reports back what is active 
 		var state = {};
 		// Get the value of the selected option...
 		state.resource = $('#resources li.active').attr('data-option');
 		// Advanced search
 		// toolname - was .search
 		state.tool = $('#resources li.active').attr('data-target');
-		console.log(state);
 		return state;
 	}
 
 	function readRefineState() {
-		console.log("Reading refine selection state:");
 		return $('#search-main select.active option:selected').val();
 	}
 
+	// This adds 'active' classes on the three relevant parts of the search
+	// interface: tool, refine, and advanced search link. The placeholder text
+	// is changed after this function
 	function setSearchState(state) {
-		// This adds 'active' classes on the three relevant parts of the search
-		// interface: tool, refine, and advanced search link. The placeholder text
-		// is changed after this function
-		console.log("Setting search UI state to:");
-		console.log(state);
+		// Faked select box
+		$('#resources li.'+state.tool).addClass('active');
 		// Tool
 		$('#search-main input.'+state.tool).parent().addClass('active input-submit');
 		$('#search-main input.'+state.tool).addClass('active');
@@ -307,13 +337,13 @@ $(function(){
 		$('#search-main a.search-advanced.'+state.tool).addClass('active');
 
 		// Trigger option-change (better to use callback function?)
-		$(this).trigger('option-change');
+		// $(this).trigger('option-change');
+		searchBySwitch();
+		return state;
 	}
 
 	function updateSearchUI() {
-		console.log("Updating search UI");
-
-		resetSearch();
+		resetSearchUI();
 
 		state = readToolState();
 
@@ -322,9 +352,7 @@ $(function(){
 
 	// Handles the toggling of forms
 	$('#search-main').on('click', '#resources', function(event){
-
 		updateSearchUI();
-
 	});
 
 	// Run searchBy on option-change event
@@ -335,7 +363,7 @@ $(function(){
 
 	// On form submit
 	$('#search-main form').on('submit', function(){
-		saveFormState();		
+		saveFormState();
 		// Remove added inputs
 		$('#search-main input[type="hidden"], #search-main input[type="radio"]').remove();
 		// Get the query entered...
@@ -470,25 +498,10 @@ $(function(){
 		}
 	});
 
-	// Run searchBy
-	searchBy();
-	// Run searchBySwitch
-	searchBySwitch();
-
-    // Initialize
-    console.log("SearchJS loaded");
-
     // load previous search state
-    console.log("Loading last form state");
     var searchFormState = loadFormState();
-    console.log(searchFormState);
 
     // reset search UI
-    resetSearch();
-
-    // just in case .resource is still used anywhere...
-    searchFormState.resource = "option-5";
-
-    setSearchState(searchFormState);
+    initSearchUI(searchFormState);
 
 });
