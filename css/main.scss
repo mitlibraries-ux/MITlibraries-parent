@@ -172,12 +172,15 @@ ul.checklist li {
 	font-weight: bold;
 }
 
-ul.arrows li,
-.single-location .tab ul.arrows li,
-.page-template-page-location-php .tab ul.arrows li
+ul.arrows li:before,
+.single-location .tab ul.arrows li:before,
+.page-template-page-location-php .tab ul.arrows li:before
 {
-	list-style-image: url(#{$imagesPath}/arrow-right-blue.png);
-	margin-left: 15px;
+	font-family:FontAwesome;
+	content:"\f061";
+	color: #338bc5;
+	font-size: .75em;
+	margin-right: 7px;
 }
 
 .locationContent ul li {
