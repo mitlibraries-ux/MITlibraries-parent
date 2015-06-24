@@ -75,7 +75,13 @@
 		margin: 0 15px;
 			&:hover {
 				background: darken(#338bc5, 20%);
+
+@media screen and (max-width:320px) {
+	.tabnav {
+		li {
+			a {
+				font-size: 12px;
 			}
+		}
 	}
 }
-		
