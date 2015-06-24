@@ -14,9 +14,18 @@
 			@include rem-first(padding-top, 0);
 		}
 		ul li {
-			list-style-image: url(#{$imagesPath}/list-arrow-blue.png);
+			position:relative;
 			margin-bottom: 2px;
 			margin-left: 15px;
+		}
+		ul li:before {
+			position:absolute;
+			top: 5px;
+			left: -15px;
+			font-family:FontAwesome;
+			content:"\f061";
+			color: #338bc5;
+			font-size: .75em;
 		}
 	}
 }
