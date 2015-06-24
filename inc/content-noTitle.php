@@ -27,9 +27,11 @@ global $isRoot;
 	</div>
 		</div>
 
-
+<?php if ( is_active_sidebar( 'sidebar-1' ) ) { ?>
 		<div class="col-2">
+		<?php get_sidebar( 'sidebar-1' ); ?>
+<?php } ?>
+ 
 
-<?php get_sidebar(); ?>
 
 		</div>

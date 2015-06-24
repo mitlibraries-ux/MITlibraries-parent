@@ -101,6 +101,7 @@ html.no-js .js-hidden {
 		}
 	}
 	.col-2 {
+		width: 18em;
 		width: 100%;
 		@include bp-tablet--portrait {
 			min-width: 18em;
