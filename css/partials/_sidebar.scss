@@ -7,11 +7,13 @@
 			border-bottom: none;
 		}
 		.widget-title {
-			color: #111111;
+			color: #111;
 			@include font-size(19px);
-			font-weight: 500;
 			line-height: 1.4;
+			font-weight: 500;
+			@include rem-first--4-values(margin, 0, 0, 0.667, 0);
 			@include rem-first(padding-top, 0);
+			@include rem-first(padding-bottom, 0);
 		}
 		ul li {
 			position:relative;
