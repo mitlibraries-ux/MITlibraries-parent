@@ -95,11 +95,11 @@ $(function(){
 			if(optionSelected == 'keyword') {
 				$('input.active').attr('placeholder', 'ex: carbon nanotubes');
 			}
-			if(optionSelected == 'title') {
-				$('input.active').attr('placeholder', 'ex: introduction to fluid mechanics');
-			}
 			if(optionSelected == 'author') {
 				$('input.active').attr('placeholder', 'ex: william shakespeare');
+			}
+			if(optionSelected == 'title') {
+				$('input.active').attr('placeholder', 'ex: introduction to fluid mechanics');
 			}
 		}
 		if ($('#course-reserves.active').length) {
