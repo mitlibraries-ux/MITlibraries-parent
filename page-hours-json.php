@@ -137,7 +137,7 @@ $thisWeek = date("Y-n-j");
 <div id="content" class="content-main">
   <div id="hourContent" class="content-page">
     <div id="hourNav-sticky-wrapper" class="sticky-wrapper" style="height: 0px;">
-      <div id="hourNav">
+      <div id="hourNav" style="width: 1008px;">
         <div id="prevWeek"> <i class="icon-arrow-left"></i> <a href="<?php echo $path."?d=".$prevWeek; ?>">Previous week</a> </div>
         <div id="thisWeek"> <a href="<?php echo $path."?d=".$thisWeek; ?>">This week</a> </div>
         <div id="nextWeek"> <a href="<?php echo $path."?d=".$nextWeek; ?>">Next week</a> <i class="icon-arrow-right"></i> </div>
