@@ -11,15 +11,19 @@
 			cursor: pointer;
 			margin: 0 0 0 0;
 			font-size: 14px;
-			line-height: 14px;
+			line-height: 1.5;
+			display: flex;
 			a {
 				color: $color-text-accent-primary;
 				font-weight: 400;
+				flex-direction: column;
 			}
 			&:before {
-				@include rightArrow(5px, $color-text-accent-primary);
-				left: 0;
+				font-family:FontAwesome;
+				content:"\f0da";
 				margin-right: 1em;
+				color: #338bc5;
+				flex-direction: column;
 			}
 		}
 		&:nth-of-type(odd) {
