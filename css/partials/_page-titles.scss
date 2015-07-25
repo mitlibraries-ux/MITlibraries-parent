@@ -1,14 +1,20 @@
 .title-page {
 	color: $black;
 	justify-content: space-between;
-	margin-bottom: calculateRem(28px);
-	@include rem-first(padding, 1);
-	@include bp-small {
+	padding: 1rem 0;
+	padding-left: 16px;
+	@include bp-mobile--only {
 		background: none;
-		box-shadow: 0 0 5px #111;
 		color: #111;
 		display: block;
 		text-align: center;
+		padding: 1rem;
+	}
+	a.title-page {
+		@include rem-first(font-size, 2.25);
+		font-weight: 500;
+		padding-left: 0;
+		color: #338bc5;
 	}
 	.rss-link {
 		display: inline-block;
@@ -36,13 +42,6 @@
 	}
 	.hours-today {
 		margin-top: 1em;
-		> span {
-			&:after {
-				content: '|';
-				display: inline-block;
-				margin-left: 0.25em;
-			}
-		}
 	}
 	.icon-rss {
 		fill: $color-accent-primary;
@@ -57,7 +56,7 @@
 	.subject-library {
 		display: block;
 		font-size: 0.75em;
-		font-weight: 600;
+		font-weight: 400;
 	}
 }
 //
@@ -71,8 +70,7 @@
 }
 
 .pageTitle {
-	background: #333;
-	color: #f7f7f7;
+	color: #333;
 	font-size: 1.75rem;
 	line-height: 1;
 	padding: 0.7em 0 0.7em 0.75em;
