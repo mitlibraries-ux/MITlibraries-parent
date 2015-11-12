@@ -50,6 +50,9 @@ $(function(){
 		// read option number - this probably needs to be refactored
 		formState.resource = $("#resources").children("."+formState.tool).attr('data-option');
 
+		// Store what the initial tab is for this session
+		TrackEvent('Discovery','Initial Tab',JSON.stringify(formState),1);
+
 		return formState;
 	}
 
@@ -340,6 +343,10 @@ $(function(){
 		// $(this).trigger('option-change');
 		searchBySwitch();
 		return state;
+	}
+
+	function TrackEvent(Category,Action,Label,Value){
+		_gaq.push(['_trackEvent', Category, Action, Label, Value]);
 	}
 
 	function updateSearchUI() {
